@@ -9,12 +9,9 @@ module PasswdLib
   Passwd = Struct.new(:cipher, :algos)
 
   def passwd_analysis(passwd, algorithms)
+    passwd.cipher = base64_to_hex(passwd.cipher) if passwd.cipher.match? /(=|==)$/
     passwd.algos = find_hash_type(passwd.cipher)
-    if passwd.algos == [:unkown]
-      passwd.cipher = base64_to_hex(passwd.cipher)
-      passwd.algos = find_hash_type(passwd.cipher)
-    end
-    abort 'No hash type found' if passwd.algos == [:unkown]
+    abort 'No ciphertext algorithm found' if passwd.algos == [:unkown]
 
     unless algorithms.empty?
       passwd.algos &= algorithms.map(&:to_sym)

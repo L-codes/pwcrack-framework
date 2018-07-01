@@ -82,7 +82,7 @@ $ ./pwcrack 15f6f8dc036519d7fe15b39338f6e5db
 ( 3.95s)            cmd5en: twelve
 ( 4.80s)           haq4ula: twelve
 
-[+] PWCrack (21/16) in 4.81 seconds.
+[+] PWCrack (21/18) in 4.81 seconds.
 ```
 ## Examples 2
 ```
