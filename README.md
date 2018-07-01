@@ -15,8 +15,9 @@ pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提�
 $ git clone https://github.com/L-codes/pwcrack-framework
 $ cd pwcrack-framework
 $ gem install faraday_middleware faraday-cookie_jar
-$ ruby pwcrack banner
 
+# banner view
+$ ruby pwcrack banner
 
 
           "$$$$$$''  'M$  '$$$@m
@@ -57,7 +58,7 @@ $ ruby pwcrack banner
 
 # 0x03 Example usage
 
-# Examples 1
+## Examples 1
 ```
 $ ./pwcrack 15f6f8dc036519d7fe15b39338f6e5db
 [+] Cipher Algorithm: MD5 or MD4 or LM or NTLM or CISCO_TYPE7
