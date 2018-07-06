@@ -12,7 +12,7 @@ plugin 'objectif_securite' do
   crack {
     data = %Q'{"value": "#{passwd}"}'
     r = post '/demo.php/crack', data, {'Content-Type': 'application/json'}
-    if r.body !~ /Password not found|Hash added to queue/
+    if r.body !~ /Password not found|queue/
       extract(r.body, /"msg":"(.+?)"/)
     end
   }
