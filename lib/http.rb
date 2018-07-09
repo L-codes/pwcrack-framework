@@ -5,6 +5,8 @@
 # Date   2018-06-30
 #
 
+require 'json'
+
 begin
   require 'faraday_middleware'
   require 'faraday-cookie_jar'
@@ -67,6 +69,12 @@ module HTTP
     define_method method do |*args, &block|
       request_method(method, *args, &block)
     end
+  end
+
+  def post_json(path, data, headers = {}, &block)
+    data = data.to_json if data.is_a? Hash
+    headers.merge! 'Content-Type': 'application/json; charset=utf-8'
+    request_method(:post, path, data, headers, &block)
   end
 
   def extract(str, regexp, place = 1)

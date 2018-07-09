@@ -10,8 +10,8 @@ plugin 'objectif_securite' do
   supported_algorithm :ntlm
 
   crack {
-    data = %Q'{"value": "#{passwd}"}'
-    r = post '/demo.php/crack', data, {'Content-Type': 'application/json'}
+    data = {"value": passwd}
+    r = post_json '/demo.php/crack', data
     if r.body !~ /Password not found|queue/
       extract(r.body, /"msg":"(.+?)"/)
     end
