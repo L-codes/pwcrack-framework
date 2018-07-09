@@ -76,7 +76,7 @@ $ ./pwcrack 15f6f8dc036519d7fe15b39338f6e5db
 ( 1.16s)        md5decrypt: twelve
 ( 1.52s)        md5cracker: twelve
 ( 2.32s)           gromweb: twelve
-( 2.32s)           gromweb: twelve
+( 2.32s)            chamd5: twelve
 ( 3.53s)              dmd5: twelve
 ( 3.87s)      hashcracking: twelve
 ( 3.95s)            cmd5en: twelve
