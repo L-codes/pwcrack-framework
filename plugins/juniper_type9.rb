@@ -2,7 +2,6 @@
 #
 # Plugin juniper_type9
 # Author L
-# Date   2018-06-30
 #
 # encrypt: https://www.m00nie.com/juniper-type-9-password-tool/
 

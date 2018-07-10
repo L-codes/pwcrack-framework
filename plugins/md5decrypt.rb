@@ -2,7 +2,6 @@
 #
 # Plugin lea
 # Author L
-# Date   2018-06-27
 #
 
 plugin 'md5decrypt' do 

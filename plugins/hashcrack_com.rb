@@ -2,7 +2,6 @@
 #
 # Plugin hashcrack_com
 # Author L
-# Date   2018-06-18
 #
 
 plugin 'hashcrack_com' do 

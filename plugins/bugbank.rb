@@ -2,7 +2,6 @@
 #
 # Plugin bugbank
 # Author L
-# Date   2018-06-27
 #
 
 plugin 'bugbank' do 

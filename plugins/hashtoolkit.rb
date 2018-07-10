@@ -2,7 +2,6 @@
 #
 # Plugin hashtoolkit
 # Author L
-# Date   2018-06-18
 #
 
 plugin 'hashtoolkit' do 

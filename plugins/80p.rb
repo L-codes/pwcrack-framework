@@ -2,7 +2,6 @@
 #
 # Plugin 80p
 # Author L
-# Date   2018-06-28
 #
 
 plugin '80p' do 

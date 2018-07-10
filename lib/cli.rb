@@ -2,7 +2,6 @@
 #
 # Command Line UI Library
 # Author L
-# Date   2018-06-30
 #
 
 require 'optparse'
@@ -13,7 +12,15 @@ module CLI
 	extend PasswdLib
 
   def self.commandline!
-    options = {}
+    options = {
+           verbose: false,
+             quiet: false,
+             retry: 1,
+             proxy: nil,
+            select: nil,
+           timeout: 5,
+      open_timeout: 10
+    }
     optparser = OptionParser.new do |opts|
       opts.banner = 'Usage: ./pwcrack [options] (ciphertext|gets|banner) [algorithms...]'
 
@@ -25,23 +32,23 @@ module CLI
         options[:quiet] = true
       end
 
-      opts.on('-t', '--timeout=second', Integer, 'Specify request timeout') do |seconds|
+      opts.on('-t', '--timeout second', Integer, "Specify request timeout [default: #{options[:timeout]}]") do |seconds|
         options[:timeout] = seconds
       end
       
-      opts.on('-o', '--open-timeout=second', Integer, 'Specify TCP open timeout') do |seconds|
+      opts.on('-o', '--open-timeout second', Integer, "Specify TCP open timeout [default: #{options[:open_timeout]}]") do |seconds|
         options[:open_timeout] = seconds
       end
 
-      opts.on('-r', '--retry=num', Integer, 'Retry numbers') do |num|
+      opts.on('-r', '--retry num', Integer, "Retry numbers [default: #{options[:retry]}]") do |num|
         options[:retry] = num
       end
       
-      opts.on('-s', '--select=plugin_name', String, 'Specify plugin') do |plugin|
+      opts.on('-s', '--select plugin_name', String, 'Specify plugin') do |plugin|
         options[:select] = plugin
       end
 
-      opts.on('--proxy="proto://ip:port"', String, 'Set Proxy') do |proxy|
+      opts.on('-p', '--proxy "proto://ip:port"', /(?:socks[45]a?|https?):\/\/.+?$/, 'Set Proxy') do |proxy|
         options[:proxy] = proxy
       end
 
@@ -62,8 +69,10 @@ module CLI
     passwd.cipher, algorithms = self.get_input
     passwd_analysis(passwd, algorithms)
 		[passwd, options]
-  rescue OptionParser::InvalidOption => e
-    abort e.to_s
+  rescue OptionParser::InvalidArgument,
+         OptionParser::MissingArgument,
+         OptionParser::InvalidOption    => e
+    abort e.message
   end
 
   

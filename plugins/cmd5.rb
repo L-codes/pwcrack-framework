@@ -2,7 +2,6 @@
 #
 # Plugin cmd5
 # Author L
-# Date   2018-06-27
 #
 
 plugin 'cmd5' do 

@@ -2,7 +2,6 @@
 #
 # Plugin md5_my_addr
 # Author L
-# Date   2018-06-24
 #
 
 plugin 'md5_my_addr' do 

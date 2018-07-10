@@ -2,7 +2,6 @@
 #
 # Plugin lea
 # Author L
-# Date   2018-06-24
 #
 
 plugin 'lea' do 

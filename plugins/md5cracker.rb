@@ -2,7 +2,6 @@
 #
 # Plugin md5cracker
 # Author L
-# Date   2018-06-28
 #
 
 plugin 'md5cracker' do 

@@ -2,7 +2,6 @@
 #
 # Plugin cmd5en
 # Author L
-# Date   2018-06-29
 #
 # 为cmd5的英文版, 用于解决国外访问需要验证码的问题
 

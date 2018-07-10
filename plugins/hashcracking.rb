@@ -2,7 +2,6 @@
 #
 # Plugin hashcracking
 # Author L
-# Date   2018-06-28
 #
 
 plugin 'hashcracking' do 

@@ -2,7 +2,6 @@
 #
 # PWCrack Core Library
 # Author L
-# Date   2018-07-01
 #
 
 require 'thwait'
@@ -70,9 +69,7 @@ class PWCrack
   end
 
   def self.set(opts)
-    @@verbose = opts.fetch(:verbose, nil)
     @@quiet   = opts.fetch(:quiet, nil)
-    @@check   = opts.fetch(:check, nil)
     @@select  = opts.fetch(:select, nil)
     HTTP.set(opts)
   end

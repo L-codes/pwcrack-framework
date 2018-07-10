@@ -2,10 +2,9 @@
 #
 # pwcrack-framework
 # Author L
-# Date   2018-07-01
 #
 
-Version = '1.0.1'
+Version = '1.0.2'
 Project = 'pwcrack-framework'
 
 trap("INT"){ abort "\r[!!!] Interrupt. " }

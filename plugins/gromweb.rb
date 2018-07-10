@@ -2,7 +2,6 @@
 #
 # Plugin gromweb
 # Author L
-# Date   2018-06-28
 #
 
 plugin 'gromweb' do 

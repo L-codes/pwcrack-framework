@@ -2,7 +2,6 @@
 #
 # Plugin h3c_huawei
 # Author L
-# Date   2018-06-30
 #
 
 plugin 'h3c_huawei' do 

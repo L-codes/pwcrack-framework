@@ -2,7 +2,6 @@
 #
 # Plugin dmd5
 # Author L
-# Date   2018-06-28
 #
 # NOTE 2018年9月30日起网站停止支持服务
 

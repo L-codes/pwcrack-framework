@@ -2,7 +2,6 @@
 #
 # Plugin pmd5
 # Author L
-# Date   2018-06-27
 #
 
 plugin 'pmd5' do 

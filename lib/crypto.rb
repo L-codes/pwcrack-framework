@@ -2,7 +2,6 @@
 #
 # Crypto Library
 # Author L
-# Date   2018-06-30
 #
 
 require 'openssl'

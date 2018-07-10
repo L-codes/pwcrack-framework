@@ -2,7 +2,6 @@
 #
 # Plugin chamd5
 # Author L
-# Date   2018-07-09
 #
 
 plugin 'chamd5' do 

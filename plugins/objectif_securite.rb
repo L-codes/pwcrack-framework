@@ -2,7 +2,6 @@
 #
 # Plugin objectif_securite
 # Author L
-# Date   2018-06-28
 #
 
 plugin 'objectif_securite' do 

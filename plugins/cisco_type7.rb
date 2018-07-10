@@ -2,7 +2,6 @@
 #
 # Plugin cisco_type7
 # Author L
-# Date   2018-06-29
 #
 
 plugin 'cisco_type7' do 

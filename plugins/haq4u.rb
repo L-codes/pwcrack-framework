@@ -2,7 +2,6 @@
 #
 # Plugin haq4u
 # Author L
-# Date   2018-06-28
 #
 
 plugin 'haq4ula' do 

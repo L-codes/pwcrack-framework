@@ -2,7 +2,6 @@
 # 
 # Password Algorithm Analysis Library
 # Author L
-# Date   2018-06-30
 #
 
 module PasswdLib

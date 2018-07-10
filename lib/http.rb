@@ -2,7 +2,6 @@
 #
 # Web HTTP Client Library
 # Author L
-# Date   2018-06-30
 #
 
 require 'json'
@@ -83,12 +82,11 @@ module HTTP
   end
 
   def self.set opts
-    @@timeout      = opts.fetch(:timeout, 5)
-    @@open_timeout = opts.fetch(:open_timeout, 10)
-    @@verbose      = opts.fetch(:verbose, nil)
-    @@retry        = opts.fetch(:retry, 1)
-    @@quiet        = opts.fetch(:quiet, nil)
-    @@proxy        = opts.fetch(:proxy, nil)
+    @@timeout      = opts[:timeout]
+    @@open_timeout = opts[:open_timeout]
+    @@verbose      = opts[:verbose]
+    @@retry        = opts[:retry]
+    @@proxy        = opts[:proxy]
     if @@proxy&.start_with? 'socks' and Adapter == :net_http
       abort '[!] Not support socks proxy, please use "typhoeus"'
     end
