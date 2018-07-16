@@ -9,14 +9,13 @@ module PasswdLib
 
   def passwd_analysis(passwd, algorithms)
     passwd.cipher = base64_to_hex(passwd.cipher) if passwd.cipher.match? /(=|==)$/
-    passwd.algos = find_hash_type(passwd.cipher)
+    find_hash_type(passwd)
     abort 'No ciphertext algorithm found' if passwd.algos == [:unkown]
 
     unless algorithms.empty?
       passwd.algos &= algorithms.map(&:to_sym)
       abort "Password is not a #{algorithms.map(&:upcase).join(' or ')} algorithm" if passwd.algos.empty?
     end
-    passwd.cipher = passwd.cipher.delete(?*) if passwd.algos.include? :mysql 
     passwd.cipher = passwd.cipher.downcase if (passwd.algos & [:juniper_type9, :h3c_huawei]).size > 1
   end
 
@@ -25,7 +24,8 @@ module PasswdLib
     bytes.unpack1 'H*'
   end
 
-  def find_hash_type(cipher)
+  def find_hash_type(passwd)
+    cipher = passwd.cipher
     algorithm =
       case cipher
       when /(^([a-f0-9]{2})+$)|(^([A-F0-9]{2})+$)/
@@ -45,19 +45,24 @@ module PasswdLib
                 when 128
                   :sha512
                 end
+        types = Array(types) + [:foxmail, :foxmail6]
         if cipher.size > 2 and cipher[0,2].to_i(16) <= 50
          types = Array(types) << :cisco_type7 
         end
         types
       when /^\*([a-f0-9]{40}|[A-F0-9]{40})$/
+        passwd.cipher = cipher.delete_suffix '*'
         :mysql
       when /^\$9\$/
         :juniper_type9
       when /^\p{ASCII}{24}$/
         :h3c_huawei
+      when /(^([a-f0-9]{2})+!$)|(^([A-F0-9]{2})+!$)/
+        passwd.cipher = cipher.delete_suffix '!'
+        :foxmail
       else
         :unkown
       end
-    Array(algorithm)
+    passwd.algos = Array(algorithm)
   end
 end
