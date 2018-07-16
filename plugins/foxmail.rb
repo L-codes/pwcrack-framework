@@ -3,6 +3,9 @@
 # Plugin foxmail
 # Author L
 #
+# Version >=7.1 : Foxmail 7.2\Storage\<account_emailaddress>\Accounts\Account.rec0
+# Version 7.0   : Foxmail 7.0\Data\AccCfg\Accounts.tdat
+# Version <6.0  : Foxmail\mail\<account_emailaddress>\Account.stg
 
 plugin 'foxmail' do 
   supported_algorithm :foxmail6, :foxmail
