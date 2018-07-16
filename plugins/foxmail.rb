@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+#
+# Plugin foxmail
+# Author L
+#
+
+plugin 'foxmail' do 
+  supported_algorithm :foxmail6, :foxmail
+
+  crack {
+    enum_algorithm do |algorithm|
+      b = [passwd].pack('H*').bytes
+
+      if algorithm == :foxmail6
+        key = '~draGon~'.bytes
+        fc = 0x5A
+      else
+        key = '~F@7%m$~'.bytes
+        fc = 0x71
+      end
+
+      key *= 2
+      b[0] ^= fc
+
+      d = []
+      (1...b.size).each do |i|
+        d[i-1] = b[i] ^ key[i-1]
+      end
+
+      r = ''
+      d.size.times do |i|
+        if d[i] - b[i] < 0
+          r << d[i] - b[i] + 255
+        else
+          r << d[i] - b[i]
+        end
+      end
+      r if r.valid_encoding?
+    end
+  }
+end
+
+
+
+
