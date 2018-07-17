@@ -14,7 +14,7 @@ plugin 'md5decrypt' do
     enum_algorithm do |algorithm|
       path = algorithm == :md5 ? '/en/' : "/en/#{algorithm.capitalize}/"
       r = post(path, data)
-      extract(r.body, %r[: <b>(.*?)</b><br/><br/>])
+      r.body.extract(%r[: <b>(.*?)</b><br/><br/>])
     end
   }
 end

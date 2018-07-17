@@ -25,7 +25,7 @@ plugin 'dmd5' do
       data = {"_VIEWRESOURSE": "c4c92e61011684fc23405bfd5ebc2b31", "md5": passwd, "result": code}
       r = post '/md5-decrypter.jsp', data
       r.body.force_encoding 'UTF-8'
-      extract(r.body, /<p>解密结果：(.+?)<\/p>/)
+      r.body.extract(/<p>解密结果：(.+?)<\/p>/)
     end
   }
 end

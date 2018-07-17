@@ -26,7 +26,7 @@ plugin 'cmd5en' do
       r = post('/', data, {'referer': web_server_url})
       regexp = /<span id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<br[\s\/]*>/
       if r.body !~ /Not Found|Please log in/
-        extract(r.body, regexp)&.gsub(/<.*?>/, '') 
+        r.body.extract(regexp)&.gsub(/<.*?>/, '') 
       end
     end
   }

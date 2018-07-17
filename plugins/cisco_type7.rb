@@ -16,7 +16,7 @@ plugin 'cisco_type7' do
       0x32, 0x35, 0x34, 0x6b, 0x3b, 0x66, 0x67, 0x38, 0x37
     ]
 
-    s, *e = passwd.scan(/.{2}/).map{ |x| x.to_i 16 }
+    s, *e = passwd.hex2bytes
 
     dp = ''
     e.each do |magic|

@@ -10,7 +10,7 @@ plugin '80p' do
 
   crack {
     r = post '/', {'decode': passwd}
-    extract(r.body, /<font color="#FF0000">(.*?)<\/font>/)
+    r.body.extract(/<font color="#FF0000">(.*?)<\/font>/)
   }
 end
 

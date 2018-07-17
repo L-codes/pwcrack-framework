@@ -10,7 +10,7 @@ plugin 'bugbank' do
 
   crack {
     r = post '/api/md5', {md5text: passwd}
-    extract(r.body, /"answer":"(.+?)"/)
+    r.body.extract(/"answer":"(.+?)"/)
   }
 end
 

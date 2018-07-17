@@ -10,7 +10,7 @@ plugin 'haq4ula' do
 
   crack {
     r = get "http://#{passwd}.haq4u.com"
-    extract(r.body, /\.haq4u\.com">(.+?)<\/a><\/br>/)
+    r.body.extract(/\.haq4u\.com">(.+?)<\/a><\/br>/)
   }
 end
 

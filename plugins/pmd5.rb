@@ -16,7 +16,7 @@ plugin 'pmd5' do
 							"__VIEWSTATEGENERATOR": info["__VIEWSTATEGENERATOR"],
 							"key": passwd, "jiemi": "MD5\u89e3\u5bc6"}
       r = post('/', data)
-      extract(r.body, /#{passwd}(?:.*?)<em>(.+?)<\/em>/)
+      r.body.extract(/#{passwd}(?:.*?)<em>(.+?)<\/em>/)
     end
   }
 end

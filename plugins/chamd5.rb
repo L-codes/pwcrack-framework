@@ -24,7 +24,7 @@ plugin 'chamd5' do
              end
       data = {'hash': passwd, 'type': type}
       r = post_json '/HttpProxyAccess.aspx/ajax_me1ody', data
-      extract(r.body, /\\"result\\":\\"(.+?)\\"}/)
+      r.body.extract(/\\"result\\":\\"(.+?)\\"}/)
     end
   }
 end

@@ -10,7 +10,7 @@ plugin 'hashtoolkit' do
 
   crack {
     r = get "/reverse-hash?hash=#{passwd}"
-    extract(r.body, /Hashes for: <code>(.*?)<\/code>/)
+    r.body.extract(/Hashes for: <code>(.*?)<\/code>/)
   }
 end
 

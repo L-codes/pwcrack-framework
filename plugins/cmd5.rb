@@ -26,7 +26,7 @@ plugin 'cmd5' do
       regexp = /<span id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<br[\s\/]*>/
       text = r.body.force_encoding 'UTF-8'
       if text !~ /未查到/
-        extract(text, regexp)&.gsub(/<.*?>|。.*/, '') 
+        text.extract(regexp)&.gsub(/<.*?>|。.*/, '') 
       end
     end
   }

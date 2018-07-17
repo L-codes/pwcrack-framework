@@ -10,7 +10,7 @@ plugin 'gongjuji' do
 
   crack {
     r = get "/common/md5dencrypt\?UpperCase=#{passwd}", {'decode': passwd}
-    extract(r.body, /PlainText":"(.+?)",/)
+    r.body.extract(/PlainText":"(.+?)",/)
   }
 end
 

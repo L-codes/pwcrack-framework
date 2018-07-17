@@ -10,7 +10,7 @@ plugin 'ttmd5' do
 
   crack {
     r = get "/do.php?c=Decode&m=getMD5&md5=#{passwd}"
-    extract(r.body, /"plain":"(.*?)",/)
+    r.body.extract(/"plain":"(.*?)",/)
   }
 end
 

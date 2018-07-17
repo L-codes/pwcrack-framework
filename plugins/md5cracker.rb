@@ -10,7 +10,7 @@ plugin 'md5cracker' do
 
   crack {
     r = get "/qkhash.php?option=json&pass=#{passwd}"
-    extract(r.body, /"plaintext":"(.+?)",/)
+    r.body.extract(/"plaintext":"(.+?)",/)
   }
 end
 

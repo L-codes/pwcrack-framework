@@ -10,7 +10,7 @@ plugin 'hashcracking' do
 
   crack {
     r = post '/', {'pass':'', 'hash': passwd}
-    extract(r.body, /" value="(.+?)" maxlength="32">/)
+    r.body.extract(/" value="(.+?)" maxlength="32">/)
   }
 end
 

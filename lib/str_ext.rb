@@ -5,12 +5,18 @@
 #
 
 class String
+
   def extract(regexp, place = 1)
-    self.match(regexp)
+    m = self.match(regexp)
     m[place] if m
   end
 
   def printable?
     self.match? /^\p{PRINT}+$/
   end
+
+  def hex2bytes
+    [self].pack('H*').bytes
+  end
+
 end

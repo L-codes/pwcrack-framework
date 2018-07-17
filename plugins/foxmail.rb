@@ -12,7 +12,7 @@ plugin 'foxmail' do
 
   crack {
     enum_algorithm do |algorithm|
-      b = [passwd].pack('H*').bytes
+      b = passwd.hex2bytes
 
       if algorithm == :foxmail6
         key = '~draGon~'.bytes

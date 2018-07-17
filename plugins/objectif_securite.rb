@@ -12,7 +12,7 @@ plugin 'objectif_securite' do
     data = {"value": passwd}
     r = post_json '/demo.php/crack', data
     if r.body !~ /Password not found|queue/
-      extract(r.body, /"msg":"(.+?)"/)
+      r.body.extract(/"msg":"(.+?)"/)
     end
   }
 end

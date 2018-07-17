@@ -10,7 +10,7 @@ plugin 'lea' do
 
   crack {
     r = get "/api/hash/#{passwd}"
-    extract(r.body, /"password": "(.*?)"/)
+    r.body.extract(/"password": "(.*?)"/)
   }
 end
 
