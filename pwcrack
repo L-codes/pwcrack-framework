@@ -4,12 +4,13 @@
 # Author L
 #
 
-Version = '1.0.2'
+Version = '1.0.3'
 Project = 'pwcrack-framework'
 
 trap("INT"){ abort "\r[!!!] Interrupt. " }
 
 # load lib
+require_relative 'lib/str_ext'
 require_relative 'lib/cli'
 require_relative 'lib/core'
 

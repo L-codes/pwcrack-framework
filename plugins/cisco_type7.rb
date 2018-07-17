@@ -27,7 +27,7 @@ plugin 'cisco_type7' do
       s = 0 if s == 51
       dp << newchar
     end
-    dp if dp.match? /^\p{ASCII}+$/
+    dp if dp.printable?
   }
 end
 

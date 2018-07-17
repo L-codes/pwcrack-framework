@@ -76,11 +76,6 @@ module HTTP
     request_method(:post, path, data, headers, &block)
   end
 
-  def extract(str, regexp, place = 1)
-    m = str.match(regexp)
-    m[place] if m
-  end
-
   def self.set opts
     @@timeout      = opts[:timeout]
     @@open_timeout = opts[:open_timeout]

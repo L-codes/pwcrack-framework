@@ -22,7 +22,7 @@ plugin 'foxmail' do
         fc = 0x71
       end
 
-      key *= 2
+      key *= 10
       b[0] ^= fc
 
       d = []
@@ -38,7 +38,7 @@ plugin 'foxmail' do
           r << d[i] - b[i]
         end
       end
-      r if r.valid_encoding?
+      r if r.printable?
     end
   }
 end
