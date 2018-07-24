@@ -76,7 +76,7 @@ module HTTP
     request_method(:post, path, data, headers, &block)
   end
 
-  def self.set opts
+  def self.set(opts)
     @@timeout      = opts[:timeout]
     @@open_timeout = opts[:open_timeout]
     @@verbose      = opts[:verbose]

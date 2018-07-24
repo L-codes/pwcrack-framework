@@ -53,7 +53,7 @@ class PWCrack
         end
       elsif result
         puts '(%5.2fs) %17s: %s' % [time, name, result]
-      else
+      elsif @@verbose
         puts '[-] (%5.2fs) %13s: Not Found' % [time, name]
       end
       results << result
@@ -71,8 +71,9 @@ class PWCrack
   end
 
   def self.set(opts)
-    @@quiet   = opts.fetch(:quiet, nil)
-    @@select  = opts.fetch(:select, nil)
+    @@quiet   = opts[:quiet]
+    @@select  = opts[:select]
+    @@verbose = opts[:verbose]
     HTTP.set(opts)
   end
 
