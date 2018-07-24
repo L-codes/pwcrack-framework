@@ -53,6 +53,8 @@ class PWCrack
         end
       elsif result
         puts '(%5.2fs) %17s: %s' % [time, name, result]
+      else
+        puts '[-] (%5.2fs) %13s: Not Found' % [time, name]
       end
       results << result
     end
