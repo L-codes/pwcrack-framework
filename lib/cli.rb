@@ -24,44 +24,21 @@ module CLI
     optparser = OptionParser.new do |opts|
       opts.banner = 'Usage: ./pwcrack [options] (ciphertext|gets|banner) [algorithms...]'
 
-      opts.on('-v', '--verbose', 'Run verbosely') do
-        options[:verbose] = true
-      end
-
-      opts.on('-q', '--quiet', 'Exit when a plaintext is found') do
-        options[:quiet] = true
-      end
-
-      opts.on('-t', '--timeout second', Integer, "Specify request timeout [default: #{options[:timeout]}]") do |seconds|
-        options[:timeout] = seconds
-      end
-      
-      opts.on('-o', '--open-timeout second', Integer, "Specify TCP open timeout [default: #{options[:open_timeout]}]") do |seconds|
-        options[:open_timeout] = seconds
-      end
-
-      opts.on('-r', '--retry num', Integer, "Retry numbers [default: #{options[:retry]}]") do |num|
-        options[:retry] = num
-      end
-      
-      opts.on('-s', '--select plugin_name', String, 'Specify plugin') do |plugin|
-        options[:select] = plugin
-      end
-
-      opts.on('-p', '--proxy "proto://ip:port"', /(?:socks[45]a?|https?):\/\/.+?$/, 'Set Proxy') do |proxy|
-        options[:proxy] = proxy
-      end
-
-      opts.on('--version', 'Show version') do |plugin|
-        abort Version
-      end
+      opts.on('-v', '--verbose', 'Run verbosely')
+      opts.on('-q', '--quiet', 'Exit when a plaintext is found')
+      opts.on('-t', '--timeout second', Integer, "Specify request timeout [default: #{options[:timeout]}]")
+      opts.on('-o', '--open-timeout second', Integer, "Specify TCP open timeout [default: #{options[:open_timeout]}]")
+      opts.on('-r', '--retry num', Integer, "Retry numbers [default: #{options[:retry]}]")
+      opts.on('-s', '--select plugin_name', String, 'Specify plugin')
+      opts.on('-p', '--proxy "proto://ip:port"', /(?:socks[45]a?|https?):\/\/.+?$/, 'Set Proxy')
+      opts.on('--version', 'Show version') { abort Version }
 
       opts.separator "\nUse examples:"
       opts.separator "  pwcrack e10adc3949ba59abbe56e057f20f883e"
       opts.separator "  pwcrack e10adc3949ba59abbe56e057f20f883e md5"
       opts.separator "  pwcrack e10adc3949ba59abbe56e057f20f883e -s pmd5 "
     end
-    optparser.parse!
+    optparser.parse! into: options
     abort optparser.help if ARGV.empty?
     @@verbose = options[:verbose]
 
