@@ -3,6 +3,7 @@
 # Plugin chamd5
 # Author L
 #
+# NOTE 查询需要积分
 
 plugin 'chamd5' do 
   web_server 'http://www.chamd5.org/'
