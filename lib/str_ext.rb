@@ -12,7 +12,7 @@ class String
   end
 
   def printable?
-    self.match? /^\p{ASCII}+$/
+    self.b.match? /\A\p{Print}+\z/n
   end
 
   def hex2bytes
