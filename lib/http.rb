@@ -30,10 +30,6 @@ class Faraday::Response
 end
 
 
-class HttpStatus < RuntimeError
-end
-
-
 module HTTP
   def session
     @conn ||= Faraday.new(
@@ -55,12 +51,10 @@ module HTTP
   def request_method(method, *args, &block)
     i = 0
     begin
-      r = session.send(method, *args, &block)
-      raise HttpStatus, 500 if r.status == 500
-      r
+      session.send(method, *args, &block)
     rescue => e
       puts "[!] Error (#{session.url_prefix}) #{e.class}: #{e}" if @@verbose
-      sleep 0.5
+      sleep @@retry_interval
       i += 1
       i <= @@retry ? retry : create_empty_response
     end
@@ -83,11 +77,12 @@ module HTTP
   end
 
   def self.set(opts)
-    @@timeout      = opts[:timeout]
-    @@open_timeout = opts[:open_timeout]
-    @@verbose      = opts[:verbose]
-    @@retry        = opts[:retry]
-    @@proxy        = opts[:proxy]
+    @@timeout        = opts[:timeout]
+    @@open_timeout   = opts[:open_timeout]
+    @@verbose        = opts[:verbose]
+    @@retry          = opts[:retry]
+    @@retry_interval = opts[:retry_interval]
+    @@proxy          = opts[:proxy]
     if @@proxy&.start_with? 'socks' and Adapter == :net_http
       abort '[!] Not support socks proxy, please use "typhoeus"'
     end
