@@ -30,6 +30,10 @@ class Faraday::Response
 end
 
 
+class HttpStatus < RuntimeError
+end
+
+
 module HTTP
   def session
     @conn ||= Faraday.new(
@@ -51,7 +55,9 @@ module HTTP
   def request_method(method, *args, &block)
     i = 0
     begin
-      session.send(method, *args, &block)
+      r = session.send(method, *args, &block)
+      raise HttpStatus, 500 if r.status == 500
+      r
     rescue => e
       puts "[!] Error (#{session.url_prefix}) #{e.class}: #{e}" if @@verbose
       sleep 0.5
