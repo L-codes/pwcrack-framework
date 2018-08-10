@@ -28,7 +28,7 @@ $ ruby pwcrack banner
                 m$$$$  $$$$,
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<
-          '$$$$$$$$$$'  $$$$          version 1.0.5
+          '$$$$$$$$$$'  $$$$          version 1.2.0
                '@$$$$'  $$$$'
                 '$$$$  '$$$@
              'z$$$$$$  @$$$
@@ -44,14 +44,14 @@ $ ruby pwcrack banner
 
                        [ Plugin Count ]
 
-         Online Plugin: 21        Offline Plugin: 4
+         Online Plugin: 22        Offline Plugin: 4
 
                   [ Algorithm Plugin Count ]
 
-            md5: 20            sha1: 13          md5_16:  7
-         sha256:  6           mysql:  6          sha512:  6
-           ntlm:  5          mysql3:  5             md4:  4
-         sha384:  4         foxmail:  1   juniper_type9:  1
+            md5: 21            sha1: 14          md5_16:  8
+         sha256:  7           mysql:  7          sha512:  7
+           ntlm:  6          mysql3:  6             md4:  5
+         sha384:  5         foxmail:  1   juniper_type9:  1
     cisco_type7:  1          sha224:  1              lm:  1
      h3c_huawei:  1        foxmail6:  1
 
