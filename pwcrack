@@ -9,14 +9,19 @@ Project = 'pwcrack-framework'
 
 trap("INT"){ abort "\r[!!!] Interrupt. " }
 
+ROOT = File.dirname(File.realpath(__FILE__))
+
+# load all external
+Dir["#{ROOT}/external/**/*.rb"].each do |external|
+  require_relative external
+end
+
 # load lib
 require_relative 'lib/str_ext'
 require_relative 'lib/cli'
 require_relative 'lib/core'
 
 # load all plugins
-ROOT = File.dirname(File.realpath(__FILE__))
-
 Dir["#{ROOT}/plugins/*.rb"].each do |plugin|
   require_relative plugin
 end

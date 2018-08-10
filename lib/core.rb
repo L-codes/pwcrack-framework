@@ -11,6 +11,7 @@ require_relative 'crypto'
 class PWCrack
   include HTTP
   include Crypto
+  include JS
 
   attr_accessor :name, :passwd, :user, :passwd, :algorithms
   @@plugins = []
