@@ -14,4 +14,9 @@ module Crypto
     des.iv = iv if iv
     des.update(msg)
   end
+
+  def md5(msg)
+    md5 = OpenSSL::Digest::MD5.new
+    md5.hexdigest msg
+  end
 end
