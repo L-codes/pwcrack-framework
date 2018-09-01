@@ -8,7 +8,6 @@ module PasswdLib
   Passwd = Struct.new(:cipher, :algos)
 
   def passwd_analysis(passwd, algorithms)
-    passwd.cipher = base64_to_hex(passwd.cipher) if passwd.cipher.match? /(=|==)$/
     find_hash_type(passwd)
     abort 'No ciphertext algorithm found' if passwd.algos == [:unkown]
 
@@ -26,7 +25,14 @@ module PasswdLib
 
   def find_hash_type(passwd)
     cipher = passwd.cipher
-    algorithm =
+    algorithms = []
+
+    if cipher.start_with? 'base64:'
+      cipher = base64_to_hex(cipher.delete_prefix('base64:'))
+      algorithms << :gpp
+    end
+
+    algorithms += Array(
       case cipher
       when /(^([a-f0-9]{2})+$)|(^([A-F0-9]{2})+$)/
         types = case cipher.size
@@ -51,18 +57,20 @@ module PasswdLib
         end
         types
       when /^\*([a-f0-9]{40}|[A-F0-9]{40})$/
-        passwd.cipher = cipher.delete_suffix '*'
+        cipher.delete_prefix! '*'
         :mysql
       when /^\$9\$/
         :juniper_type9
       when /^\p{ASCII}{24}$/
         :h3c_huawei
       when /(^([a-f0-9]{2})+!$)|(^([A-F0-9]{2})+!$)/
-        passwd.cipher = cipher.delete_suffix '!'
+        cipher.delete_suffix! '!'
         :foxmail
       else
         :unkown
       end
-    passwd.algos = Array(algorithm)
+    )
+    passwd.algos = algorithms
+    passwd.cipher = cipher
   end
 end
