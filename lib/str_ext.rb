@@ -15,8 +15,11 @@ class String
     self.b.match? /\A\p{Print}+\z/n
   end
 
-  def hex2bytes
-    [self].pack('H*').bytes
+  def hex2ascii
+    [self].pack('H*')
   end
 
+  def hex2bytes
+    hex2ascii.bytes
+  end
 end
