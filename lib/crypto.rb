@@ -12,7 +12,15 @@ module Crypto
     des.decrypt
     des.key = key
     des.iv = iv if iv
-    des.update(msg)
+    des.update(msg) #+ (des.final rescue '')
+  end
+
+  def aes_decrypt(mode: :CBC, key:, msg:, iv:nil)
+    aes = OpenSSL::Cipher::AES256.new(mode)
+    aes.decrypt
+    aes.key = key
+    aes.iv = iv if iv
+    aes.update(msg) + aes.final
   end
 
   def md5(msg)
