@@ -1,5 +1,5 @@
 # 0x00 pwcrack-framework
-pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了21个在线破解和3个离线破解接口，支持17种算法破解
+pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了21个在线破解和5个离线破解接口，支持18种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
@@ -19,41 +19,41 @@ $ gem install faraday_middleware faraday-cookie_jar
 # banner view
 $ ruby pwcrack banner
 
-
-          "$$$$$$''  'M$  '$$$@m
-        :$$$$$$$$$$$$$$''$$$$'
-       '$'    'JZI'$$&  $$$$'
-                 '$$$  '$$$$
-                 $$$$  J$$$$'
-                m$$$$  $$$$,
+                                             
+          "$$$$$$''  'M$  '$$$@m            
+        :$$$$$$$$$$$$$$''$$$$'               
+       '$'    'JZI'$$&  $$$$'                
+                 '$$$  '$$$$                 
+                 $$$$  J$$$$'                
+                m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
-             '1t$$$$' '$$$$<
-          '$$$$$$$$$$'  $$$$          version 1.2.0
-               '@$$$$'  $$$$'
-                '$$$$  '$$$@
-             'z$$$$$$  @$$$
-                r$$$   $$|
-                '$$v c$$
-               '$$v $$v$$$$$$$$$#
-               $$x$$$$$$$$$twelve$$$@$'
-             @$$$@L '    '<@$$$$$$$$`
-           $$                 '$$$
-
+             '1t$$$$' '$$$$<               
+          '$$$$$$$$$$'  $$$$          version 1.2.2
+               '@$$$$'  $$$$'                
+                '$$$$  '$$$@                 
+             'z$$$$$$  @$$$                  
+                r$$$   $$|                   
+                '$$v c$$                     
+               '$$v $$v$$$$$$$$$#            
+               $$x$$$$$$$$$twelve$$$@$'      
+             @$$$@L '    '<@$$$$$$$$`        
+           $$                 '$$$           
+                                             
 
     [ Github ] https://github.com/L-codes/pwcrack-framework
 
-                       [ Plugin Count ]
+                       [ Plugin Count ] 
 
-         Online Plugin: 22        Offline Plugin: 4
+         Online Plugin: 21        Offline Plugin: 5
 
-                  [ Algorithm Plugin Count ]
+                  [ Algorithm Plugin Count ] 
 
-            md5: 21            sha1: 14          md5_16:  8
-         sha256:  7           mysql:  7          sha512:  7
-           ntlm:  6          mysql3:  6             md4:  5
-         sha384:  5         foxmail:  1   juniper_type9:  1
-    cisco_type7:  1          sha224:  1              lm:  1
-     h3c_huawei:  1        foxmail6:  1
+            md5: 20            sha1: 13          md5_16:  7
+          mysql:  6          sha256:  6          sha512:  6
+         mysql3:  5            ntlm:  5             md4:  4
+         sha384:  4              lm:  1     cisco_type7:  1
+       foxmail6:  1      h3c_huawei:  1          sha224:  1
+  juniper_type9:  1         foxmail:  1             gpp:  1
 
 ```
 
@@ -101,6 +101,15 @@ Cipher Text
 ```
 $ ./pwcrack -q 5f4dcc3b5aa765d61d8327deb882cf99 md5
 password
+```
+## Examples 4
+```
+$ ./pwcrack base64:j1Uyj3Vx8TY9LtLZil2uAuZkFQA/4latT76ZwgdHdhw gpp
+[+] Cipher Algorithm: GPP
+
+( 0.00s)               gpp: Local*P4ssword!
+
+[+] PWCrack (1/1) in 0.00 seconds.
 ```
 
 # 0x04 Problem
