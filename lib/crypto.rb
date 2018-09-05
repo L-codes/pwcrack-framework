@@ -12,7 +12,7 @@ module Crypto
     des.decrypt
     des.key = key
     des.iv = iv if iv
-    des.update(msg) #+ (des.final rescue '')
+    des.update(msg) + (des.final rescue '')
   end
 
   def aes_decrypt(mode: :CBC, key:, msg:, iv:nil)
@@ -20,7 +20,7 @@ module Crypto
     aes.decrypt
     aes.key = key
     aes.iv = iv if iv
-    aes.update(msg) + aes.final
+    aes.update(msg) + (aes.final rescue '')
   end
 
   def md5(msg)
