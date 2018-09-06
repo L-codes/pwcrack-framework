@@ -27,9 +27,12 @@ module PasswdLib
     cipher = passwd.cipher
     algorithms = []
 
-    if cipher.start_with? 'base64:'
+    case cipher
+    when /base64:/
       cipher = base64_to_hex(cipher.delete_prefix('base64:'))
       algorithms << :gpp
+    when /hex:/
+      cipher.gsub! /\H/, ''
     end
 
     algorithms += Array(
