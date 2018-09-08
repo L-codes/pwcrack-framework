@@ -6,7 +6,7 @@
 
 
 begin
-	require 'execjs'
+  require 'execjs'
 rescue LoadError
   puts  '[*] Lack of dependent libraries.'
   abort '[-] Please execute: gem install execjs'
