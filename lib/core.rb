@@ -48,7 +48,7 @@ class PWCrack
     ThreadsWait.all_waits(*threads) do |thread|
       name, (result, time) = thread.value
       if @@quiet
-        if results.include? result
+        if result
           puts result
           exit
         end
