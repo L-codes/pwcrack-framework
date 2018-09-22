@@ -4,10 +4,10 @@
 # Author L
 #
 
-Version = '1.2.4'
+Version = '1.2.5'
 Project = 'pwcrack-framework'
 
-trap("INT"){ abort "\r[!!!] Interrupt. " }
+trap("INT"){ puts "\r[!!!] Interrupt. "; exit! 1 }
 
 ROOT = File.dirname(File.realpath(__FILE__))
 

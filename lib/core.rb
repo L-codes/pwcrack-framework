@@ -50,7 +50,7 @@ class PWCrack
       if @@quiet
         if result
           puts result
-          exit
+          exit! 0
         end
       elsif result
         puts '(%5.2fs) %17s: %s' % [time, name, result]
