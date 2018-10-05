@@ -20,7 +20,8 @@ module PasswdLib
 
   def base64_to_hex(base64code)
     bytes = Base64.decode64 base64code
-    bytes.unpack1 'H*'
+    # Automatically identify hex and bytes
+    bytes.strip.ishex? ? bytes.strip : bytes.unpack1('H*')
   end
 
   def find_hash_type(passwd)
@@ -37,6 +38,7 @@ module PasswdLib
       when /hex/i
         cipher = cipher.gsub /\H/, ''
       end
+      puts "[*] Hash: #{cipher}"
     end
 
     algorithms += Array(
@@ -64,14 +66,14 @@ module PasswdLib
         end
         types
       when /^\*([a-f0-9]{40}|[A-F0-9]{40})$/
-        cipher.delete_prefix! '*'
+        cipher = cipher.delete_prefix '*'
         :mysql
       when /^\$9\$/
         :juniper_type9
       when /^\p{ASCII}{24}$/
         :h3c_huawei
       when /(^([a-f0-9]{2})+!$)|(^([A-F0-9]{2})+!$)/
-        cipher.delete_suffix! '!'
+        cipher = cipher.delete_suffix '!'
         :foxmail
       else
         :unkown
