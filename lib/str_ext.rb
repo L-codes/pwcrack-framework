@@ -22,4 +22,8 @@ class String
   def hex2bytes
     hex2ascii.bytes
   end
+
+  def ishex?
+    self.match? /(^([a-f0-9]{2})+$)|(^([A-F0-9]{2})+$)/
+  end
 end
