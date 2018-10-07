@@ -46,7 +46,7 @@ module CLI
 
     passwd = PasswdLib::Passwd.new
     passwd.cipher, algorithms = self.get_input
-    passwd_analysis(passwd, algorithms)
+    passwd_analysis(passwd, algorithms, options[:quiet])
 		[passwd, options]
   rescue OptionParser::InvalidArgument,
          OptionParser::MissingArgument,

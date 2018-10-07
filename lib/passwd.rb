@@ -7,7 +7,8 @@
 module PasswdLib
   Passwd = Struct.new(:cipher, :algos)
 
-  def passwd_analysis(passwd, algorithms)
+  def passwd_analysis(passwd, algorithms, quiet)
+    @quiet = quiet
     find_hash_type(passwd)
     abort 'No ciphertext algorithm found' if passwd.algos == [:unkown]
 
@@ -38,7 +39,7 @@ module PasswdLib
       when /hex/i
         cipher = cipher.gsub /\H/, ''
       end
-      puts "[*] Hash: #{cipher}"
+      puts "[*] Hash: #{cipher}" unless @quiet
     end
 
     algorithms += Array(
