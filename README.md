@@ -1,10 +1,10 @@
 # 0x00 pwcrack-framework
-pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了21个在线破解和5个离线破解接口，支持18种算法破解
+pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了22个在线破解和5个离线破解接口，支持20种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
 # 0x01 Features
-- Ruby2.4+ (tested with Ruby2.4 & Ruby 2.5)
+- Ruby2.5+ (tested with Ruby2.5.1 & Ruby 2.6.2)
 - 支持Linux/OSX/Windows平台运行
 - 支持在线和离线的进行破解密码明文
 - 支持自动分析密文算法调用插件破解
@@ -28,7 +28,7 @@ $ ruby pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.2.6
+          '$$$$$$$$$$'  $$$$          version 1.2.7
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -44,16 +44,17 @@ $ ruby pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 21        Offline Plugin: 5
+         Online Plugin: 22        Offline Plugin: 5
 
                   [ Algorithm Plugin Count ] 
 
-            md5: 20            sha1: 13          md5_16:  7
-          mysql:  6          sha256:  6          sha512:  6
-         mysql3:  5            ntlm:  5             md4:  4
-         sha384:  4              lm:  1     cisco_type7:  1
-       foxmail6:  1      h3c_huawei:  1          sha224:  1
-  juniper_type9:  1         foxmail:  1             gpp:  1
+            md5: 21            sha1: 14          md5_16:  8
+         sha256:  7           mysql:  7          sha512:  7
+         mysql3:  6            ntlm:  6             md4:  5
+         sha384:  4              lm:  2   juniper_type9:  1
+      ripemd160:  1       whirlpool:  1      h3c_huawei:  1
+            gpp:  1         foxmail:  1        foxmail6:  1
+    cisco_type7:  1          sha224:  1
 
 ```
 
@@ -112,5 +113,24 @@ $ ./pwcrack base64:j1Uyj3Vx8TY9LtLZil2uAuZkFQA/4latT76ZwgdHdhw gpp
 [+] PWCrack (1/1) in 0.00 seconds.
 ```
 
-# 0x04 Problem
+# 0x04 Plugin Development DSL
+```ruby
+#!/usr/bin/env ruby
+#
+# Plugin 80p
+# Author L
+#
+
+plugin '80p' do
+  web_server 'http://md5.80p.cn'
+  supported_algorithm :md5, :md5_16, :sha1
+
+  crack {
+    r = post '/', {'decode': passwd}
+    r.body.extract(/<font color="#FF0000">(.*?)<\/font>/)
+  }
+end
+```
+
+# 0x05 Problem
 如在使用过程中发现bug或有好的建议，欢迎提交[Issues](https://github.com/L-codes/pwcrack-framework/issues)和[Pull Requests](https://github.com/L-codes/pwcrack-framework/pulls)
