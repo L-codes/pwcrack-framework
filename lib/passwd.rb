@@ -51,7 +51,7 @@ module PasswdLib
                 when 32
                   [:md5, :md4, :lm, :ntlm]
                 when 40
-                  [:sha1, :mysql]
+                  [:sha1, :mysql, :ripemd160]
                 when 56
                   :sha224
                 when 64
@@ -59,7 +59,7 @@ module PasswdLib
                 when 96
                   :sha384
                 when 128
-                  :sha512
+                  [:sha512, :whirlpool]
                 end
         types = Array(types) + [:foxmail, :foxmail6]
         if cipher.size > 2 and cipher[0,2].to_i(16) <= 50
