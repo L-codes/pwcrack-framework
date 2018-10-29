@@ -65,7 +65,7 @@ module PasswdLib
         if cipher.size > 2 and cipher[0,2].to_i(16) <= 50
           types = Array(types) << :cisco_type7
         end
-        if cipher.size > 40
+        if cipher.size > 80
           types = Array(types) << :cisco_vpn
         end
         types
