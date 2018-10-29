@@ -63,7 +63,10 @@ module PasswdLib
                 end
         types = Array(types) + [:foxmail, :foxmail6]
         if cipher.size > 2 and cipher[0,2].to_i(16) <= 50
-         types = Array(types) << :cisco_type7 
+          types = Array(types) << :cisco_type7
+        end
+        if cipher.size > 40
+          types = Array(types) << :cisco_vpn
         end
         types
       when /^\*([a-f0-9]{40}|[A-F0-9]{40})$/
