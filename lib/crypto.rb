@@ -7,24 +7,31 @@
 require 'openssl'
 
 module Crypto
-  def des_decrypt(mode:, key:, msg:, iv:nil)
-    des = OpenSSL::Cipher::DES.new(mode)
-    des.decrypt
-    des.key = key
-    des.iv = iv if iv
-    des.update(msg) + (des.final rescue '')
-  end
 
-  def aes_decrypt(mode: :CBC, key:, msg:, iv:nil)
-    aes = OpenSSL::Cipher::AES256.new(mode)
+  def algo_decrypt(algo, key:, msg:, iv:nil)
+    aes = OpenSSL::Cipher.new(algo)
     aes.decrypt
     aes.key = key
     aes.iv = iv if iv
     aes.update(msg) + (aes.final rescue '')
   end
 
-  def md5(msg)
-    md5 = OpenSSL::Digest::MD5.new
-    md5.hexdigest msg
+  def algo_encrypt(algo, key:, msg:, iv:nil)
+    aes = OpenSSL::Cipher.new(algo)
+    aes.encrypt
+    aes.key = key
+    aes.iv = iv if iv
+    aes.update(msg) + (aes.final rescue '')
   end
+
+  [:md5, :sha1].each do |method|
+    define_method method do |msg|
+      OpenSSL::Digest.new(method.to_s).digest(msg)
+    end
+
+    define_method "#{method}_hex" do |msg|
+      OpenSSL::Digest.new(method.to_s).hexdigest(msg)
+    end
+  end
+
 end

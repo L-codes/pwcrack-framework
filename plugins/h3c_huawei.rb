@@ -34,7 +34,7 @@ plugin 'h3c_huawei' do
     ciphertext = out[0,16].pack 'C*'
 
     key = "\x01\x02\x03\x04\x05\x06\x07\x08"
-    plaintext = des_decrypt(msg: ciphertext, key: key, mode: :CBC)
+    plaintext = algo_decrypt('des-cbc', msg: ciphertext, key: key)
     plaintext if plaintext.printable?
   }
 end

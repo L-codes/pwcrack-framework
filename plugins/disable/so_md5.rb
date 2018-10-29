@@ -10,7 +10,7 @@ plugin "so\x6dd5" do
 
   crack {
     aes = js_require 'aes.js'
-    key = md5(passwd)[0,16]
+    key = md5_hex(passwd)[0,16]
     js = <<-CODE
     String(CryptoJS.AES.encrypt('#{passwd}', CryptoJS.enc.Utf8.parse('#{key}'), {
       iv: CryptoJS.enc.Utf8.parse('#{key}'),
