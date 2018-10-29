@@ -1,5 +1,5 @@
 # 0x00 pwcrack-framework
-pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了22个在线破解和5个离线破解接口，支持20种算法破解
+pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了22个在线破解和6个离线破解接口，支持21种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
@@ -28,7 +28,7 @@ $ ruby pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.2.7
+          '$$$$$$$$$$'  $$$$          version 1.3.0
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -44,18 +44,18 @@ $ ruby pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 22        Offline Plugin: 5
+         Online Plugin: 22        Offline Plugin: 6
 
                   [ Algorithm Plugin Count ] 
 
             md5: 21            sha1: 14          md5_16:  8
-         sha256:  7           mysql:  7          sha512:  7
-         mysql3:  6            ntlm:  6             md4:  5
-         sha384:  4              lm:  2   juniper_type9:  1
-      ripemd160:  1       whirlpool:  1      h3c_huawei:  1
-            gpp:  1         foxmail:  1        foxmail6:  1
-    cisco_type7:  1          sha224:  1
-
+         sha512:  7            ntlm:  7           mysql:  7
+         sha256:  7          mysql3:  6             md4:  5
+         sha384:  4              lm:  3   juniper_type9:  1
+            gpp:  1        foxmail6:  1       cisco_vpn:  1
+    cisco_type7:  1          sha224:  1       ripemd160:  1
+      whirlpool:  1      h3c_huawei:  1         foxmail:  1
+                                             
 ```
 
 # 0x03 Example usage
