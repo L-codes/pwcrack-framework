@@ -12,9 +12,9 @@ trap("INT"){ puts "\r[!!!] Interrupt. "; exit! 1 }
 ROOT = File.dirname(File.realpath(__FILE__))
 
 # load all external
-Dir["#{ROOT}/external/**/*.rb"].each do |external|
-  require_relative external
-end
+#Dir["#{ROOT}/external/**/*.rb"].each do |external|
+#  require_relative external
+#end
 
 # load lib
 require_relative 'lib/str_ext'
