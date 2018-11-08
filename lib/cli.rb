@@ -1,4 +1,4 @@
-#!/bin/usr/env ruby
+#!/usr/bin/env ruby
 #
 # Command Line UI Library
 # Author L
