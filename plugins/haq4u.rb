@@ -4,7 +4,7 @@
 # Author L
 #
 
-plugin 'haq4ula' do 
+plugin 'haq4u' do 
   web_server 'http://haq4u.com'
   supported_algorithm :md5, :sha1
 
