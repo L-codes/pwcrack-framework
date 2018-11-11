@@ -23,7 +23,6 @@ plugin 'cmd5' do
               "ctl00$ContentPlaceHolder1$HiddenField1": "",
               "ctl00$ContentPlaceHolder1$HiddenField2": info["ctl00_ContentPlaceHolder1_HiddenField2"]}
       r = post('/', data, {'referer': web_server_url})
-      #regexp = /<span id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<br[\s\/]*>/
       regexp = /id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<\/span>/
       text = r.body.force_encoding 'UTF-8'
       if text !~ /未查到/

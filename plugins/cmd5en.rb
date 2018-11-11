@@ -24,7 +24,7 @@ plugin 'cmd5en' do
               "ctl00$ContentPlaceHolder1$HiddenField1": "",
               "ctl00$ContentPlaceHolder1$HiddenField2": info["ctl00_ContentPlaceHolder1_HiddenField2"]}
       r = post('/', data, {'referer': web_server_url})
-      regexp = /<span id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<br[\s\/]*>/
+      regexp = /id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<\/span>/
       if r.body !~ /Not Found|Please log in/
         r.body.extract(regexp)&.gsub(/<.*?>/, '') 
       end
