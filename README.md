@@ -1,5 +1,5 @@
 # 0x00 pwcrack-framework
-pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了22个在线破解和6个离线破解接口，支持21种算法破解
+pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了21个在线破解和6个离线破解接口，支持21种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
@@ -18,6 +18,7 @@ $ gem install faraday_middleware faraday-cookie_jar execjs
 
 # banner view
 $ ruby pwcrack banner
+                                             
 
                                              
           "$$$$$$''  'M$  '$$$@m            
@@ -28,7 +29,7 @@ $ ruby pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.3.0
+          '$$$$$$$$$$'  $$$$          version 1.3.1
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -44,18 +45,18 @@ $ ruby pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 22        Offline Plugin: 6
+         Online Plugin: 21        Offline Plugin: 6
 
                   [ Algorithm Plugin Count ] 
 
-            md5: 21            sha1: 14          md5_16:  8
-         sha512:  7            ntlm:  7           mysql:  7
-         sha256:  7          mysql3:  6             md4:  5
-         sha384:  4              lm:  3   juniper_type9:  1
-            gpp:  1        foxmail6:  1       cisco_vpn:  1
-    cisco_type7:  1          sha224:  1       ripemd160:  1
-      whirlpool:  1      h3c_huawei:  1         foxmail:  1
-                                             
+            md5: 20            sha1: 13          sha512:  7
+           ntlm:  7          md5_16:  7          sha256:  7
+         mysql3:  6           mysql:  6             md4:  5
+         sha384:  4              lm:  3     cisco_type7:  1
+         sha224:  1      h3c_huawei:  1         foxmail:  1
+       foxmail6:  1   juniper_type9:  1       cisco_vpn:  1
+      ripemd160:  1       whirlpool:  1             gpp:  1
+
 ```
 
 # 0x03 Example usage
@@ -79,7 +80,6 @@ $ ./pwcrack 15f6f8dc036519d7fe15b39338f6e5db
 ( 1.52s)        md5cracker: twelve
 ( 2.32s)           gromweb: twelve
 ( 2.32s)            chamd5: twelve
-( 3.53s)              dmd5: twelve
 ( 3.87s)      hashcracking: twelve
 ( 3.95s)            cmd5en: twelve
 ( 4.80s)           haq4ula: twelve
