@@ -36,6 +36,8 @@ module CLI
       opts.on('--version', 'Show version') { abort Version }
 
       opts.separator "\nUse examples:"
+      opts.separator "  pwcrack banner"
+      opts.separator "  pwcrack updatedb"
       opts.separator "  pwcrack e10adc3949ba59abbe56e057f20f883e"
       opts.separator "  pwcrack e10adc3949ba59abbe56e057f20f883e md5"
       opts.separator "  pwcrack base64:ZTEwYWRjMzk0OWJhNTlhYmJlNTZlMDU3ZjIwZjg4M2UK -s pmd5 "

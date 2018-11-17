@@ -1,5 +1,5 @@
 # 0x00 pwcrack-framework
-pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了21个在线破解和6个离线破解接口，支持21种算法破解
+pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了21个在线破解和7个离线破解接口，支持21种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
@@ -9,6 +9,7 @@ pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提�
 - 支持在线和离线的进行破解密码明文
 - 支持自动分析密文算法调用插件破解
 - 提供简单DSL编写框架插件
+- 选择性提高性能，可以安装`gem install oj typhoeus`
 
 # 0x02 Installing
 ```
@@ -18,7 +19,6 @@ $ gem install faraday_middleware faraday-cookie_jar execjs
 
 # banner view
 $ ruby pwcrack banner
-                                             
 
                                              
           "$$$$$$''  'M$  '$$$@m            
@@ -29,7 +29,7 @@ $ ruby pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.3.1
+          '$$$$$$$$$$'  $$$$          version 1.4.0
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -45,17 +45,17 @@ $ ruby pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 21        Offline Plugin: 6
+         Online Plugin: 21        Offline Plugin: 7
 
                   [ Algorithm Plugin Count ] 
 
-            md5: 20            sha1: 13          sha512:  7
-           ntlm:  7          md5_16:  7          sha256:  7
-         mysql3:  6           mysql:  6             md4:  5
-         sha384:  4              lm:  3     cisco_type7:  1
-         sha224:  1      h3c_huawei:  1         foxmail:  1
-       foxmail6:  1   juniper_type9:  1       cisco_vpn:  1
-      ripemd160:  1       whirlpool:  1             gpp:  1
+            md5: 21            sha1: 14          md5_16:  8
+         sha512:  7            ntlm:  7           mysql:  7
+         sha256:  7          mysql3:  6             md4:  5
+         sha384:  4              lm:  3   juniper_type9:  1
+            gpp:  1        foxmail6:  1       cisco_vpn:  1
+    cisco_type7:  1          sha224:  1       ripemd160:  1
+      whirlpool:  1      h3c_huawei:  1         foxmail:  1
 
 ```
 
@@ -132,5 +132,17 @@ plugin '80p' do
 end
 ```
 
-# 0x05 Problem
+# 0x05 Local DB
+```
+在v1.4.0之后版本，添加了本地的密码数据库(大多数为cmd5等需收费查询)
+localdb 插件，会查询本地的数据库
+
+初次使用或需要更新数据库，则执行如下命令
+$ pwcrack updatedb
+
+也可以自定义字典进行创建数据库
+$ pwcrack updatedb my_dict.txt
+```
+
+# 0x06 Problem
 如在使用过程中发现bug或有好的建议，欢迎提交[Issues](https://github.com/L-codes/pwcrack-framework/issues)和[Pull Requests](https://github.com/L-codes/pwcrack-framework/pulls)
