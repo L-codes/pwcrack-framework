@@ -56,15 +56,69 @@ module CLI
 
   
   def self.get_input
-    cipher, *algos = ARGV
-    self.banner if cipher.casecmp? 'banner'
-
-    if cipher.casecmp? 'gets'
+    action, *args = ARGV
+    
+    case action.downcase
+    when 'banner'
+      self.banner
+    when 'updatedb'
+      word_file = args.first
+      default_word = "#{ROOT}/data/words.txt"
+      path = (word_file && File.exist?(word_file)) ? word_file : default_word
+      self.updatedb path
+    when 'gets'
       require 'readline'
       cipher = Readline.readline("Cipher Text\n>> ")
       puts
+    else
+      cipher = action
     end
+
+    algos = args
     [cipher, algos]
+  end
+
+
+  def self.updatedb(word_file)
+    puts "[*] Start creating the local DB..."
+    puts
+
+    hashs = {
+      :md5    => {},
+      :sha1   => {},
+      :mysql  => {},
+    }
+    begin 
+      require 'mysql_make_scrambled_password'
+    rescue
+      puts "[*] Need to support MySQL hash: `gem install mysql_make_scrambled_password`"
+      hashs.delete :mysql
+    end
+    
+    open(word_file).each(chomp:true) do |word|
+      hashs.keys.each do |algo|
+        case algo
+        when :md5
+          hashs[algo][ OpenSSL::Digest::MD5.digest(word)[4,8] ] = word
+        when :sha1
+          hashs[algo][ OpenSSL::Digest::SHA1.digest(word)[5,10] ] = word
+        when :mysql
+          mysql_hash = MysqlMakeScrambledPassword.make_scrambled_password(word)
+          hashs[algo][ [mysql_hash].pack('H*')[6,10] ] = word
+        end
+      end
+    end
+
+    hashs.each do |algo, obj|
+      filename = "#{ROOT}/data/db/#{algo}.bin"
+      open(filename, 'wb') {|f|
+        Marshal.dump(obj, f)
+      }
+      name = "`#{algo}`".center 7
+      puts "[+] local #{name} db (#{obj.size}) : data/db/#{algo}.bin"
+    end
+
+    exit
   end
 
 
