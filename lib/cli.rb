@@ -90,7 +90,7 @@ module CLI
     }
     begin 
       require 'mysql_make_scrambled_password'
-    rescue
+    rescue LoadError
       puts "[*] Need to support MySQL hash: `gem install mysql_make_scrambled_password`"
       hashs.delete :mysql
     end
