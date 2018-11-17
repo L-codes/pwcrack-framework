@@ -23,8 +23,10 @@ plugin 'localdb' do
       end
 
       file = "#{ROOT}/data/db/#{name}.bin"
-      hash = Marshal.load(open(file, 'rb'))
-      hash[key]
+      if File.exist? file
+        hash = Marshal.load(open(file, 'rb'))
+        hash[key]
+      end
     end
   }
 end
