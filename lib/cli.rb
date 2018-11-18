@@ -111,8 +111,11 @@ module CLI
       end
     end
 
+    db_dir = "#{ROOT}/data/db"
+    Dir.mkdir db_dir unless Dir.exist? db_dir
+
     hashs.each do |algo, obj|
-      filename = "#{ROOT}/data/db/#{algo}.bin"
+      filename = "#{db_dir}/#{algo}.bin"
       open(filename, 'wb') {|f|
         Marshal.dump(obj, f)
       }
