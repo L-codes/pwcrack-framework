@@ -106,7 +106,7 @@ module CLI
           hashs[algo][ OpenSSL::Digest::SHA1.digest(word)[5,10] ] = word
         when :mysql
           mysql_hash = MysqlMakeScrambledPassword.make_scrambled_password(word)
-          hashs[algo][ [mysql_hash].pack('H*')[6,10] ] = word
+          hashs[algo][ [mysql_hash[1..-1]].pack('H*')[6,10] ] = word
         end
       end
     end
