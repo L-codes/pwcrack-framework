@@ -9,7 +9,7 @@ pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提�
 - 支持在线和离线的进行破解密码明文
 - 支持自动分析密文算法调用插件破解
 - 提供简单DSL编写框架插件
-- 选择性提高性能，可以安装`gem install oj typhoeus`
+- 选择性提高性能，可以安装`gem install typhoeus`
 
 # 0x02 Installing
 ```
