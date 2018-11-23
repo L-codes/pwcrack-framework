@@ -79,6 +79,8 @@ module PasswdLib
       when /(^([a-f0-9]{2})+!$)|(^([A-F0-9]{2})+!$)/
         cipher = cipher.delete_suffix '!'
         :foxmail
+      when /^[a-z]{2}([A-F0-9]{2}){16}/
+        :serv_u
       else
         :unkown
       end
