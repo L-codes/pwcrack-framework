@@ -80,6 +80,7 @@ module PasswdLib
         cipher = cipher.delete_suffix '!'
         :foxmail
       when /^[a-z]{2}([A-F0-9]{2}){16}/
+        # hash = salt + md5(salt+password).upcase
         :serv_u
       else
         :unkown
