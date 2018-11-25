@@ -22,10 +22,15 @@ plugin 'localdb' do
         key = passwd.hex2ascii[5,10]
       end
 
+      load_obj = ->(file){ Marshal.load(open(file, 'rb')) }
       file = "#{ROOT}/data/db/#{name}.bin"
       if File.exist? file
-        hash = Marshal.load(open(file, 'rb'))
-        hash[key]
+        hash = load_obj.call(file)
+        index = hash[key]
+        if index
+          words = load_obj.call("#{ROOT}/data/db/words.bin")
+          words[index]
+        end
       end
     end
   }
