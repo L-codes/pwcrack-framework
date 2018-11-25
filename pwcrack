@@ -4,7 +4,7 @@
 # Author L
 #
 
-Version = '1.4.2'
+Version = '1.4.3'
 Project = 'pwcrack-framework'
 
 trap("INT"){ puts "\r[!!!] Interrupt. "; exit! 1 }
