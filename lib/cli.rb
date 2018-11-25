@@ -102,6 +102,8 @@ module CLI
         case algo
         when :md5
           hashs[algo][ OpenSSL::Digest::MD5.digest(word)[4,8] ] = word
+          # md5(unicode)
+          hashs[algo][ OpenSSL::Digest::MD5.digest(word.encode('utf-16le'))[4,8] ] = word
         when :sha1
           hashs[algo][ OpenSSL::Digest::SHA1.digest(word)[5,10] ] = word
         when :mysql
