@@ -34,8 +34,7 @@ module HTTP
   def session
     @conn ||= Faraday.new(
         url: web_server_url,
-        ssl: {verify: true},
-        #ssl: {verify: false},  cmd5 SSL Error
+        ssl: {verify: false},
         headers: {user_agent: User_Agents.sample},
 				proxy: @@proxy
     ) do |builder|
