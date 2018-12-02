@@ -60,15 +60,11 @@ class PWCrack
       results << result
     end
 
-    if @@quiet
-      puts results.first if results.first
-    else
-      r_size = results.size
-      info = [r_size, r_size-results.count(nil), Time.now-start]
-      puts '    No password found' if results.none?
-      puts
-      puts '[+] PWCrack (%d/%d) in %.2f seconds.' % info
-    end
+    r_size = results.size
+    info = [r_size, r_size-results.count(nil), Time.now-start]
+    puts '    No password found' if results.none?
+    puts
+    puts '[+] PWCrack (%d/%d) in %.2f seconds.' % info
   end
 
   def self.set(opts)
