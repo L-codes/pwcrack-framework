@@ -15,6 +15,7 @@ module CLI
     options = {
            verbose: false,
              quiet: false,
+             debug: false,
              retry: 1,
     retry_interval: 0.5,
              proxy: nil,
@@ -25,7 +26,6 @@ module CLI
     optparser = OptionParser.new do |opts|
       opts.banner = 'Usage: ./pwcrack [options] (ciphertext|gets|banner) [algorithms...]'
 
-      opts.on('-v', '--verbose', 'Run verbosely')
       opts.on('-q', '--quiet', 'Exit when a plaintext is found')
       opts.on('-t', '--timeout second', Integer, "Specify request timeout [default: #{options[:timeout]}]")
       opts.on('-o', '--open-timeout second', Integer, "Specify TCP open timeout [default: #{options[:open_timeout]}]")
@@ -33,6 +33,8 @@ module CLI
       opts.on('-i', '--retry-interval second', Float, "Retry Interval seconds [default: #{options[:retry_interval]}]")
       opts.on('-s', '--select plugin_name', String, 'Specify plugin')
       opts.on('-p', '--proxy "proto://ip:port"', /(?:socks[45]a?|https?):\/\/.+?$/, 'Set Proxy')
+      opts.on('-v', '--verbose', 'Run verbosely')
+      opts.on('-d', '--debug', 'Run debug mode')
       opts.on('--version', 'Show version') { abort Version }
 
       opts.separator "\nUse examples:"
