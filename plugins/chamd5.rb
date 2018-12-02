@@ -25,7 +25,11 @@ plugin 'chamd5' do
              end
       data = {'hash': passwd, 'type': type}
       r = post_json '/HttpProxyAccess.aspx/ajax_me1ody', data
-      r.body.extract(/\\"result\\":\\"(.+?)\\"}/)
+      text = r.body.force_encoding 'UTF-8'
+      
+      raise InsufficientCredit if text.match? /金币不足,无法进行查询./
+
+      text.extract(/\\"result\\":\\"(.+?)\\"}/)
     end
   }
 end
