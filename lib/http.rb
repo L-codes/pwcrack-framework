@@ -49,13 +49,13 @@ module HTTP
   end
 
   def request_method(method, *args, &block)
-    i = 0
+    @i ||= 0
     session.send(method, *args, &block)
   rescue => e
     puts "[!] Error (#{session.url_prefix}) #{e.class}: #{e}" if @@verbose
     sleep @@retry_interval
-    i += 1
-    i <= @@retry ? retry : create_empty_response
+    @i += 1
+    @i <= @@retry ? retry : create_empty_response
   end
 
   def create_empty_response
