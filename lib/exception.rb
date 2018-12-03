@@ -11,4 +11,5 @@ module PluginExcetption
   Debug = Class.new(StandardError)
   VerificationCodeError = Debug.new 'Verification code error.'
   InsufficientCredit    = Debug.new 'Insufficient credit, unable to query.'
+  HTTPError             = Debug.new 'Service request failed.'
 end
