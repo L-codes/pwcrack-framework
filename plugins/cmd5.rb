@@ -23,9 +23,11 @@ plugin 'cmd5' do
               "ctl00$ContentPlaceHolder1$HiddenField1": "",
               "ctl00$ContentPlaceHolder1$HiddenField2": info["ctl00_ContentPlaceHolder1_HiddenField2"]}
       r = post('/', data, {'referer': web_server_url})
-      regexp = /id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<\/span>/
+
       text = r.body.force_encoding 'UTF-8'
       raise Chargeable if text.include? '已查到,这是一条付费记录'
+      raise VerificationCodeError if r.body.include? '验证错误'
+      regexp = /id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<\/span>/
       if text !~ /未查到/
         text.extract(regexp)&.gsub(/<.*?>|。.*/, '') 
       end

@@ -52,10 +52,11 @@ module HTTP
     @i ||= 0
     session.send(method, *args, &block)
   rescue => e
-    puts "[!] Error (#{session.url_prefix}) #{e.class}: #{e}" if @@verbose
+    puts "[!] Error (#{session.url_prefix}) #{e.class}: #{e}".red if @@verbose
     sleep @@retry_interval
     @i += 1
-    @i <= @@retry ? retry : create_empty_response
+    retry if @i <= @@retry
+    raise HTTPError
   end
 
   def create_empty_response

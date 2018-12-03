@@ -25,6 +25,7 @@ plugin 'cmd5en' do
               "ctl00$ContentPlaceHolder1$HiddenField2": info["ctl00_ContentPlaceHolder1_HiddenField2"]}
       r = post('/', data, {'referer': web_server_url})
       raise Chargeable if r.body.include? 'Found.But this is a payment record'
+      raise VerificationCodeError if r.body.include? 'Not Verified!'
       regexp = /id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<\/span>/m
       if r.body !~ /Not Found|Please log in/
         r.body.extract(regexp)&.gsub(/<.*?>/, '') 
