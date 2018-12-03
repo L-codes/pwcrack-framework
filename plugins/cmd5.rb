@@ -25,6 +25,7 @@ plugin 'cmd5' do
       r = post('/', data, {'referer': web_server_url})
       regexp = /id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<\/span>/
       text = r.body.force_encoding 'UTF-8'
+      raise Chargeable if text.include? '已查到,这是一条付费记录'
       if text !~ /未查到/
         text.extract(regexp)&.gsub(/<.*?>|。.*/, '') 
       end
