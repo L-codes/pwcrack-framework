@@ -7,6 +7,9 @@
 require 'thwait'
 require_relative 'http'
 require_relative 'crypto'
+require_relative 'exception'
+include PluginExcetption
+
 
 class PWCrack
   include HTTP
@@ -40,29 +43,33 @@ class PWCrack
       plugin.algorithms = passwd.algos & plugin.supported_algorithm
 
       next if plugin.algorithms.empty?
-      threads << Thread.new{[plugin.name, plugin.run]}
+      threads << Thread.new{ plugin.run }
     end
 
     results = []
     start = Time.now
     ThreadsWait.all_waits(*threads) do |thread|
-      name, (result, time) = thread.value
-      if @@quiet
-        if result
-          puts result
-          exit! 0
-        end
-      elsif result
+      results << thread.value
+      name, status, result, time = thread.value
+
+      case status
+      when :success
+        (puts result; exit! 0) if @@quiet
         puts '(%5.2fs) %17s: %s' % [time, name, result]
-      elsif @@verbose
-        puts '[-] (%5.2fs) %13s: Not Found' % [time, name]
+      when :notfound
+        puts '[-] (%5.2fs) %13s -> Not Found' % [time, name] if @@verbose
+      when :remind
+        puts '[*] (%5.2fs) %13s: %s' % [time, name, result]
+      when :debug
+        puts '[!] (%5.2fs) %13s -> %s' % [time, name, result] if @@debug
       end
-      results << result
     end
 
     r_size = results.size
-    info = [r_size, r_size-results.count(nil), Time.now-start]
-    puts '    No password found' if results.none?
+    success_count = results.count{ |r| [:success, :remind].include? r[1] }
+    info = [success_count, r_size, Time.now-start]
+
+    puts '    No password found' if success_count.zero?
     puts
     puts '[+] PWCrack (%d/%d) in %.2f seconds.' % info
   end
@@ -71,7 +78,22 @@ class PWCrack
     @@quiet   = opts[:quiet]
     @@select  = opts[:select]
     @@verbose = opts[:verbose]
+    @@debug = opts[:debug]
     HTTP.set(opts)
+  end
+
+  def run
+    start = Time.now
+    result = @crack_func.call
+    status = result ? :success : :notfound
+  rescue Debug => e
+    status = :debug
+    result = e
+  rescue Remind => e
+    status = :remind
+    result = e
+  ensure
+    return [name, status, result, Time.now - start]
   end
 
   def crack &block
@@ -88,12 +110,6 @@ class PWCrack
 
   def supported_algorithm(*algos)
     @supported_algorithm = algos.empty? ? @supported_algorithm : algos
-  end
-
-  def run
-    start = Time.now
-    result = @crack_func.call
-    [result, Time.now - start]
   end
 
 	def enum_algorithm
