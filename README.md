@@ -1,5 +1,5 @@
 # 0x00 pwcrack-framework
-pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了22个在线破解和7个离线破解接口，支持22种算法破解
+pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了25个在线破解和7个离线破解接口，支持22种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
@@ -19,6 +19,7 @@ $ gem install faraday_middleware faraday-cookie_jar execjs
 
 # banner view
 $ ruby pwcrack banner
+                                             
 
                                              
           "$$$$$$''  'M$  '$$$@m            
@@ -45,18 +46,18 @@ $ ruby pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 22        Offline Plugin: 7
+         Online Plugin: 25        Offline Plugin: 7
 
                   [ Algorithm Plugin Count ] 
 
-            md5: 22            sha1: 15          md5_16:  9
-         sha256:  8            ntlm:  8           mysql:  8
-         sha512:  8          mysql3:  7             md4:  6
-         sha384:  5              lm:  3     cisco_type7:  1
-  juniper_type9:  1             gpp:  1        foxmail6:  1
-         serv_u:  1       cisco_vpn:  1          sha224:  1
-      ripemd160:  1       whirlpool:  1      h3c_huawei:  1
-        foxmail:  1
+            md5: 24            sha1: 15          md5_16: 10
+          mysql:  9          sha512:  8          sha256:  8
+           ntlm:  8          mysql3:  7             md4:  6
+         sha384:  5              lm:  3       whirlpool:  2
+      ripemd160:  1          sha224:  1          serv_u:  1
+    cisco_type7:  1   juniper_type9:  1         foxmail:  1
+       foxmail6:  1             gpp:  1       cisco_vpn:  1
+     h3c_huawei:  1
 
 ```
 
