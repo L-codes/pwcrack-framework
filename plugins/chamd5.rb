@@ -10,7 +10,7 @@ plugin 'chamd5' do
   supported_algorithm :md5, :sha1, :mysql3, :mysql, :lm, :ntlm
 
   crack {
-    data = {'email': 'gdjy@kusrc.com','pass': '5c2f2b01245f43f9a5f703a96a6ac4a6','type': 'login'}
+    data = {email: 'zhiy@n.spamtrap.co', pass: '3a885716ae852a576e132ca3e9f16f04', type: 'login'}
     post_json '/HttpProxyAccess.aspx/ajax_login', data
     enum_algorithm do |algorithm|
       type = case algorithm
