@@ -86,6 +86,7 @@ module PasswdLib
         :unkown
       end
     )
+    algorithms << :filezilla if cipher.scan(/.{3}/).all?{|n| n.to_i <= 127}
     passwd.algos = algorithms
     passwd.cipher = cipher
   end
