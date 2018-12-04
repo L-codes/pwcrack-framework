@@ -25,11 +25,15 @@ plugin 'cmd5' do
       r = post('/', data, {'referer': web_server_url})
 
       text = r.body.force_encoding 'UTF-8'
-      raise Chargeable if text.include? '已查到,这是一条付费记录'
-      raise VerificationCodeError if r.body.include? '验证错误'
-      regexp = /id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<\/span>/
-      if text !~ /未查到/
-        text.extract(regexp)&.gsub(/<.*?>|。.*/, '') 
+
+      case text
+      when /已查到,这是一条付费记录/
+        raise Chargeable
+      when /验证错误|请<a href=login.aspx/
+        raise VerificationCodeError
+      else
+        regexp = /id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<\/span>/
+        text.extract(regexp)&.gsub(/<.*?>|。.*/, '') if text !~ /未查到/
       end
     end
   }
