@@ -14,6 +14,7 @@ include PluginExcetption
 class PWCrack
   include HTTP
   include Crypto
+  using Rainbow
   #include JS  NOTE Disable JS Module
 
   attr_accessor :name, :passwd, :user, :passwd, :algorithms
@@ -30,7 +31,7 @@ class PWCrack
   end
 
   def self.crack(passwd)
-    print "[+] Cipher Algorithm: #{passwd.algos.map(&:upcase).join(' or ')}\n\n" unless @@quiet
+    print "[+] Cipher Algorithm: #{passwd.algos.map{|s|s.to_s.upcase.bold}.join(' or ')}\n\n".white unless @@quiet
 
     if @@select
       @@plugins = @@plugins.select{ |plugin| plugin.name == @@select }
@@ -55,23 +56,27 @@ class PWCrack
       case status
       when :success
         (puts result; exit! 0) if @@quiet
-        puts '(%5.2fs) %17s: %s' % [time, name, result]
+        puts '(%5.2fs) %17s: %s'.green.bold % [time, name, result]
       when :notfound
-        puts '[-] (%5.2fs) %13s -> Not Found' % [time, name] if @@verbose
+        puts '[-] (%5.2fs) %13s -> Not Found'.white % [time, name] if @@verbose
       when :remind
-        puts '[*] (%5.2fs) %13s: %s' % [time, name, result]
+        puts '[*] (%5.2fs) %13s: %s'.yellow % [time, name, result]
       when :debug
-        puts '[!] (%5.2fs) %13s -> %s' % [time, name, result] if @@debug
+        puts '[!] (%5.2fs) %13s -> %s'.red.bold % [time, name, result] if @@debug
+      when :unkown
+        puts '[!] (%5.2fs) %13s -> %s'.red.bold.inverse % [time, name, result] if @@debug
+        puts "[!] #{result.backtrace.first}".red.bold.inverse if @@debug
       end
     end
 
+    exit! 1 if @@quiet
     r_size = results.size
     success_count = results.count{ |r| [:success, :remind].include? r[1] }
     info = [success_count, r_size, Time.now-start]
 
-    puts '    No password found' if success_count.zero?
+    puts '    No password found'.red if success_count.zero?
     puts
-    puts '[+] PWCrack (%d/%d) in %.2f seconds.' % info
+    puts "[+] PWCrack (#{ '%d/%d'.bold}) in #{'%.2f'.bold} seconds.".white % info
   end
 
   def self.set(opts)
@@ -91,6 +96,9 @@ class PWCrack
     result = e
   rescue Remind => e
     status = :remind
+    result = e
+  rescue => e
+    status = :unkown
     result = e
   ensure
     return [name, status, result, Time.now - start]

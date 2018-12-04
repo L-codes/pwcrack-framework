@@ -31,6 +31,8 @@ end
 
 
 module HTTP
+  using Rainbow
+
   def session
     @conn ||= Faraday.new(
         url: web_server_url,
