@@ -34,7 +34,8 @@ class PWCrack
     print "[+] Cipher Algorithm: #{passwd.algos.map{|s|s.to_s.upcase.bold}.join(' or ')}\n\n".white unless @@quiet
 
     if @@select
-      @@plugins = @@plugins.select{ |plugin| plugin.name == @@select }
+      select_plugins = @@select.split(',')
+      @@plugins = @@plugins.select{ |plugin| select_plugins.include? plugin.name }
       abort "[!] Not found plugin: '#{@@select}'" if @@plugins.empty?
     end
 

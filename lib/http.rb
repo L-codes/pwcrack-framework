@@ -87,8 +87,6 @@ module HTTP
     if @@proxy&.start_with? 'socks' and Adapter == :net_http
       abort '[!] Not support socks proxy, please use "typhoeus"'
     end
-    msg = "[+] [ Timeout: #{@@timeout}s, OpenTimeout: #{@@open_timeout}, Retry: #{@@retry} ]" 
-    puts msg if @@verbose
   end
 
   User_Agents = [
