@@ -90,7 +90,7 @@ module CLI
 
 
   def self.updatedb(word_file)
-    puts "[*] Start creating the local DB..."
+    puts "[*] Start creating the local DB...".bold
     puts
 
     hashs = {
@@ -133,12 +133,12 @@ module CLI
     end
 
     dump_obj.call("words", words)
-    puts "[+] local `words` db (#{words.size}) : data/db/#{name}.bin"
+    puts "[+] local `#{'words'.bold}` db (#{words.size}) : data/db/#{name}.bin"
 
     hashs.each do |algo, obj|
       name = "`#{algo}`".center 7
       dump_obj.call(algo, obj)
-      puts "[+] local #{name} db (#{obj.size}) : data/db/#{algo}.bin"
+      puts "[+] local #{name.bold} db (#{obj.size}) : data/db/#{algo}.bin"
     end
 
     exit
