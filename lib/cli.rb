@@ -10,12 +10,14 @@ require_relative 'passwd'
 
 module CLI
 	extend PasswdLib
+  using Rainbow
 
   def self.commandline!
     options = {
            verbose: false,
              quiet: false,
              debug: false,
+           nocolor: false,
              retry: 1,
     retry_interval: 0.5,
              proxy: nil,
@@ -35,6 +37,7 @@ module CLI
       opts.on('-p', '--proxy "proto://ip:port"', /(?:socks[45]a?|https?):\/\/.+?$/, 'Set Proxy')
       opts.on('-v', '--verbose', 'Run verbosely')
       opts.on('-d', '--debug', 'Run debug mode')
+      opts.on('--nocolor', 'Disable color output')
       opts.on('--version', 'Show version') { abort Version }
 
       opts.separator "\nUse examples:"
@@ -47,6 +50,8 @@ module CLI
     optparser.parse! into: options
     abort optparser.help if ARGV.empty?
     @@verbose = options[:verbose]
+
+    Rainbow.enabled = false if options[:nocolor]
 
     passwd = PasswdLib::Passwd.new
     passwd.cipher, algorithms = self.get_input
@@ -72,7 +77,7 @@ module CLI
       self.updatedb path
     when 'gets'
       require 'readline'
-      cipher = Readline.readline("Cipher Text\n>> ")
+      cipher = Readline.readline("Cipher Text\n#{'>>'.blue} ".bold)
       puts
     else
       cipher = action
