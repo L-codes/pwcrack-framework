@@ -4,10 +4,13 @@
 # Author L
 #
 
-Version = '1.5.1'
+Version = '1.6.0'
 Project = 'pwcrack-framework'
 
-trap("INT"){ puts "\r[!!!] Interrupt. "; exit! 1 }
+require 'rainbow/refinement'
+using Rainbow
+
+trap("INT"){ puts "\r[!!!] Interrupt. ".red; exit! 1 }
 
 ROOT = File.dirname(File.realpath(__FILE__))
 
