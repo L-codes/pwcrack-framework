@@ -4,6 +4,8 @@
 # Author L
 #
 # PassFile: FileZilla\FileZilla.xml
+# Password base64: C:\Users\<User>\AppData\Roaming\FileZilla\sitemanager.xml
+#
 
 plugin 'filezilla' do 
   supported_algorithm :filezilla
