@@ -1,10 +1,10 @@
 # 0x00 pwcrack-framework
-pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了25个在线破解和8个离线破解接口，支持23种算法破解
+pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了25个在线破解和8个离线破解接口，支持24种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
 # 0x01 Features
-- Ruby2.5+ (tested with Ruby2.5.1 & Ruby 2.6.2)
+- Ruby2.5+ (tested with Ruby2.5.3 & Ruby 2.6.3)
 - 支持Linux/OSX/Windows平台运行
 - 支持在线和离线的进行破解密码明文
 - 支持自动分析密文算法调用插件破解
@@ -29,7 +29,7 @@ $ ruby pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.6.2
+          '$$$$$$$$$$'  $$$$          version 1.7.0
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -49,14 +49,14 @@ $ ruby pwcrack banner
 
                   [ Algorithm Plugin Count ] 
 
-            md5: 24            sha1: 15          md5_16: 10
-          mysql:  9            ntlm:  8          sha512:  8
-         sha256:  8          mysql3:  7             md4:  6
-         sha384:  5              lm:  3       whirlpool:  2
-      ripemd160:  1       filezilla:  1          sha224:  1
-         serv_u:  1     cisco_type7:  1   juniper_type9:  1
-        foxmail:  1        foxmail6:  1             gpp:  1
-      cisco_vpn:  1      h3c_huawei:  1
+         serv_u: 24             md5: 24            sha1: 15
+        dedecms: 12          md5_16: 12           mysql:  9
+         sha512:  8          sha256:  8            ntlm:  8
+         mysql3:  7             md4:  6          sha384:  5
+             lm:  3       whirlpool:  2       ripemd160:  1
+      filezilla:  1          sha224:  1     cisco_type7:  1
+  juniper_type9:  1         foxmail:  1        foxmail6:  1
+            gpp:  1       cisco_vpn:  1      h3c_huawei:  1
 
 ```
 
