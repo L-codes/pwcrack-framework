@@ -7,8 +7,14 @@
 module PasswdLib
   Passwd = Struct.new(:cipher, :algos) do
     def passwd(algorithms)
-      if algos.include? :dedecms
+      if algorithms.include? :dedecms
         return cipher[3, 16]
+      elsif algorithms.include? :mysql
+        cipher.delete_prefix '*'
+      elsif algorithms.include? :foxmail
+        cipher.delete_suffix '!'
+      elsif algorithms.include? :serv_u
+        cipher[2..-1].downcase
       else
         cipher
       end
@@ -52,6 +58,9 @@ module PasswdLib
 
     algorithms += Array(
       case cipher
+      when /^[a-zA-Z]{2}(([A-F0-9]{2}){16}|([a-f0-9]{2}){16})$/
+        # hash = salt + md5(salt+password)
+        :serv_u
       when /(^([a-f0-9]{2})+$)|(^([A-F0-9]{2})+$)/
         types = case cipher.size
                 when 16
@@ -80,18 +89,13 @@ module PasswdLib
         end
         types
       when /^\*([a-f0-9]{40}|[A-F0-9]{40})$/
-        cipher = cipher.delete_prefix '*'
         :mysql
       when /^\$9\$/
         :juniper_type9
       when /^\p{ASCII}{24}$/
         :h3c_huawei
       when /(^([a-f0-9]{2})+!$)|(^([A-F0-9]{2})+!$)/
-        cipher = cipher.delete_suffix '!'
         :foxmail
-      when /^[a-z]{2}([A-F0-9]{2}){16}/
-        # hash = salt + md5(salt+password).upcase
-        :serv_u
       else
         :unkown
       end
