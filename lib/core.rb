@@ -92,6 +92,12 @@ class PWCrack
     start = Time.now
     result = @crack_func.call
     status = result ? :success : :notfound
+
+    # serv_u result handle
+    if result and algorithms.include?(:serv_u) and ! ['cmd5', 'cmd5en'].include? name
+      result = result[2..-1]
+    end
+
   rescue Debug => e
     status = :debug
     result = e
@@ -118,7 +124,17 @@ class PWCrack
   end
 
   def supported_algorithm(*algos)
-    @supported_algorithm = algos.empty? ? @supported_algorithm : algos
+    if algos.empty?
+      @supported_algorithm
+    else
+      hash_alias = {
+        :md5    => :serv_u,
+        :md5_16 => :dedecms
+      }
+      inter_keys = hash_alias.keys & algos
+      alias_algos = hash_alias.values_at(*inter_keys)
+      @supported_algorithm = algos + alias_algos
+    end
   end
 
 	def enum_algorithm
