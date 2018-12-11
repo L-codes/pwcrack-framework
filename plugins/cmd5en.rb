@@ -7,7 +7,7 @@
 
 plugin 'cmd5en' do 
   web_server 'https://www.cmd5.org'
-  supported_algorithm :md4, :md5, :sha1, :sha256, :sha512, :ntlm, :mysql3, :mysql
+  supported_algorithm :md4, :md5, :md5_16, :sha1, :sha256, :sha512, :ntlm, :mysql3, :mysql
 
   # TODO 添加账号，支持Unix密码查询
   crack {
