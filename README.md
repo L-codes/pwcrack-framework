@@ -19,6 +19,7 @@ $ gem install faraday_middleware faraday-cookie_jar rainbow
 
 # banner view
 $ ruby pwcrack banner
+                                             
 
                                              
           "$$$$$$''  'M$  '$$$@m            
@@ -29,7 +30,7 @@ $ ruby pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.7.0
+          '$$$$$$$$$$'  $$$$          version 1.7.1
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -45,12 +46,12 @@ $ ruby pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 25        Offline Plugin: 8
+         Online Plugin: 26        Offline Plugin: 8
 
                   [ Algorithm Plugin Count ] 
 
-         serv_u: 24             md5: 24            sha1: 15
-        dedecms: 12          md5_16: 12           mysql:  9
+         serv_u: 25             md5: 25            sha1: 16
+        dedecms: 13          md5_16: 13           mysql:  9
          sha512:  8          sha256:  8            ntlm:  8
          mysql3:  7             md4:  6          sha384:  5
              lm:  3       whirlpool:  2       ripemd160:  1
