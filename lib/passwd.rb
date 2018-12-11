@@ -8,7 +8,7 @@ module PasswdLib
   Passwd = Struct.new(:cipher, :algos) do
     def passwd(algorithms)
       if algorithms.include? :dedecms
-        return cipher[3, 16]
+        cipher[3, 16]
       elsif algorithms.include? :mysql
         cipher.delete_prefix '*'
       elsif algorithms.include? :foxmail
