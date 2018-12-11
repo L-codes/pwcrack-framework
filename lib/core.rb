@@ -41,8 +41,8 @@ class PWCrack
 
     threads = []
     @@plugins.each do |plugin|
-      plugin.passwd = passwd.cipher
       plugin.algorithms = passwd.algos & plugin.supported_algorithm
+      plugin.passwd = passwd.passwd(plugin.algorithms)
 
       next if plugin.algorithms.empty?
       threads << Thread.new{ plugin.run }

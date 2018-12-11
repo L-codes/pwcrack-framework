@@ -5,7 +5,15 @@
 #
 
 module PasswdLib
-  Passwd = Struct.new(:cipher, :algos)
+  Passwd = Struct.new(:cipher, :algos) do
+    def passwd(algorithms)
+      if algos.include? :dedecms
+        return cipher[3, 16]
+      else
+        cipher
+      end
+    end
+  end
 
   def passwd_analysis(passwd, algorithms, quiet)
     @quiet = quiet
@@ -48,6 +56,8 @@ module PasswdLib
         types = case cipher.size
                 when 16
                   [:md5_16, :mysql3]
+                when 20
+                  :dedecms
                 when 32
                   [:md5, :md4, :lm, :ntlm]
                 when 40
