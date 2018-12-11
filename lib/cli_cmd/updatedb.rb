@@ -8,7 +8,8 @@ module CLI
   using Rainbow
 
   def self.updatedb(word_file)
-    puts "[*] Start creating the local DB...".bold
+    start = Time.now
+    puts "[*] Start creating the local DB...".white
     puts
 
     hashs = {
@@ -51,14 +52,18 @@ module CLI
     end
 
     dump_obj.call("words", words)
-    puts "[+] local `#{'words'.bold}` db (#{words.size}) : data/db/#{name}.bin"
+    puts "[+] local `#{'words'.bold}` db (#{words.size.to_s.rjust(7)}) : data/db/#{name}.bin"
 
     hashs.each do |algo, obj|
       name = "`#{algo}`".center 7
       dump_obj.call(algo, obj)
-      puts "[+] local #{name.bold} db (#{obj.size}) : data/db/#{algo}.bin"
+      puts "[+] local #{name.bold} db (#{obj.size.to_s.rjust(7)}) : data/db/#{algo}.bin"
     end
 
+    seconds = Time.now - start
+    puts
+    puts "[*] PWCrack creating local DB in #{'%.2f'.bold} seconds.".white % seconds
     exit
   end
+
 end
