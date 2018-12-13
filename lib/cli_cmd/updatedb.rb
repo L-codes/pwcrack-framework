@@ -91,14 +91,17 @@ module CLI
 
       puts "[+] %s db (%7s) : [%4.1fM] data/db/%s.bin" % [algo.bold, obj.size, msize, name]
       #puts "[+] local #{algo.bold} db (#{obj.size.to_s.rjust(7)}) : data/db/#{name}.bin"
+      msize
     end
 
     puts
     puts '[*] Save Database...'
     hashes['words'] = words
-    hashes.each do |algo, obj|
+    count = hashes.sum { |algo, obj|
       dump_obj.call(algo, obj)
-    end
+    }
+    msize = '%4.1fM'.bold % count
+    puts "[*] Database total storage:  #{msize}"
 
     seconds = Time.now - start
     puts
