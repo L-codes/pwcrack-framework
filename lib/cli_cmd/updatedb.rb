@@ -8,11 +8,13 @@ module CLI
   using Rainbow
 
   def self.updatedb(word_file)
+    require 'ruby-progressbar'
+
     start = Time.now
     puts "[*] Start creating the local DB...".white
     puts
 
-    hashs = {
+    hashes = {
       :md5   => {},
       :md5x2 => {},
       :md5x3 => {},
@@ -24,12 +26,21 @@ module CLI
       require 'mysql_make_scrambled_password'
     rescue LoadError
       puts "[*] Need to support MySQL hash: `gem install mysql_make_scrambled_password`"
-      hashs.delete :mysql
+      puts
+      hashes.delete :mysql
     end
-    
+
     md5 = OpenSSL::Digest::MD5.new
     sha1 = OpenSSL::Digest::SHA1.new
     words = open(word_file).each(chomp:true).to_a
+
+    progressbar = ProgressBar.create(
+      :title  => 'Progress',
+      :format => ' %t: |%E |%b>%i|%j%%',
+      :total  => 100,
+      :length => 75,
+    )
+    n = words.size / 99
 
     words.each_with_index do |word, i|
 
@@ -43,28 +54,31 @@ module CLI
       md5_2_hex_up = md5.hexdigest(md5_1_hex_up).upcase
       md5_3_hex_up = md5.hexdigest(md5_2_hex_up)
 
-      hashs.keys.each do |algo|
+      hashes.keys.each do |algo|
         case algo
         when :md5
-          hashs[algo][ md5_1[4,8].bytes2int ] = i
+          hashes[algo][ md5_1[4,8].bytes2int ] = i
           # md5(unicode)
-          hashs[algo][ md5.hexdigest(word.encode('utf-16le'))[8,16].hex2int ] = i
+          hashes[algo][ md5.hexdigest(word.encode('utf-16le'))[8,16].hex2int ] = i
         when :md5x2
-          hashs[algo][ md5_2[4,8].bytes2int ] = i
-          hashs[algo][ md5_2_hex[8,16].hex2int ] = i
-          hashs[algo][ md5_2_hex_up[8,16].hex2int ] = i
+          hashes[algo][ md5_2[4,8].bytes2int ] = i
+          hashes[algo][ md5_2_hex[8,16].hex2int ] = i
+          hashes[algo][ md5_2_hex_up[8,16].hex2int ] = i
         when :md5x3
-          hashs[algo][ md5_3[8,16].hex2int ] = i
-          hashs[algo][ md5_3_hex[8,16].hex2int ] = i
-          hashs[algo][ md5_3_hex_up[8,16].hex2int ] = i
+          hashes[algo][ md5_3[8,16].hex2int ] = i
+          hashes[algo][ md5_3_hex[8,16].hex2int ] = i
+          hashes[algo][ md5_3_hex_up[8,16].hex2int ] = i
         when :sha1
-          hashs[algo][ sha1.hexdigest(word)[10,16].hex2int ] = i
+          hashes[algo][ sha1.hexdigest(word)[10,16].hex2int ] = i
         when :mysql
           mysql_hash = MysqlMakeScrambledPassword.make_scrambled_password(word)
-          hashs[algo][ mysql_hash[11,16].hex2int ] = i
+          hashes[algo][ mysql_hash[11,16].hex2int ] = i
         end
       end
+
+      progressbar.increment if i % n == 1
     end
+    progressbar.finish
 
     db_dir = "#{ROOT}/data/db"
     Dir.mkdir db_dir unless Dir.exist? db_dir
@@ -72,12 +86,17 @@ module CLI
     dump_obj = lambda do |name, obj|
       filename = "#{db_dir}/#{name}.bin"
       File.binwrite(filename, MessagePack.pack(obj))
-      algo = "`#{name}`".center 7
-      puts "[+] local #{algo.bold} db (#{obj.size.to_s.rjust(7)}) : data/db/#{name}.bin"
+      msize = File.size(filename).to_f / 1024 / 1024
+      algo = "#{name}".center 7
+
+      puts "[+] %s db (%7s) : [%4.1fM] data/db/%s.bin" % [algo.bold, obj.size, msize, name]
+      #puts "[+] local #{algo.bold} db (#{obj.size.to_s.rjust(7)}) : data/db/#{name}.bin"
     end
 
-    hashs['words'] = words
-    hashs.each do |algo, obj|
+    puts
+    puts '[*] Save Database...'
+    hashes['words'] = words
+    hashes.each do |algo, obj|
       dump_obj.call(algo, obj)
     end
 
