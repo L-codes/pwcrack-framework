@@ -12,12 +12,18 @@ plugin 'localdb' do
     enum_algorithm do |algorithm|
       names = [algorithm]
       case algorithm
-      when :md5, :serv_u
+      when :md5
         key = passwd[8,16].hex2int
         names = %w( md5 md5x2 md5x3 )
-      when :md5_16, :dedecms
+      when :serv_u
+        key = passwd[8,16].hex2int
+        names = ['md5']
+      when :md5_16
         key = passwd.hex2int
         names = %w( md5 md5x2 md5x3 )
+      when :dedecms
+        key = passwd.hex2int
+        names = ['md5']
       when :sha1
         key = passwd[10,16].hex2int
       when :mysql
