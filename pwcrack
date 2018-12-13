@@ -9,6 +9,7 @@ Project = 'pwcrack-framework'
 
 require 'rainbow/refinement'
 using Rainbow
+require 'msgpack'
 
 trap("INT"){ puts "\r[!!!] Interrupt. ".red; exit! 1 }
 

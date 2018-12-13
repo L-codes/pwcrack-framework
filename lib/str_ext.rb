@@ -23,6 +23,14 @@ class String
     hex2ascii.bytes
   end
 
+  def hex2int
+    to_i(16)
+  end
+
+  def bytes2int
+    unpack1('H*').to_i(16)
+  end
+
   def ishex?
     self.match? /(^([a-f0-9]{2})+$)|(^([A-F0-9]{2})+$)/
   end
