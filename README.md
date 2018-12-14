@@ -16,10 +16,6 @@ pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提�
 $ git clone https://github.com/L-codes/pwcrack-framework
 $ gem install faraday_middleware faraday-cookie_jar rainbow ruby-progressbar msgpack
 ```
-#### banner view
-<p align="center">
-    <img src="https://i.imgur.com/vwhJD12.png"  width="547" height="600">
-</p>
 
 # 0x03 Example usage
 ## Examples 1
