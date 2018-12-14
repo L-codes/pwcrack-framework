@@ -137,14 +137,14 @@ class PWCrack
     end
   end
 
-	def enum_algorithm
-		return nil unless block_given?
-	  algorithms.each do |algorithm|
-			r = yield algorithm
-			return r if r
-		end
-		nil
-	end
+  def enum_algorithm
+    return nil unless block_given?
+    algorithms.each do |algorithm|
+      r = yield algorithm
+      return r if r
+    end
+    nil
+  end
 
   def self.plugins_info
     Hash.new.tap do |hash|

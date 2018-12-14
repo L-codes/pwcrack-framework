@@ -38,7 +38,7 @@ module HTTP
         url: web_server_url,
         ssl: {verify: false},
         headers: {user_agent: User_Agents.sample},
-				proxy: @@proxy
+        proxy: @@proxy
     ) do |builder|
         builder.use FaradayMiddleware::FollowRedirects, limit:5
         builder.use :cookie_jar

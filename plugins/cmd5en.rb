@@ -11,7 +11,7 @@ plugin 'cmd5en' do
 
   # TODO 添加账号，支持Unix密码查询
   crack {
-		r = get '/'
+    r = get '/'
     unless r.body.empty?
       info = Hash[r.body.scan(/id="(.+?)" value="(.*?)"/)]
       data = {"__EVENTTARGET": info["__EVENTTARGET"],

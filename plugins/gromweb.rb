@@ -9,7 +9,7 @@ plugin 'gromweb' do
   supported_algorithm :md5
 
   crack {
-		r = get '/', {'md5': passwd}
+    r = get '/', {'md5': passwd}
     r.body.extract(/<em class="long-content string">(.*?)<\/em>/) if r.body['succesfully reversed']
   }
 end

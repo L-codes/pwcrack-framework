@@ -9,7 +9,7 @@ plugin 'pmd5' do
   supported_algorithm :md5, :md5_16
 
   crack {
-		r = get '/pmd5api/pmd5', {'pwd': passwd}
+    r = get '/pmd5api/pmd5', {'pwd': passwd}
     r.body.extract(/:"(.*?)"}}/)
   }
 end
