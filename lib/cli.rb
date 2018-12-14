@@ -11,7 +11,8 @@ require_relative 'cli_cmd/banner'
 require_relative 'cli_cmd/updatedb'
 
 module CLI
-	extend PasswdLib
+  extend PasswdLib
+  using Rainbow
 
   def self.commandline!
     options = {
@@ -58,7 +59,7 @@ module CLI
     passwd = PasswdLib::Passwd.new
     passwd.cipher, algorithms = self.get_input
     passwd_analysis(passwd, algorithms, options[:quiet])
-		[passwd, options]
+    [passwd, options]
   rescue OptionParser::InvalidArgument,
          OptionParser::MissingArgument,
          OptionParser::InvalidOption    => e
@@ -81,6 +82,7 @@ module CLI
       require 'readline'
       cipher = Readline.readline("Cipher Text\n#{'>>'.blue} ".bold)
       puts
+      exit 0 if ! cipher or cipher.empty?
     else
       cipher = action
     end
