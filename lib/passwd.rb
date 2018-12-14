@@ -100,7 +100,7 @@ module PasswdLib
         :unkown
       end
     )
-    if cipher.size % 3 == 0 && cipher.scan(/.{3}/).all?{|n| n.to_i <= 127}
+    if cipher.match?(/^(0\d{2}|11\d|12[0-7])+$/)
       algorithms << :filezilla
     end
     passwd.algos = algorithms
