@@ -17,7 +17,9 @@ $ git clone https://github.com/L-codes/pwcrack-framework
 $ gem install faraday_middleware faraday-cookie_jar rainbow ruby-progressbar msgpack
 ```
 #### banner view
-![banner](https://i.imgur.com/vwhJD12.png)
+<p align="center">
+    <img src="https://i.imgur.com/vwhJD12.png"  width="547" height="600">
+</p>
 
 # 0x03 Example usage
 ## Examples 1
