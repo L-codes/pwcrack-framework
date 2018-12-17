@@ -4,7 +4,7 @@
 # Author L
 #
 
-Version = '1.8.1'
+Version = '1.8.2'
 Project = 'pwcrack-framework'
 
 require 'rainbow/refinement'

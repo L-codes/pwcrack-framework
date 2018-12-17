@@ -41,7 +41,6 @@ module CLI
   end
 
   Banner = <<-EOF
-                                             
 
                                              
           "$$$$$$\''  'M$  '$$$@m            

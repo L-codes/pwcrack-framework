@@ -15,6 +15,48 @@ pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提�
 ```
 $ git clone https://github.com/L-codes/pwcrack-framework
 $ gem install faraday_middleware faraday-cookie_jar rainbow ruby-progressbar msgpack
+
+# banner view
+$ pwcrack banner
+
+                                             
+          "$$$$$$''  'M$  '$$$@m            
+        :$$$$$$$$$$$$$$''$$$$'               
+       '$'    'JZI'$$&  $$$$'                
+                 '$$$  '$$$$                 
+                 $$$$  J$$$$'                
+                m$$$$  $$$$,                
+                $$$$@  '$$$$_         pwcrack-framework
+             '1t$$$$' '$$$$<               
+          '$$$$$$$$$$'  $$$$          version 1.8.2
+               '@$$$$'  $$$$'                
+                '$$$$  '$$$@                 
+             'z$$$$$$  @$$$                  
+                r$$$   $$|                   
+                '$$v c$$                     
+               '$$v $$v$$$$$$$$$#            
+               $$x$$$$$$$$$twelve$$$@$'      
+             @$$$@L '    '<@$$$$$$$$`        
+           $$                 '$$$           
+                                             
+
+    [ Github ] https://github.com/L-codes/pwcrack-framework
+
+                       [ Plugin Count ] 
+
+         Online Plugin: 26        Offline Plugin: 8
+
+                  [ Algorithm Plugin Count ] 
+
+         serv_u: 25             md5: 25            sha1: 16
+        dedecms: 13          md5_16: 13           mysql:  9
+         sha512:  8          sha256:  8            ntlm:  8
+         mysql3:  7             md4:  6          sha384:  5
+             lm:  3       whirlpool:  2       ripemd160:  1
+      filezilla:  1          sha224:  1     cisco_type7:  1
+  juniper_type9:  1         foxmail:  1        foxmail6:  1
+            gpp:  1       cisco_vpn:  1      h3c_huawei:  1
+
 ```
 
 # 0x03 Example usage
