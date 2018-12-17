@@ -9,6 +9,7 @@ require 'base64'
 require_relative 'passwd'
 require_relative 'cli_cmd/banner'
 require_relative 'cli_cmd/updatedb'
+require_relative 'cli_cmd/add'
 
 module CLI
   extend PasswdLib
@@ -78,6 +79,8 @@ module CLI
       default_word = "#{ROOT}/data/words.txt"
       path = (word_file && File.exist?(word_file)) ? word_file : default_word
       self.updatedb path
+    when 'add'
+      self.add args
     when 'gets'
       require 'readline'
       cipher = Readline.readline("Cipher Text\n#{'>>'.blue} ".bold)
