@@ -28,7 +28,7 @@ module CLI
       open_timeout: 10
     }
     optparser = OptionParser.new do |opts|
-      opts.banner = 'Usage: ./pwcrack [options] (ciphertext|gets|banner) [algorithms...]'
+      opts.banner = 'Usage: ./pwcrack [options] (ciphertext|gets|banner|updatedb) [algorithms...]'
 
       opts.on('-q', '--quiet', 'Exit when a plaintext is found')
       opts.on('-t', '--timeout second', Integer, "Specify request timeout [default: #{options[:timeout]}]")
