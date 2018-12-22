@@ -9,7 +9,8 @@ Project = 'pwcrack-framework'
 
 require 'rainbow/refinement'
 using Rainbow
-require 'msgpack'
+
+autoload :MessagePack, 'msgpack'
 
 trap("INT"){ puts "\r[!!!] Interrupt. ".red; exit! 1 }
 
