@@ -8,8 +8,6 @@ module CLI
   using Rainbow
 
   def self.updatedb(word_file)
-    require 'ruby-progressbar'
-
     start = Time.now
     puts "[*] Start creating the local DB...".white
     puts

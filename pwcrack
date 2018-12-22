@@ -11,6 +11,11 @@ require 'rainbow/refinement'
 using Rainbow
 
 autoload :MessagePack, 'msgpack'
+autoload :Base64,      'base64'
+autoload :OpenSSL,     'openssl'
+autoload :Readline,    'readline'
+autoload :JSON,        'json'
+autoload :ProgressBar, 'ruby-progressbar'
 
 trap("INT"){ puts "\r[!!!] Interrupt. ".red; exit! 1 }
 

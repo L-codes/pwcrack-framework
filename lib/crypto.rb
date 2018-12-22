@@ -4,8 +4,6 @@
 # Author L
 #
 
-require 'openssl'
-
 module Crypto
 
   def algo_decrypt(algo, key:, msg:, iv:nil)
