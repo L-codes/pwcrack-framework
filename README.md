@@ -1,5 +1,5 @@
 # 0x00 pwcrack-framework
-pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了25个在线破解和8个离线破解接口，支持24种算法破解
+pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了24个在线破解和8个离线破解接口，支持24种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
@@ -28,7 +28,7 @@ $ pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.8.3
+          '$$$$$$$$$$'  $$$$          version 1.8.4
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -44,15 +44,15 @@ $ pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 25        Offline Plugin: 8
+         Online Plugin: 24        Offline Plugin: 8
 
                   [ Algorithm Plugin Count ] 
 
-         serv_u: 24             md5: 24            sha1: 15
-        dedecms: 12          md5_16: 12           mysql:  9
-         sha512:  8          sha256:  8            ntlm:  8
-         mysql3:  7             md4:  6          sha384:  5
-             lm:  3       whirlpool:  2       ripemd160:  1
+         serv_u: 23             md5: 23            sha1: 14
+         md5_16: 11         dedecms: 11           mysql:  8
+           ntlm:  7          sha256:  7          sha512:  7
+         mysql3:  6             md4:  5          sha384:  4
+             lm:  3       ripemd160:  1       whirlpool:  1
       filezilla:  1          sha224:  1     cisco_type7:  1
   juniper_type9:  1         foxmail:  1        foxmail6:  1
             gpp:  1       cisco_vpn:  1      h3c_huawei:  1
