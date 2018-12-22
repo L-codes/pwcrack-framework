@@ -31,7 +31,8 @@ plugin 'cmd5en' do
       when /Not Verified!|Please log in/
         raise VerificationCodeError
       else
-        regexp = /id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<\/span>/m
+        #regexp = /id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<\/span>/m
+        regexp = /LabelAnswer" onmouseover="toggle\(\);">(.+?)<\/span>/
         r.body.extract(regexp)&.gsub(/<.*?>/, '') if r.body !~ /Not Found/
       end
     end

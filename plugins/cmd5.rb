@@ -32,7 +32,8 @@ plugin 'cmd5' do
       when /验证错误|请<a href=login.aspx/
         raise VerificationCodeError
       else
-        regexp = /id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<\/span>/
+        #regexp = /id="ctl00_ContentPlaceHolder1_LabelAnswer">(.+?)<\/span>/
+        regexp = /LabelAnswer" onmouseover="toggle\(\);">(.+?)<\/span>/
         text.extract(regexp)&.gsub(/<.*?>|。.*/, '') if text !~ /未查到/
       end
     end
