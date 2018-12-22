@@ -1,5 +1,5 @@
 # 0x00 pwcrack-framework
-pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了26个在线破解和8个离线破解接口，支持24种算法破解
+pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了25个在线破解和8个离线破解接口，支持24种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
@@ -28,7 +28,7 @@ $ pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.8.2
+          '$$$$$$$$$$'  $$$$          version 1.8.3
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -44,12 +44,12 @@ $ pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 26        Offline Plugin: 8
+         Online Plugin: 25        Offline Plugin: 8
 
                   [ Algorithm Plugin Count ] 
 
-         serv_u: 25             md5: 25            sha1: 16
-        dedecms: 13          md5_16: 13           mysql:  9
+         serv_u: 24             md5: 24            sha1: 15
+        dedecms: 12          md5_16: 12           mysql:  9
          sha512:  8          sha256:  8            ntlm:  8
          mysql3:  7             md4:  6          sha384:  5
              lm:  3       whirlpool:  2       ripemd160:  1
