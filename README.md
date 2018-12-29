@@ -17,7 +17,7 @@ $ git clone https://github.com/L-codes/pwcrack-framework
 $ gem install faraday_middleware faraday-cookie_jar rainbow ruby-progressbar msgpack
 
 # banner view
-$ pwcrack banner
+$ ./pwcrack banner
 
                                              
           "$$$$$$''  'M$  '$$$@m            
@@ -28,7 +28,7 @@ $ pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.8.4
+          '$$$$$$$$$$'  $$$$          version 1.8.5
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
