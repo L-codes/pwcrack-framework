@@ -4,6 +4,11 @@
 # Author L
 #
 
+ruby_run_version = '2.5.0'
+if Gem::Version.new(RUBY_VERSION) < Gem::Version.new(ruby_run_version)
+  abort "[!] Please run with ruby#{ruby_run_version}+"
+end
+
 ENV['BUNDLE_GEMFILE'] = "#{ROOT}/Gemfile"
 require 'bundler/setup'
 
