@@ -4,13 +4,8 @@
 # Author L
 #
 
-begin
-  require 'faraday_middleware'
-  require 'faraday-cookie_jar'
-rescue LoadError
-  puts  '[*] Lack of dependent libraries.'
-  abort '[-] Please execute: gem install faraday_middleware faraday-cookie_jar'
-end
+require 'faraday_middleware'
+require 'faraday-cookie_jar'
 
 begin
   require 'typhoeus'

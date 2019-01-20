@@ -4,6 +4,10 @@
 # Author L
 #
 
+ROOT = File.dirname(File.realpath(__FILE__))
+ENV['BUNDLE_GEMFILE'] = "#{ROOT}/Gemfile"
+require 'bundler/setup'
+
 Version = '1.8.8'
 Project = 'pwcrack-framework'
 
@@ -18,8 +22,6 @@ autoload :JSON,        'json'
 autoload :ProgressBar, 'ruby-progressbar'
 
 trap("INT"){ puts "\r[!!!] Interrupt. ".red; exit! 1 }
-
-ROOT = File.dirname(File.realpath(__FILE__))
 
 # load all external
 #Dir["#{ROOT}/external/**/*.rb"].each do |external|
