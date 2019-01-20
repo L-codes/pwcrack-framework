@@ -4,31 +4,13 @@
 # Author L
 #
 
-ROOT = File.dirname(File.realpath(__FILE__))
-ENV['BUNDLE_GEMFILE'] = "#{ROOT}/Gemfile"
-require 'bundler/setup'
-
-Version = '1.8.8'
+Version = '1.9.0'
 Project = 'pwcrack-framework'
 
-require 'rainbow/refinement'
-using Rainbow
-
-autoload :MessagePack, 'msgpack'
-autoload :Base64,      'base64'
-autoload :OpenSSL,     'openssl'
-autoload :Readline,    'readline'
-autoload :JSON,        'json'
-autoload :ProgressBar, 'ruby-progressbar'
-
-trap("INT"){ puts "\r[!!!] Interrupt. ".red; exit! 1 }
-
-# load all external
-#Dir["#{ROOT}/external/**/*.rb"].each do |external|
-#  require_relative external
-#end
+ROOT = File.dirname(File.realpath(__FILE__))
 
 # load lib
+require_relative 'lib/env'
 require_relative 'lib/str_ext'
 require_relative 'lib/cli'
 require_relative 'lib/core'
