@@ -1,0 +1,34 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    domain_name (0.5.20180417)
+      unf (>= 0.0.5, < 1.0.0)
+    faraday (0.15.4)
+      multipart-post (>= 1.2, < 3)
+    faraday-cookie_jar (0.0.6)
+      faraday (>= 0.7.4)
+      http-cookie (~> 1.0.0)
+    faraday_middleware (0.12.2)
+      faraday (>= 0.7.4, < 1.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    msgpack (1.2.6)
+    multipart-post (2.0.0)
+    rainbow (3.0.0)
+    ruby-progressbar (1.10.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  faraday-cookie_jar (>= 0.0.6)
+  faraday_middleware (>= 0.12.2)
+  msgpack (>= 1.2.6)
+  rainbow (>= 3.0.0)
+  ruby-progressbar (>= 1.10.0)
+
+BUNDLED WITH
+   1.17.1
