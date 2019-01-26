@@ -24,8 +24,8 @@ module CLI
     retry_interval: 0.5,
              proxy: nil,
             select: nil,
-           timeout: 5,
-      open_timeout: 10
+           timeout: 4,
+      open_timeout: 8
     }
     optparser = OptionParser.new do |opts|
       opts.banner = 'Usage: ./pwcrack [options] (ciphertext|gets|banner|updatedb) [algorithms...]'
