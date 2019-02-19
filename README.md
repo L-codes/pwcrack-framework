@@ -58,6 +58,12 @@ $ ./pwcrack banner
   juniper_type9:  1         foxmail:  1        foxmail6:  1
             gpp:  1       cisco_vpn:  1      h3c_huawei:  1
 
+# Install in Termux
+$ apk install git ruby ruby-dev clang make libffi-dev
+$ gem install bundler
+$ git clone https://github.com/L-codes/pwcrack-framework
+$ cd pwcrack-framework
+$ bundle update --bundler
 ```
 
 # 0x03 Example usage
