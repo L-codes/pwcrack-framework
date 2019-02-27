@@ -76,7 +76,11 @@ module CLI
 
     dump_obj = lambda do |name, obj|
       filename = "#{db_dir}/#{name}.bin"
-      File.binwrite(filename, MessagePack.pack(obj))
+      begin
+        File.binwrite(filename, MessagePack.pack(obj))
+      rescue Errno::EACCES
+        abort "[!] Save #{filename} Errno::EACCES"
+      end
       msize = File.size(filename).to_f / 1024 / 1024
       algo = "#{name}".center 7
 
