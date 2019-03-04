@@ -59,7 +59,7 @@ $ ./pwcrack banner
             gpp:  1       cisco_vpn:  1      h3c_huawei:  1
 
 # Install in Termux
-$ apk install git ruby ruby-dev clang make libffi-dev
+$ pkg install git ruby ruby-dev clang make libffi-dev
 $ gem install bundler
 $ git clone https://github.com/L-codes/pwcrack-framework
 $ cd pwcrack-framework
