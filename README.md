@@ -1,10 +1,10 @@
 # 0x00 pwcrack-framework
-pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了23个在线破解和8个离线破解接口，支持24种算法破解
+pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了22个在线破解和8个离线破解接口，支持22种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
 # 0x01 Features
-- Ruby2.5+ (tested with Ruby2.5.3 & Ruby 2.6.3)
+- Ruby2.5+ (tested with Ruby2.5.3 & Ruby 2.6.2)
 - 支持Linux/OSX/Windows平台运行
 - 支持在线和离线的进行破解密码明文
 - 支持自动分析密文算法调用插件破解
@@ -29,7 +29,7 @@ $ ./pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.9.2
+          '$$$$$$$$$$'  $$$$          version 1.9.3
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -45,18 +45,19 @@ $ ./pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 23        Offline Plugin: 8
+         Online Plugin: 22        Offline Plugin: 8
 
                   [ Algorithm Plugin Count ] 
 
-         serv_u: 21             md5: 21            sha1: 14
-         md5_16: 10         dedecms: 10           mysql:  8
-           ntlm:  7          sha256:  7          sha512:  7
-         mysql3:  6             md4:  5              lm:  4
-         sha384:  4       ripemd160:  1       whirlpool:  1
-      filezilla:  1          sha224:  1     cisco_type7:  1
-  juniper_type9:  1         foxmail:  1        foxmail6:  1
-            gpp:  1       cisco_vpn:  1      h3c_huawei:  1
+         serv_u: 20             md5: 20            sha1: 13
+        dedecms:  9          md5_16:  9           mysql:  7
+         sha256:  6          sha512:  6            ntlm:  6
+         mysql3:  5             md4:  4          sha384:  4
+             lm:  3       filezilla:  1          sha224:  1
+    cisco_type7:  1   juniper_type9:  1         foxmail:  1
+       foxmail6:  1             gpp:  1       cisco_vpn:  1
+     h3c_huawei:  1
+
 
 # Install in Termux
 $ pkg install git ruby ruby-dev clang make libffi-dev
