@@ -1,5 +1,5 @@
 # 0x00 pwcrack-framework
-pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了22个在线破解和8个离线破解接口，支持22种算法破解
+pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了24个在线破解和8个离线破解接口，支持29种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
@@ -20,6 +20,7 @@ $ bundle install
 # banner view
 $ ./pwcrack banner
 
+
                                              
           "$$$$$$''  'M$  '$$$@m            
         :$$$$$$$$$$$$$$''$$$$'               
@@ -29,7 +30,7 @@ $ ./pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.9.3
+          '$$$$$$$$$$'  $$$$          version 1.9.4
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -45,18 +46,21 @@ $ ./pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 22        Offline Plugin: 8
+         Online Plugin: 24        Offline Plugin: 8
 
                   [ Algorithm Plugin Count ] 
 
-         serv_u: 20             md5: 20            sha1: 13
-        dedecms:  9          md5_16:  9           mysql:  7
-         sha256:  6          sha512:  6            ntlm:  6
-         mysql3:  5             md4:  4          sha384:  4
-             lm:  3       filezilla:  1          sha224:  1
-    cisco_type7:  1   juniper_type9:  1         foxmail:  1
-       foxmail6:  1             gpp:  1       cisco_vpn:  1
-     h3c_huawei:  1
+         serv_u: 22             md5: 22            sha1: 15
+         md5_16:  9         dedecms:  9          sha256:  8
+         sha512:  8           mysql:  7            ntlm:  6
+         mysql3:  5             md4:  5          sha384:  5
+             lm:  3          sha224:  2       filezilla:  1
+      whirlpool:  1        ripmd320:  1       ripemd256:  1
+      ripemd160:  1       ripemd128:  1            mdc2:  1
+            md2:  1     cisco_type7:  1   juniper_type9:  1
+        foxmail:  1        foxmail6:  1             gpp:  1
+      cisco_vpn:  1      h3c_huawei:  1
+
 
 
 # Install in Termux
