@@ -68,13 +68,15 @@ module PasswdLib
                 when 20
                   :dedecms
                 when 32
-                  [:md5, :md4, :lm, :ntlm]
+                  [:md2, :md4, :md5, :mdc2, :lm, :ntlm, :ripemd128]
                 when 40
                   [:sha1, :mysql, :ripemd160]
                 when 56
                   :sha224
                 when 64
-                  :sha256
+                  [:sha256, :ripemd256]
+                when 80
+                  :ripemd320
                 when 96
                   :sha384
                 when 128
