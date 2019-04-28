@@ -90,8 +90,6 @@ module PasswdLib
           types = Array(types) << :cisco_vpn
         end
         types
-      when /^\*([a-f0-9]{40}|[A-F0-9]{40})$/
-        :mysql
       when /^\$9\$/
         :juniper_type9
       when /^\p{ASCII}{24}$/
