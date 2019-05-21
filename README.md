@@ -29,7 +29,7 @@ $ ./pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.9.6
+          '$$$$$$$$$$'  $$$$          version 1.9.7
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -49,11 +49,11 @@ $ ./pwcrack banner
 
                   [ Algorithm Plugin Count ] 
 
-         serv_u: 23             md5: 23            sha1: 15
-        dedecms: 10          md5_16: 10          sha512:  8
-         sha256:  8           mysql:  7            ntlm:  6
+            md5: 23          serv_u: 23            sha1: 15
+         md5_16: 10         dedecms: 10          sha256:  8
+         sha512:  8           mysql:  7            ntlm:  7
          mysql3:  5             md4:  5          sha384:  5
-             lm:  3          sha224:  2           mssql:  2
+             lm:  4          sha224:  2           mssql:  2
       filezilla:  1       whirlpool:  1        ripmd320:  1
       ripemd256:  1       ripemd160:  1       ripemd128:  1
            mdc2:  1             md2:  1     cisco_type7:  1
