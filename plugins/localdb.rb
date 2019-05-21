@@ -6,12 +6,15 @@
 # 查询本地data/db/*.bin的数据库文件(收集了53W的收费hash)
 
 plugin 'localdb' do 
-  supported_algorithm :md5, :md5_16, :sha1, :mysql, :ntlm
+  supported_algorithm :md5, :md5_16, :sha1, :mysql, :ntlm, :lm
 
   crack {
     enum_algorithm do |algorithm|
       names = [algorithm]
       case algorithm
+      when :lm
+        key = passwd[8,16].hex2int
+        names = ['lm']
       when :ntlm
         key = passwd[8,16].hex2int
         names = ['ntlm']

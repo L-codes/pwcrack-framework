@@ -19,12 +19,18 @@ module CLI
       :sha1  => {},
       :mysql => {},
       :ntlm  => {},
+      :lm    => {},
     }
 
-    md4 = OpenSSL::Digest::MD4.new
-    md5 = OpenSSL::Digest::MD5.new
+    md4  = OpenSSL::Digest::MD4.new
+    md5  = OpenSSL::Digest::MD5.new
     sha1 = OpenSSL::Digest::SHA1.new
-    words = open(word_file).each(chomp:true).to_a
+    des  = OpenSSL::Cipher::DES.new
+    des.encrypt
+
+    lm_magic = "KGS!@\#$%"
+
+    words = open(word_file).each(chomp:true).to_a  # File.readlines
 
     progressbar = ProgressBar.create(
       :title  => 'Progress',
@@ -69,6 +75,30 @@ module CLI
         when :mysql
           mysql_hash = sha1.hexdigest(sha1b)
           hashes[algo][ mysql_hash[10,16].hex2int ] = i
+        when :lm
+          if word.size <= 14
+            str_to_key = -> (s){
+              a = s.unpack1('H*').to_i(16) << 7
+              b = 0b1111111
+              r = 16.times.map {
+                a >>= 7
+                (a & b) << 1
+              }
+              r.reverse.pack('C*')
+            }
+
+            key = str_to_key[ word.upcase.encode('ISO-8859-1').ljust(14, "\x00") ]
+
+            h = ''
+            des.reset
+            des.key = key[0,8]
+            h += des.update(lm_magic)
+            des.reset
+            des.key = key[8,8]
+            h += des.update(lm_magic)
+
+            hashes[algo][ h[4,8].bytes2int ] = i
+          end
         end
       end
 
