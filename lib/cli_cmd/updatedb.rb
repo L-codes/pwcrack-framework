@@ -30,7 +30,7 @@ module CLI
 
     lm_magic = "KGS!@\#$%"
 
-    words = open(word_file).each(chomp:true).to_a  # File.readlines
+    words = File.readlines(word_file, chomp:true)
 
     progressbar = ProgressBar.create(
       :title  => 'Progress',
