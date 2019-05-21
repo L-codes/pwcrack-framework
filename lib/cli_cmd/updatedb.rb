@@ -18,8 +18,10 @@ module CLI
       :md5x3 => {},
       :sha1  => {},
       :mysql => {},
+      :ntlm  => {},
     }
 
+    md4 = OpenSSL::Digest::MD4.new
     md5 = OpenSSL::Digest::MD5.new
     sha1 = OpenSSL::Digest::SHA1.new
     words = open(word_file).each(chomp:true).to_a
@@ -47,6 +49,9 @@ module CLI
 
       hashes.keys.each do |algo|
         case algo
+        when :ntlm
+          # ntlm = md4(unicode)
+          hashes[algo][ md4.hexdigest(word.encode('utf-16le'))[8,16].hex2int ] = i
         when :md5
           hashes[algo][ md5_1[4,8].bytes2int ] = i
           # md5(unicode)
