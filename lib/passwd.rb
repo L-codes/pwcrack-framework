@@ -96,10 +96,12 @@ module PasswdLib
         :h3c_huawei
       when /(^([a-f0-9]{2})+!$)|(^([A-F0-9]{2})+!$)/
         :foxmail
-      when /(^0x([a-f0-9]{2})+$)|(^0x([A-F0-9]{2})+$)/
+      when /(^(0x|\*)([a-f0-9]{2})+$)|(^(0x|\*)([A-F0-9]{2})+$)/
         case cipher.size
         when 94, 54, 142
           :mssql
+        when 41
+          :mysql
         else
           :unkown
         end
