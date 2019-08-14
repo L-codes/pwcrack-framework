@@ -89,6 +89,9 @@ module PasswdLib
         if cipher.size > 80
           types = Array(types) << :cisco_vpn
         end
+        if cipher.size == 32 and cipher.end_with?('FF1C39567390ADCA')
+          types = Array(types) << :mac_osx_vnc
+        end
         types
       when /^\$9\$/
         :juniper_type9
