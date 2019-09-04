@@ -1,17 +1,17 @@
 # 0x00 pwcrack-framework
-[简体中文](README.md)　｜　[English](README-en.md)
++ [简体中文](README.md)　｜　[English](README-en.md)
 
-pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了25个在线破解和9个离线破解接口，支持31种算法破解
+pwcrack-framework is a password automatic cracking framework written in Ruby, currently provides 25 online cracks and 9 offline crack interfaces, supporting 31 algorithms to crack.
 
-项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
+project address：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
 # 0x01 Features
 - Ruby2.5+ (tested with Ruby2.5.3 & Ruby 2.6.2)
-- 支持Linux/OSX/Windows平台运行
-- 支持在线和离线的进行破解密码明文
-- 支持自动分析密文算法调用插件破解
-- 提供简单DSL编写框架插件
-- 选择性提高性能，可以安装`gem install typhoeus` (windows需要装libcurl可以忽略)
+- Support for Linux/OSX/Windows platform operation
+- Support online and offline crack password clear text
+- Support automatic analysis of ciphertext algorithm call plugin crack
+- Provide a simple DSL writing framework plugin
+- Selectively improve performance, you can install `gem install typhoeus` (windows need to install libcurl can be ignored)
 
 # 0x02 Installing
 ```
@@ -103,25 +103,25 @@ end
 
 # 0x05 Local DB
 ```ruby
-在 v1.4.0 之后版本，添加了本地的密码数据库(大多数为cmd5等需收费查询)
-localdb 插件，会查询本地的数据库
+In v1.4.0 and later, a local password database has been added (大多数为cmd5等需收费查询)
+localdb plugin, will query the local database
 
-初次使用或需要重建本地数据库，则执行如下命令
+The first time you use or need to rebuild the local database, execute the following command
 $ pwcrack initdb
 
-也可以自定义字典进行创建数据库
+You can also customize the dictionary to create a database.
 $ pwcrack initdb my_dict.txt
 
-在 v1.9.8 之后版本，添加了 add 和 updatedb 功能
-新增明文到 data/words.txt 则使用
+Added add and updatedb features in v1.9.8 and later
+Add plaintext to data/words.txt to use
 $ pwcrack add <word...>
 
-更新 data/words.txt 中新增的明文记录到数据库则使用
+Update the new plaintext record in data/words.txt to the database.
 $ pwcrack updatedb
 ```
 ![localdb](https://i.imgur.com/Akze0mt.png)
 
 # 0x06 Problem
-- 遇到收费的password也可以提交[Issues](https://github.com/L-codes/pwcrack-framework/issues)，共同完善localdb
-- 如在使用过程中发现bug或有好的建议，欢迎提交[Issues](https://github.com/L-codes/pwcrack-framework/issues)和[Pull Requests](https://github.com/L-codes/pwcrack-framework/pulls)
+- If you encounter a charged password, you can also submit [Issues](https://github.com/L-codes/pwcrack-framework/issues) to improve localdb.
+- If you find bugs or have good suggestions during use, please submit [Issues](https://github.com/L-codes/pwcrack-framework/issues) and [Pull Requests](https://github. Com/L-codes/pwcrack-framework/pulls)
 
