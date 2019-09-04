@@ -1,7 +1,7 @@
 # 0x00 pwcrack-framework
 [简体中文](README.md)　｜　[English](README-en.md)
 
-pwcrack-framework 是一个用Ruby编写的密码自动破解框架，目前提供了25个在线破解和9个离线破解接口，支持31种算法破解
+**pwcrack-framework** 是一个用Ruby编写的密码自动破解框架，目前提供了25个在线破解和9个离线破解接口，支持31种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 

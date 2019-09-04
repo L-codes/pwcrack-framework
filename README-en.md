@@ -1,7 +1,7 @@
 # 0x00 pwcrack-framework
 + [简体中文](README.md)　｜　[English](README-en.md)
 
-pwcrack-framework is a password automatic cracking framework written in Ruby, currently provides 25 online cracks and 9 offline crack interfaces, supporting 31 algorithms to crack.
+**pwcrack-framework** is a password automatic cracking framework written in Ruby, currently provides 25 online cracks and 9 offline crack interfaces, supporting 31 algorithms to crack.
 
 project address：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
