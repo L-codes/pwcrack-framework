@@ -7,8 +7,9 @@
 require 'optparse'
 require_relative 'passwd'
 require_relative 'cli_cmd/banner'
-require_relative 'cli_cmd/updatedb'
+require_relative 'cli_cmd/initdb'
 require_relative 'cli_cmd/add'
+require_relative 'cli_cmd/updatedb'
 
 module CLI
   extend PasswdLib
@@ -28,7 +29,7 @@ module CLI
       open_timeout: 8
     }
     optparser = OptionParser.new do |opts|
-      opts.banner = 'Usage: ./pwcrack [options] (ciphertext|gets|banner|updatedb) [algorithms...]'
+      opts.banner = 'Usage: ./pwcrack [options] (ciphertext|gets|banner|initdb) [algorithms...]'
 
       opts.on('-q', '--quiet', 'Exit when a plaintext is found')
       opts.on('-t', '--timeout second', Integer, "Specify request timeout [default: #{options[:timeout]}]")
@@ -44,7 +45,7 @@ module CLI
 
       opts.separator "\nUse examples:"
       opts.separator "  pwcrack banner"
-      opts.separator "  pwcrack updatedb"
+      opts.separator "  pwcrack initdb"
       opts.separator "  pwcrack e10adc3949ba59abbe56e057f20f883e"
       opts.separator "  pwcrack e10adc3949ba59abbe56e057f20f883e md5"
       opts.separator "  pwcrack base64:ZTEwYWRjMzk0OWJhNTlhYmJlNTZlMDU3ZjIwZjg4M2UK -s pmd5 "
@@ -73,11 +74,15 @@ module CLI
     case action.downcase
     when 'banner'
       self.banner
-    when 'updatedb'
+    when 'initdb', 'updatedb'
       word_file = args.first
       default_word = "#{ROOT}/data/words.txt"
       path = (word_file && File.exist?(word_file)) ? word_file : default_word
-      self.updatedb path
+      if action.downcase == 'initdb'
+        self.initdb path
+      else
+        self.updatedb path
+      end
     when 'add'
       self.add args
     when 'gets'

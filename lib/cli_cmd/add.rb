@@ -15,6 +15,7 @@ module CLI
     File.binwrite(default_word, words.join("\n"))
     exit
   end
+
 end
 
 

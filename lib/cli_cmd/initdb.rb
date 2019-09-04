@@ -1,26 +1,26 @@
 #!/usr/bin/env ruby
 #
-# pwcrack updatedb
+# pwcrack initdb
 # Author L
 #
 
 module CLI
   using Rainbow
 
-  def self.updatedb(word_file)
+  def self.initdb(word_file)
     start = Time.now
-    puts "[*] Start update the local DB...".white
+    puts "[*] Start creating the local DB...".white
     puts
 
-    load_obj = ->(file) {
-      if File.exist? file
-        MessagePack.unpack(File.binread(file))
-      else
-        abort 'Please initialize the local database: pwcrack updatedb'
-      end
+    hashes = {
+      :md5   => {},
+      :md5x2 => {},
+      :md5x3 => {},
+      :sha1  => {},
+      :mysql => {},
+      :ntlm  => {},
+      :lm    => {},
     }
-
-    hashes = {}
 
     md4  = OpenSSL::Digest::MD4.new
     md5  = OpenSSL::Digest::MD5.new
@@ -30,22 +30,7 @@ module CLI
 
     lm_magic = "KGS!@\#$%"
 
-    old_words = load_obj.call("#{ROOT}/data/db/words.bin")
-    words = File.readlines(word_file, chomp:true) - old_words
-    old_size = old_words.size
-
-    if words.size > 0
-      puts "[*] Add record: #{words.size}"
-      puts
-    else
-      puts '[!] No new records found'
-      exit 
-    end
-
-    %i(md5 md5x2 md5x3 sha1 mysql ntlm lm).each do |algo|
-      file = "#{ROOT}/data/db/#{algo}.bin"
-      hashes[algo] = load_obj.call(file)
-    end
+    words = File.readlines(word_file, chomp:true)
 
     progressbar = ProgressBar.create(
       :title  => 'Progress',
@@ -54,10 +39,8 @@ module CLI
       :length => 75,
     )
     n = words.size / 99
-    n = 1 if n.zero?
 
     words.each_with_index do |word, i|
-      i += old_size
 
       sha1b = sha1.digest(word)
       md5_1 = md5.digest(word)
@@ -119,7 +102,7 @@ module CLI
         end
       end
 
-      progressbar.increment if (i - old_size) % n == 1
+      progressbar.increment if i % n == 1
     end
     progressbar.finish
 
@@ -141,8 +124,8 @@ module CLI
     end
 
     puts
-    puts '[*] Update Database...'
-    hashes['words'] = old_words + words
+    puts '[*] Save Database...'
+    hashes['words'] = words
     count = hashes.sum { |algo, obj|
       dump_obj.call(algo, obj)
     }
@@ -151,7 +134,7 @@ module CLI
 
     seconds = Time.now - start
     puts
-    puts "[*] PWCrack update local DB in #{'%.2f'.bold} seconds.".white % seconds
+    puts "[*] PWCrack creating local DB in #{'%.2f'.bold} seconds.".white % seconds
     exit
   end
 
