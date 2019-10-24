@@ -11,8 +11,11 @@ plugin 'objectif_securite' do
   crack {
     data = {"value": passwd}
     r = post_json '/crack', data
-    if r.body !~ /Password not found| ?queue\.? /i
-      r.body.extract(/"msg":"(.+?)"/)
+    msg = r.body.extract(/"msg":"(.+?)"/)
+    if msg.match?(/ ?queue\.? /)
+      raise Later
+    elsif not msg.include?('Password not found')
+      msg
     end
   }
 end
