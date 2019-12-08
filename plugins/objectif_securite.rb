@@ -12,7 +12,7 @@ plugin 'objectif_securite' do
     data = {"value": passwd}
     r = post_json '/crack', data
     msg = r.body.extract(/"msg":"(.+?)"/)
-    if msg.match?(/ ?queue\.? /)
+    if msg.match?(/ ?queue\.? /i)
       raise Later
     elsif not msg.include?('Password not found')
       msg
