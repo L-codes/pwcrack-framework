@@ -27,7 +27,7 @@ plugin 'cmd5' do
       text = r.body.force_encoding 'UTF-8'
 
       case text
-      when /已查到,这是一条付费记录/
+      when /(?<!<!--)已查到,这是一条付费记录/
         raise Chargeable
       when /验证错误|请<a href=login.aspx/
         raise VerificationCodeError
