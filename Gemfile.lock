@@ -3,7 +3,7 @@ GEM
   specs:
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    faraday (0.17.1)
+    faraday (0.17.3)
       multipart-post (>= 1.2, < 3)
     faraday-cookie_jar (0.0.6)
       faraday (>= 0.7.4)
