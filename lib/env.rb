@@ -24,6 +24,6 @@ autoload :Readline,    'readline'
 autoload :JSON,        'json'
 autoload :ProgressBar, 'ruby-progressbar'
 
-trap("INT"){ puts "\r[!!!] Interrupt. ".red; exit! 1 }
+trap("INT"){ puts "\r[!!!] Interrupt. ".red; exit 1 }
 require 'rainbow/refinement'
 using Rainbow
