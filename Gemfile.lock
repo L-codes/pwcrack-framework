@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: https://gems.ruby-china.com/
   specs:
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)

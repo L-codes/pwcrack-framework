@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source 'https://gems.ruby-china.com'
 
 gem 'faraday_middleware', '>= 0.12.2'
 gem 'faraday-cookie_jar', '>= 0.0.6'
