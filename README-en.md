@@ -56,7 +56,7 @@ $ ./pwcrack banner
          sha256:  8            ntlm:  7           mysql:  7
          mysql3:  5             md4:  5          sha384:  5
              lm:  4          sha224:  2           mssql:  2
-      filezilla:  1       whirlpool:  1        ripmd320:  1
+      filezilla:  1       whirlpool:  1       ripemd320:  1
       ripemd256:  1       ripemd160:  1       ripemd128:  1
            mdc2:  1             md2:  1     cisco_type7:  1
     mac_osx_vnc:  1   juniper_type9:  1         foxmail:  1
