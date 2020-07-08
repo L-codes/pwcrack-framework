@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 #
-# Plugin dongao rc4
+# Plugin druid rc4
 # Author L
 #
 
