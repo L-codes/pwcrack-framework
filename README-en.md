@@ -1,7 +1,7 @@
 # 0x00 pwcrack-framework
 + [简体中文](README.md)　｜　[English](README-en.md)
 
-**pwcrack-framework** is a password automatic cracking framework written in Ruby, currently provides 25 online cracks and 9 offline crack interfaces, supporting 31 algorithms to crack.
+**pwcrack-framework** is a password automatic cracking framework written in Ruby, currently provides 26 online cracks and 11 offline crack interfaces, supporting 33 algorithms to crack.
 
 project address：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
@@ -31,7 +31,7 @@ $ ./pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.9.8
+          '$$$$$$$$$$'  $$$$          version 1.9.9
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -47,21 +47,22 @@ $ ./pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 25        Offline Plugin: 9
+         Online Plugin: 26        Offline Plugin: 11
 
                   [ Algorithm Plugin Count ] 
 
-         serv_u: 23             md5: 23            sha1: 15
-         md5_16: 10         dedecms: 10          sha512:  8
-         sha256:  8            ntlm:  7           mysql:  7
-         mysql3:  5             md4:  5          sha384:  5
+            md5: 24          serv_u: 24            sha1: 15
+        dedecms: 10          md5_16: 10          sha256:  8
+         sha512:  8           mysql:  7            ntlm:  7
+            md4:  5          sha384:  5          mysql3:  5
              lm:  4          sha224:  2           mssql:  2
-      filezilla:  1       whirlpool:  1       ripemd320:  1
-      ripemd256:  1       ripemd160:  1       ripemd128:  1
-           mdc2:  1             md2:  1     cisco_type7:  1
-    mac_osx_vnc:  1   juniper_type9:  1         foxmail:  1
-       foxmail6:  1             gpp:  1       cisco_vpn:  1
-     h3c_huawei:  1
+     h3c_huawei:  1       filezilla:  1       whirlpool:  1
+      ripemd320:  1       ripemd256:  1       ripemd160:  1
+      ripemd128:  1            mdc2:  1             md2:  1
+      druid_rsa:  1     cisco_type7:  1     mac_osx_vnc:  1
+  juniper_type9:  1         foxmail:  1        foxmail6:  1
+            gpp:  1       cisco_vpn:  1      dongao_rc4:  1
+
 
 
 # Install in Termux
