@@ -49,7 +49,7 @@ module PasswdLib
       case $1
       when /base64/i
         cipher = base64_to_hex(cipher)
-        algorithms << :gpp
+        algorithms += [:gpp, :dongao_rc4]
       when /hex/i
         cipher = cipher.gsub /\H/, ''
       end
