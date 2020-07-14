@@ -84,7 +84,11 @@ module CLI
         self.updatedb path
       end
     when 'add'
-      self.add args
+      if args.size == 1 and File.readable?(args.first)
+        self.add File.readlines(args.first, chomp: true)
+      else
+        self.add args
+      end
     when 'gets'
       cipher = Readline.readline("Cipher Text\n#{'>>'.blue} ".bold)
       puts
