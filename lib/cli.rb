@@ -97,8 +97,11 @@ module CLI
       cipher = action
     end
 
-    algos = args
-    [cipher, algos]
+    algos = []
+    args.each do |algo_like|
+      algos += PasswdLib::Algorithms.grep(/#{algo_like}/i)
+    end
+    [cipher, algos.uniq]
   end
 
 end
