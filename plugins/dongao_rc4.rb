@@ -9,9 +9,7 @@ plugin 'dongao_rc4' do
 
   crack {
     ciphertext =  [passwd].pack 'H*'
-    rc4 = OpenSSL::Cipher::RC4.new
-    rc4.key = '12345678ABCDEFGH'
-    plaintext = rc4.update ciphertext
+    plaintext = rc4_decrypt(key: '12345678ABCDEFGH', msg: ciphertext)
     plaintext if plaintext.printable?
   }
 end
