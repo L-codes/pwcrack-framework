@@ -7,7 +7,7 @@
 Version = '1.9.9'
 Project = 'pwcrack-framework'
 
-ROOT = File.dirname(File.realpath(__FILE__))
+ROOT = __dir__
 
 # load lib
 require_relative 'lib/env'
