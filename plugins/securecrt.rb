@@ -17,10 +17,11 @@ plugin 'securecrt' do
         key1 = ['5FB045A29417D916C6C6A2FF064182B7'].pack 'H*'
         key2 = ['24A63DDE5BD3B3829C7E06F40816AA07'].pack 'H*'
         bytes = algo_decrypt('blowfish', key: key2, msg: ciphertext, padding: 0)[4...-4]
-        algo_decrypt('blowfish', key: key1, msg: bytes, padding: 0)
-          .encode('utf-8', 'utf-16le')
-          .split("\0")
-          .first
+        plain = algo_decrypt('blowfish', key: key1, msg: bytes, padding: 0)
+                  .encode('utf-8', 'utf-16le')
+                  .split("\0")
+                  .first
+        plain if plain.printable?
       when :securecrt_v2
         bytes = algo_decrypt('aes-256-cbc', key: sha256(''), msg: ciphertext, padding: 0)
         plaintext_length = bytes.unpack1 'l'

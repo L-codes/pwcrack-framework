@@ -100,7 +100,7 @@ module PasswdLib
         if cipher.size >= 16
           types = Array(types) << :securecrt
         end
-        if cipher.size > 72
+        if cipher.size >= 96
           types = Array(types) << :securecrt_v2
         end
         if cipher.size == 32 and cipher.end_with?('FF1C39567390ADCA')
@@ -136,6 +136,7 @@ module PasswdLib
       algorithms += [:securecrt]
       cipher = cipher[1..-1]
     end
+    algorithms.delete(:unkown) if algorithms.include?(:unkown) and algorithms.size > 1
     passwd.algos = algorithms
     passwd.cipher = cipher
   end
