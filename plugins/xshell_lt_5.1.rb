@@ -9,7 +9,7 @@ plugin 'xshell_lt_5.1' do
   supported_algorithm :xshell
 
   crack {
-    ciphertext =  [passwd].pack 'H*'
+    ciphertext =  passwd.hex2ascii
     key = md5 '!X@s#h$e%l^l&'
     plaintext = rc4_decrypt(key: key, msg: ciphertext)
     plaintext if plaintext.printable?

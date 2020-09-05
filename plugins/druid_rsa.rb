@@ -8,7 +8,7 @@ plugin 'druid_rsa' do
   supported_algorithm :druid_rsa
 
   crack {
-    ciphertext =  [passwd].pack 'H*'
+    ciphertext = passwd.hex2ascii
     pubkey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKHGwq7q2RmwuRgKxBypQHw0mYu4BQZ3eMsTrdK8E6igRcxsobUC7uT0SoxIjl1WveWniCASejoQtn/BY6hVKWsCAwEAAQ==".unpack1('m0')
     rsa = OpenSSL::PKey::RSA.new pubkey
     plaintext = rsa.public_decrypt(ciphertext)

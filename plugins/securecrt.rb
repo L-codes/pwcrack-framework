@@ -10,7 +10,7 @@ plugin 'securecrt' do
   supported_algorithm :securecrt, :securecrt_v2
 
   crack {
-    ciphertext = [passwd].pack 'H*'
+    ciphertext = passwd.hex2ascii
     enum_algorithm do |algorithm|
       case algorithm
       when :securecrt
