@@ -2,6 +2,7 @@
 #
 # Plugin xshell version < 5.1
 # Author L
+# PATH: %AppData%\Roaming\NetSarang\Xshell\Sessions
 #
 
 plugin 'xshell_lt_5.1' do 
