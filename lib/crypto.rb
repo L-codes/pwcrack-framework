@@ -6,31 +6,33 @@
 
 module Crypto
 
-  def algo_decrypt(algo, key:, msg:, iv:nil)
-    aes = OpenSSL::Cipher.new(algo)
-    aes.decrypt
-    aes.key = key
-    aes.iv = iv if iv
-    aes.update(msg) + (aes.final rescue '')
+  def algo_decrypt(algo, key:, msg:, iv:nil, padding: nil)
+    cipher = OpenSSL::Cipher.new(algo)
+    cipher.decrypt
+    cipher.key = key
+    cipher.iv = iv if iv
+    cipher.padding = padding if padding
+    cipher.update(msg) + (cipher.final rescue '')
   end
 
-  def algo_encrypt(algo, key:, msg:, iv:nil)
-    aes = OpenSSL::Cipher.new(algo)
-    aes.encrypt
-    aes.key = key
-    aes.iv = iv if iv
-    aes.update(msg) + (aes.final rescue '')
+  def algo_encrypt(algo, key:, msg:, iv:nil, padding: nil)
+    cipher = OpenSSL::Cipher.new(algo)
+    cipher.encrypt
+    cipher.key = key
+    cipher.iv = iv if iv
+    cipher.padding = padding if padding
+    cipher.update(msg) + (cipher.final rescue '')
   end
 
   def rc4_decrypt(key:, msg:)
     rc4 = OpenSSL::Cipher::RC4.new
     rc4.key = key
-    rc4.update(msg) + rc4.final
+    rc4.update(msg) + (rc4.final rescue '')
   end
 
   alias :rc4_encrypt :rc4_decrypt
 
-  [:md5, :sha1].each do |method|
+  [:md5, :sha1, :sha256].each do |method|
     define_method method do |msg|
       OpenSSL::Digest.new(method.to_s).digest(msg)
     end
