@@ -10,7 +10,7 @@ module PasswdLib
     foxmail gpp h3c_huawei juniper_type9 lm mac_osx_vnc md2 md4 md54
     md5_16 mdc2 mssql mysql3 mysql ntlm ripemd128 ripemd160 ripemd256
     ripemd320 serv_u4 sha15 sha224 sha256 sha384 sha512 whirlpool xftp
-    xshell
+    xshell securecrt securecrt_v2
   }
 
   Passwd = Struct.new(:cipher, :algos) do
@@ -97,6 +97,12 @@ module PasswdLib
         if cipher.size > 80
           types = Array(types) << :cisco_vpn
         end
+        if cipher.size >= 16
+          types = Array(types) << :securecrt
+        end
+        if cipher.size > 72
+          types = Array(types) << :securecrt_v2
+        end
         if cipher.size == 32 and cipher.end_with?('FF1C39567390ADCA')
           types = Array(types) << :mac_osx_vnc
         end
@@ -122,6 +128,13 @@ module PasswdLib
     )
     if cipher.match?(/^(0\d{2}|11\d|12[0-7])+$/)
       algorithms << :filezilla
+    end
+    if cipher.start_with? '02:'
+      algorithms += [:securecrt_v2]
+      cipher = cipher[3..-1]
+    elsif cipher[0] == 'u' and cipher.size.odd?
+      algorithms += [:securecrt]
+      cipher = cipher[1..-1]
     end
     passwd.algos = algorithms
     passwd.cipher = cipher
