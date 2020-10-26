@@ -8,7 +8,7 @@ plugin 'dongao_rc4' do
   supported_algorithm :dongao_rc4
 
   crack {
-    ciphertext =  passwd.hex2ascii
+    ciphertext = passwd.hex2ascii
     plaintext = rc4_decrypt(key: '12345678ABCDEFGH', msg: ciphertext)
     plaintext if plaintext.printable?
   }
