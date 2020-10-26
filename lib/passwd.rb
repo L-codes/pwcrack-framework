@@ -10,7 +10,7 @@ module PasswdLib
     foxmail gpp h3c_huawei juniper_type9 lm mac_osx_vnc md2 md4 md54
     md5_16 mdc2 mssql mysql3 mysql ntlm ripemd128 ripemd160 ripemd256
     ripemd320 serv_u4 sha15 sha224 sha256 sha384 sha512 whirlpool xftp
-    xshell securecrt securecrt_v2
+    xshell securecrt securecrt_v2 dahan_jis
   }
 
   Passwd = Struct.new(:cipher, :algos) do
@@ -57,7 +57,7 @@ module PasswdLib
       case $1
       when /base64/i
         cipher = base64_to_hex(cipher)
-        algorithms += [:gpp, :dongao_rc4, :druid_rsa, :xshell, :xftp]
+        algorithms += [:gpp, :dongao_rc4, :druid_rsa, :xshell, :xftp, :dahan_jis]
       when /hex/i
         cipher = cipher.gsub /\H/, ''
       end
