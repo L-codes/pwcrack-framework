@@ -4,7 +4,7 @@
 # Author L
 #
 
-plugin 'flashfxp' do 
+plugin 'flashfxp' do
   supported_algorithm :flashfxp
 
   crack {
