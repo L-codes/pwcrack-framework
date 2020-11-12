@@ -10,7 +10,7 @@ module PasswdLib
     foxmail gpp h3c_huawei juniper_type9 lm mac_osx_vnc md2 md4 md54
     md5_16 mdc2 mssql mysql3 mysql ntlm ripemd128 ripemd160 ripemd256
     ripemd320 serv_u4 sha15 sha224 sha256 sha384 sha512 whirlpool xftp
-    xshell securecrt securecrt_v2 dahan_jis
+    xshell securecrt securecrt_v2 dahan_jis uportal2800
   }
 
   Passwd = Struct.new(:cipher, :algos) do
@@ -90,6 +90,9 @@ module PasswdLib
                 when 128
                   [:sha512, :whirlpool]
                 end
+        if cipher.size % 32 == 0
+          types = Array(types) + [:uportal2800]
+        end
         types = Array(types) + [:foxmail, :foxmail6]
         if cipher.size > 2 and cipher[0,2].to_i(16) <= 50
           types = Array(types) << :cisco_type7
