@@ -3,6 +3,7 @@
 # Crypto Library
 # Author L
 #
+require 'openssl'
 
 module Crypto
 
