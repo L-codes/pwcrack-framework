@@ -22,6 +22,7 @@ plugin 'uportal2800' do
       # uportal2800 2016
       iv = ciphertext[-16..-1]
       ciphertext = ciphertext[0, ciphertext.size - 16]
+      next if ciphertext.empty?
       %w[
         740636FF64AC046A1EF355A5D652EEF8
         76D7427F354BE35E602A5A20D28E408C
