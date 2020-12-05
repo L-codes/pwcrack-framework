@@ -90,7 +90,11 @@ class PWCrack
 
   def run
     start = Time.now
-    result = @crack_func.call
+    begin
+      result = @crack_func.call
+    rescue => e
+      puts "[!] Error: #{@name} => [#{e.class}] #{e}".red if @@debug
+    end
     status = result ? :success : :notfound
 
     # serv_u result handle
