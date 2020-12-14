@@ -2,6 +2,7 @@
 #
 # Plugin haq4u
 # Author L
+# NOTE Website error, unable to access normally
 #
 
 plugin 'haq4u' do 

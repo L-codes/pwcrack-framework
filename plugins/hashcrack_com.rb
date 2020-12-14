@@ -2,6 +2,7 @@
 #
 # Plugin hashcrack_com
 # Author L
+# NOTE Database error, unable to query normally
 #
 
 plugin 'hashcrack_com' do 

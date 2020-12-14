@@ -2,6 +2,7 @@
 #
 # Plugin hashtoolkit
 # Author L
+# NOTE Website error, unable to access normally
 #
 
 plugin 'hashtoolkit' do 

@@ -2,6 +2,7 @@
 #
 # Plugin hashcracking
 # Author L
+# NOTE Faraday::ConnectionFailed: execution expired
 #
 
 plugin 'hashcracking' do 

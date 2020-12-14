@@ -2,6 +2,7 @@
 #
 # Plugin passwordrecovery
 # Author L
+# NOTE API Error
 #
 
 plugin 'passwordrecovery' do 

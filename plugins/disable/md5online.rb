@@ -2,6 +2,7 @@
 #
 # Plugin md5online
 # Author L
+# NOTE Verification code added
 #
 
 plugin 'md5online' do 

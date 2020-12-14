@@ -14,7 +14,7 @@ plugin 'dehash' do
   crack {
     get '/'
     r = post '/', "searchText=#{passwd}&dehash=Dehash+me"
-    r.body.extract(%r|<th scope="col">Hash Algorithm</th></tr>\s*<tr>\s*<td>(.*?)</td>|)
+    r.body.extract(%r|<th scope="col">Hashed result</th>\s*</tr>\s*<tr>\s*<td>(.+?)</td>|)
   }
 end
 

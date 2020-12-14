@@ -2,6 +2,7 @@
 #
 # Plugin lea
 # Author L
+# NOTE Database error, unable to query normally
 #
 
 plugin 'md5decrypt' do 

@@ -2,6 +2,7 @@
 #
 # Plugin nitrxgen
 # Author L
+# NOTE Faraday::ConnectionFailed: execution expired
 #
 
 plugin 'nitrxgen' do 
