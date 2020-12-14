@@ -1,12 +1,12 @@
 # 0x00 pwcrack-framework
 [简体中文](README.md)　｜　[English](README-en.md)
 
-**pwcrack-framework** 是一个用Ruby编写的密码自动破解框架，目前提供了 26 个在线破解和 16 个离线破解接口，支持 39 种算法破解
+**pwcrack-framework** 是一个用Ruby编写的密码自动破解框架，目前提供了 25 个在线破解和 16 个离线破解接口，支持 40 种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
 # 0x01 Features
-- Ruby2.6+ (tested with Ruby 2.6.2 & Ruby 2.7.1)
+- Ruby2.6+ (tested with Ruby 2.6.2 & Ruby 2.7.2)
 - 支持Linux/OSX/Windows平台运行
 - 支持在线和离线的进行破解密码明文
 - 支持自动分析密文算法调用插件破解
@@ -31,7 +31,7 @@ $ ./pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.10.3
+          '$$$$$$$$$$'  $$$$          version 1.10.4
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -47,23 +47,24 @@ $ ./pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 26        Offline Plugin: 16
+         Online Plugin: 25        Offline Plugin: 17
 
                   [ Algorithm Plugin Count ] 
 
-            md5: 24          serv_u: 24            sha1: 15
+            md5: 23          serv_u: 23            sha1: 15
         dedecms: 10          md5_16: 10          sha256:  8
          sha512:  8           mysql:  7            ntlm:  7
             md4:  5          sha384:  5          mysql3:  5
              lm:  4          sha224:  2           mssql:  2
-   securecrt_v2:  1       securecrt:  1     mac_osx_vnc:  1
-  juniper_type9:  1         foxmail:  1        foxmail6:  1
-     h3c_huawei:  1      dongao_rc4:  1       dahan_jis:  1
-      filezilla:  1          xshell:  1       whirlpool:  1
-      ripemd320:  1       ripemd256:  1       ripemd160:  1
-      ripemd128:  1            mdc2:  1             md2:  1
-       flashfxp:  1       druid_rsa:  1     cisco_type7:  1
-            gpp:  1       cisco_vpn:  1            xftp:  1
+    cisco_type7:  1    securecrt_v2:  1       securecrt:  1
+    mac_osx_vnc:  1   juniper_type9:  1         foxmail:  1
+       foxmail6:  1      h3c_huawei:  1     uportal2800:  1
+     dongao_rc4:  1       dahan_jis:  1       filezilla:  1
+         xshell:  1       whirlpool:  1       ripemd320:  1
+      ripemd256:  1       ripemd160:  1       ripemd128:  1
+           mdc2:  1             md2:  1        flashfxp:  1
+      druid_rsa:  1             gpp:  1       cisco_vpn:  1
+           xftp:  1
 
 
 
