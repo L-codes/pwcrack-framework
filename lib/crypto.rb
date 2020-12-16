@@ -7,18 +7,20 @@ require 'openssl'
 
 module Crypto
 
-  def algo_decrypt(algo, key:, msg:, iv:nil, padding: nil)
+  def algo_decrypt(algo, key:, msg:, key_len: nil, iv:nil, padding: nil)
     cipher = OpenSSL::Cipher.new(algo)
     cipher.decrypt
+    cipher.key_len = key_len if key_len
     cipher.key = key
     cipher.iv = iv if iv
     cipher.padding = padding if padding
     cipher.update(msg) + (cipher.final rescue '')
   end
 
-  def algo_encrypt(algo, key:, msg:, iv:nil, padding: nil)
+  def algo_encrypt(algo, key:, msg:, key_len: nil, iv:nil, padding: nil)
     cipher = OpenSSL::Cipher.new(algo)
     cipher.encrypt
+    cipher.key_len = key_len if key_len
     cipher.key = key
     cipher.iv = iv if iv
     cipher.padding = padding if padding
