@@ -16,6 +16,7 @@ module CLI
     algo_sum = web_urls.count nil
     web_sum  = web_urls.size - algo_sum
     puts "         Online Plugin: #{web_sum}        Offline Plugin: #{algo_sum}"
+    puts "                   supporting algorithms: #{PasswdLib::Algorithms.size}"
     if @@verbose
       puts
       plugin_map.each do |name, (web, _)|
