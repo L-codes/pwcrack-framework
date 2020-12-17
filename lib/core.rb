@@ -65,7 +65,7 @@ class PWCrack
       when :debug
         puts '[!] (%5.2fs) %13s -> %s'.red.bold % [time, name, result] if @@debug
       when :unkown
-        puts '[!] (%5.2fs) %13s -> %s'.red.bold.inverse % [time, name, result] if @@debug
+        puts '[!] (%5.2fs) %13s -> %s'.red.bold.inverse % [time, name, result.class] if @@debug
         puts "[!] #{result.backtrace.first}".red.bold.inverse if @@debug
       end
     end
@@ -90,11 +90,7 @@ class PWCrack
 
   def run
     start = Time.now
-    begin
-      result = @crack_func.call
-    rescue => e
-      puts "[!] Error: #{@name} => [#{e.class}] #{e}".red if @@debug
-    end
+    result = @crack_func.call
     status = result ? :success : :notfound
 
     # serv_u result handle
