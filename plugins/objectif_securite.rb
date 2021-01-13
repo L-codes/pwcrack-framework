@@ -5,7 +5,7 @@
 #
 
 plugin 'objectif_securite' do 
-  web_server 'https://cracker.okx.ch:8443'
+  web_server 'https://cracker.okx.ch'
   supported_algorithm :ntlm
 
   crack {
