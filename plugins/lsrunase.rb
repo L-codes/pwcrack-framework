@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+#
+# Plugin lsrunase LSencrypt.exe
+# Author L
+#
+
+plugin 'lsrunase' do 
+  supported_algorithm :lsrunase
+
+  crack {
+    key = '7F5xjvcP/67YiaC5TtBIgmX0bZWYjzfxEuz8fwT4f4V8fnWD5S5B4gkF9YRExcoeoWi2FhVdBN0N5rnep0jvPlJvOk7v3Ga/olMs+aaNUzoI+4ZqEnJCwXu1ECA9S3jeFJKuNHOXtZuCc9d5M73YX5nhygX14OuatJwVq5S5maH7Q0d1zR0PRN0nfJ1i4/gENvLZzctwm7j+X37Kc3qt9fspPeap/N4nHJiFa4R9y07RneUbpNPG2LtQr1gZJrrfPq7pCAijYL2qmQhQSkRM7vFlMuUll6yo+j+AbbvH5Puvlm3W/NprSCvboNx7ryfxuUKfWMdtQtkMnSbMhIRmc7iM3sc/z/twqKmD7ZGKO8sdXp7/IXUKFG7LQn1Vz5c4ltB4Xlp+bWdbOeU3A6AvV24E/2gHyUM3XFL3Xt8mP+/fxqxN2mAxjEx8FGXpQVLAPLxDU3FrC8p8V1URKCBdR7tUkGq+NNuhElj0Y17u3Ei5WeSJsSbGiXmnWgNYQ5rf+ecA4FLx5klA3iFJxhMl8UCBEDk1YQ8cTrpwt8AFN/lQzVVmdUQDU/YU7892NnLo3ext32gPj6miAYzNSmFma/ARjZaP4u/nI+SGVOFQWSH0l8pJ1dI0dn/G4gYUy068zbdDSegAR3NcFzY+ywXEUB5J243c/zzC4LT1b+aaTvyw8RkkdYNF+FqRa40cw/aoTqxrZH8vhd7ah40tmftecPfvnMtVsJqr6+x4QOy0K85zl1QXvAWZP2glagJxWXf24CWMOPwCWs3OEwPXResgyL21ocvcZMKY7Kzjof61pHUzXghzOv52YIoYe8DCHunV19T/BIXSdOKpTDVFmSEL6fhT+cDv0ckAKOTUxlFnzXyfUbQYkdfV8rc2t3uGe1sbN/wuBGN266I/WY0GL6rwUQtKp77JGRumYXkhhUxygdvPg1rPNJtg0zLTDwP8JLc2xlnTEcIzs/WsSOKvG3Y+/e+KGtP8qBbP73LZ442yucVYIFTgytKJYXLNYUHROYOjORGIVyn4Xte4ne6BEcwnTh4f+O7aoUNM5KYx/mY45dQWeOaeiZaO0sGK4cWNFoLWTwk+Naw9LZ6hUqfgTPLy4R4jTgCxjl8xrL/6P0VxwQppzOFtgeXAttZZuF/zbBmuPvKcSfVj1MB9kBzvxj5EpDHqU7AZCPnJtoEoL3YUHAzCNN4PcnWy0bsTSz2x+rlAj63oJ22y3BmekoM5kMky2fzRSoL+d1iuLFsapMRSgupEGFqJWJ5hKo0e0vUWgYyzJYGmJHQxJ6RJr2RNDgaxMdy4Ia5Jup4o1bCKWBYN2Cy3u2yqa5tz2x8v0pFSnmA1ovmLaHg9YFgvrznxW+XhlA=='.unpack1('m0').bytes
+    ciphertext = passwd.hex2bytes
+    plaintext = ciphertext.zip(key).map{|x, y| x ^ y ^ 97 }.pack 'C*'
+    plaintext if plaintext.printable?
+  }
+end
+
