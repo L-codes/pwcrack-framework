@@ -52,14 +52,20 @@ module PasswdLib
     cipher = passwd.cipher
     algorithms = []
 
-    prefixs = /^(base64|hex):/i
+    prefixs = Regexp.union(
+      /^(base64|hex):/i,
+      /^{xor}/,
+    )
     if cipher =~ prefixs
       cipher = cipher.sub prefixs, ''
-      case $1
+      case $&
       when /base64/i
         cipher = base64_to_hex(cipher)
-        algorithms += [:gpp, :dongao_rc4, :druid_rsa, :xshell, :xftp, :dahan_jis]
+        algorithms += [:gpp, :dongao_rc4, :druid_rsa, :xshell, :xftp, :dahan_jis, :websphere]
         algorithms << :lsrunase if cipher.size <= 1024
+      when '{xor}'
+        cipher = base64_to_hex(cipher)
+        algorithms << :websphere
       when /hex/i
         cipher = cipher.gsub /\H/, ''
       end
