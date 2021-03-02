@@ -16,7 +16,7 @@ GEM
       faraday (~> 1.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    msgpack (1.3.3)
+    msgpack (1.4.2)
     multipart-post (2.1.1)
     rainbow (3.0.0)
     ruby-progressbar (1.11.0)
