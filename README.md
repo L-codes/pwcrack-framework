@@ -1,7 +1,7 @@
 # 0x00 pwcrack-framework
 [简体中文](README.md)　｜　[English](README-en.md)
 
-**pwcrack-framework** 是一个用Ruby编写的密码自动破解框架，目前提供了 25 个在线破解和 19 个离线破解接口，支持 43 种算法破解
+**pwcrack-framework** 是一个用Ruby编写的密码自动破解框架，目前提供了 25 个在线破解和 21 个离线破解接口，支持 44 种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
@@ -22,6 +22,7 @@ $ bundle install
 # banner view
 $ ./pwcrack banner
 
+
                                              
           "$$$$$$''  'M$  '$$$@m            
         :$$$$$$$$$$$$$$''$$$$'               
@@ -31,7 +32,7 @@ $ ./pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.12.0
+          '$$$$$$$$$$'  $$$$          version 1.13.0
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -47,8 +48,8 @@ $ ./pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 25        Offline Plugin: 19
-                   supporting algorithms: 43
+         Online Plugin: 25        Offline Plugin: 21
+                   supporting algorithms: 44
 
                   [ Algorithm Plugin Count ] 
 
@@ -59,15 +60,14 @@ $ ./pwcrack banner
              lm:  4           mssql:  2          sha224:  2
     cisco_type7:  1    securecrt_v2:  1       securecrt:  1
     mac_osx_vnc:  1        lsrunase:  1   juniper_type9:  1
-        foxmail:  1        foxmail6:  1      h3c_huawei:  1
-    uportal2800:  1      dongao_rc4:  1       dahan_jis:  1
-      filezilla:  1          xshell:  1       whirlpool:  1
-      ripemd320:  1       ripemd256:  1       ripemd160:  1
-      ripemd128:  1            mdc2:  1             md2:  1
-       flashfxp:  1       druid_rsa:  1       navicat12:  1
-      navicat11:  1             gpp:  1       cisco_vpn:  1
-           xftp:  1
-
+      qizhi_php:  1         foxmail:  1        foxmail6:  1
+      websphere:  1      h3c_huawei:  1     uportal2800:  1
+     dongao_rc4:  1       dahan_jis:  1       filezilla:  1
+         xshell:  1       whirlpool:  1       ripemd320:  1
+      ripemd256:  1       ripemd160:  1       ripemd128:  1
+           mdc2:  1             md2:  1        flashfxp:  1
+      druid_rsa:  1       navicat12:  1       navicat11:  1
+            gpp:  1       cisco_vpn:  1            xftp:  1
 
 
 # Install in Termux

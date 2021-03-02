@@ -1,7 +1,7 @@
 # 0x00 pwcrack-framework
 + [简体中文](README.md)　｜　[English](README-en.md)
 
-**pwcrack-framework** is a password automatic cracking framework written in Ruby, currently provides 25 online cracks and 19 offline crack interfaces, supporting 43 algorithms to crack.
+**pwcrack-framework** is a password automatic cracking framework written in Ruby, currently provides 25 online cracks and 21 offline crack interfaces, supporting 44 algorithms to crack.
 
 project address：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
@@ -22,6 +22,7 @@ $ bundle install
 # banner view
 $ ./pwcrack banner
 
+
                                              
           "$$$$$$''  'M$  '$$$@m            
         :$$$$$$$$$$$$$$''$$$$'               
@@ -31,7 +32,7 @@ $ ./pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.12.0
+          '$$$$$$$$$$'  $$$$          version 1.13.0
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -47,8 +48,8 @@ $ ./pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 25        Offline Plugin: 19
-                   supporting algorithms: 43
+         Online Plugin: 25        Offline Plugin: 21
+                   supporting algorithms: 44
 
                   [ Algorithm Plugin Count ] 
 
@@ -59,16 +60,16 @@ $ ./pwcrack banner
              lm:  4           mssql:  2          sha224:  2
     cisco_type7:  1    securecrt_v2:  1       securecrt:  1
     mac_osx_vnc:  1        lsrunase:  1   juniper_type9:  1
-        foxmail:  1        foxmail6:  1      h3c_huawei:  1
-    uportal2800:  1      dongao_rc4:  1       dahan_jis:  1
-      filezilla:  1          xshell:  1       whirlpool:  1
-      ripemd320:  1       ripemd256:  1       ripemd160:  1
-      ripemd128:  1            mdc2:  1             md2:  1
-       flashfxp:  1       druid_rsa:  1       navicat12:  1
-      navicat11:  1             gpp:  1       cisco_vpn:  1
-           xftp:  1
+      qizhi_php:  1         foxmail:  1        foxmail6:  1
+      websphere:  1      h3c_huawei:  1     uportal2800:  1
+     dongao_rc4:  1       dahan_jis:  1       filezilla:  1
+         xshell:  1       whirlpool:  1       ripemd320:  1
+      ripemd256:  1       ripemd160:  1       ripemd128:  1
+           mdc2:  1             md2:  1        flashfxp:  1
+      druid_rsa:  1       navicat12:  1       navicat11:  1
+            gpp:  1       cisco_vpn:  1            xftp:  1
 
-
+                                             
 
 # Install in Termux
 $ pkg install git ruby ruby-dev clang make libffi-dev
