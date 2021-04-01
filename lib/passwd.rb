@@ -152,6 +152,9 @@ module PasswdLib
     elsif cipher[0] == 'u' and cipher.size.odd?
       algorithms += [:securecrt]
       cipher = cipher[1..-1]
+    elsif cipher =~ /-?((?:\d{0,3}-)+\d{0,3})/
+      algorithms += [:h3c_imc]
+      cipher = $1
     end
     algorithms.delete(:unkown) if algorithms.include?(:unkown) and algorithms.size > 1
     passwd.algos = algorithms
