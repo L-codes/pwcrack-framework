@@ -11,7 +11,7 @@ module PasswdLib
     md5_16 mdc2 mssql mysql3 mysql ntlm ripemd128 ripemd160 ripemd256
     ripemd320 serv_u sha1 sha224 sha256 sha384 sha512 whirlpool xftp
     xshell securecrt securecrt_v2 dahan_jis uportal2800 navicat11 navicat12
-    flashfxp lsrunase qizhi_php
+    flashfxp lsrunase qizhi_php seeyon_a8
   }
 
   Passwd = Struct.new(:cipher, :algos) do
@@ -61,7 +61,7 @@ module PasswdLib
       case $&
       when /base64/i
         cipher = base64_to_hex(cipher)
-        algorithms += [:gpp, :dongao_rc4, :druid_rsa, :xshell, :xftp, :dahan_jis, :websphere, :qizhi_php]
+        algorithms += [:gpp, :dongao_rc4, :druid_rsa, :xshell, :xftp, :dahan_jis, :websphere, :qizhi_php, :seeyon_a8]
         algorithms << :lsrunase if cipher.size <= 1024
       when '{xor}'
         cipher = base64_to_hex(cipher)
