@@ -1,7 +1,7 @@
 # 0x00 pwcrack-framework
 + [简体中文](README.md)　｜　[English](README-en.md)
 
-**pwcrack-framework** is a password automatic cracking framework written in Ruby, currently provides 25 online cracks and 23 offline crack interfaces, supporting 46 algorithms to crack.
+**pwcrack-framework** is a password automatic cracking framework written in Ruby, currently provides 25 online cracks and 24 offline crack interfaces, supporting 47 algorithms to crack.
 
 project address：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
@@ -12,6 +12,7 @@ project address：[https://github.com/L-codes/pwcrack-framework](https://github.
 - Support automatic analysis of ciphertext algorithm call plugin crack
 - Provide a simple DSL writing framework plugin
 - Selectively improve performance, you can install `gem install typhoeus` (windows need to install libcurl can be ignored)
+- Configure java environment extension, support more algorithms, install `gem install rjb`
 
 # 0x02 Installing
 ```
@@ -22,7 +23,7 @@ $ bundle install
 # banner view
 $ ./pwcrack banner
 
-                                             
+
           "$$$$$$''  'M$  '$$$@m            
         :$$$$$$$$$$$$$$''$$$$'               
        '$'    'JZI'$$&  $$$$'                
@@ -31,7 +32,7 @@ $ ./pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.14.0
+          '$$$$$$$$$$'  $$$$          version 1.16.0
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -47,27 +48,27 @@ $ ./pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 25        Offline Plugin: 23
-                   supporting algorithms: 46
+         Online Plugin: 25        Offline Plugin: 24
+                   supporting algorithms: 47
 
                   [ Algorithm Plugin Count ] 
 
-            md5: 23          serv_u: 23            sha1: 15
+         serv_u: 23             md5: 23            sha1: 15
         dedecms: 10          md5_16: 10          sha256:  8
          sha512:  8           mysql:  7            ntlm:  7
-            md4:  5          sha384:  5          mysql3:  5
-             lm:  4           mssql:  2          sha224:  2
+         sha384:  5             md4:  5          mysql3:  5
+             lm:  4          sha224:  2           mssql:  2
+            md2:  1        flashfxp:  1       seeyon_a8:  1
       druid_rsa:  1     cisco_type7:  1    securecrt_v2:  1
       securecrt:  1     mac_osx_vnc:  1        lsrunase:  1
   juniper_type9:  1       qizhi_php:  1         foxmail:  1
-       foxmail6:  1       websphere:  1       seeyon_a8:  1
-    uportal2800:  1      dongao_rc4:  1       dahan_jis:  1
-        h3c_imc:  1       filezilla:  1          xshell:  1
-      whirlpool:  1       ripemd320:  1       ripemd256:  1
-      ripemd160:  1       ripemd128:  1            mdc2:  1
-            md2:  1        flashfxp:  1       navicat12:  1
-      navicat11:  1             gpp:  1       cisco_vpn:  1
-     h3c_huawei:  1            xftp:  1
+       foxmail6:  1       websphere:  1       ripemd128:  1
+      ripemd160:  1       ripemd256:  1       ripemd320:  1
+      whirlpool:  1          xshell:  1       filezilla:  1
+        h3c_imc:  1       dahan_jis:  1      dongao_rc4:  1
+    landray_ekp:  1     uportal2800:  1            xftp:  1
+      navicat12:  1       navicat11:  1             gpp:  1
+      cisco_vpn:  1            mdc2:  1      h3c_huawei:  1
 
 
 # Install in Termux
