@@ -13,9 +13,11 @@ ENV['BUNDLE_GEMFILE'] = "#{ROOT}/Gemfile"
 require 'bundler/setup'
 
 # load all external
-#Dir["#{ROOT}/external/**/*.rb"].each do |external|
-#  require_relative external
-#end
+disable_external = %w{ javascript }
+Dir.each_child("#{ROOT}/external") do |external|
+  next if disable_external.include? external
+  load "#{ROOT}/external/#{external}/#{external}.rb"
+end
 
 autoload :MessagePack, 'msgpack'
 autoload :Base64,      'base64'
