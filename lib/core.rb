@@ -66,7 +66,11 @@ class PWCrack
         puts '[!] (%5.2fs) %13s -> %s'.red.bold % [time, name, result] if @@debug
       when :unkown
         puts '[!] (%5.2fs) %13s -> %s'.red.bold.inverse % [time, name, result.class] if @@debug
-        puts "[!] #{result.backtrace.first}".red.bold.inverse if @@debug
+        if @@debug
+          result.backtrace.each do |e|
+            puts "[!] #{e}".red.bold.inverse
+          end
+        end
       end
     end
 
