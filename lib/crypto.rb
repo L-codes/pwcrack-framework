@@ -4,6 +4,7 @@
 # Author L
 #
 require 'openssl'
+require_relative 'crypto/d3des'
 
 module Crypto
 

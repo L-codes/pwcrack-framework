@@ -11,7 +11,7 @@ module PasswdLib
     md5_16 mdc2 mssql mysql3 mysql ntlm ripemd128 ripemd160 ripemd256
     ripemd320 serv_u sha1 sha224 sha256 sha384 sha512 whirlpool xftp
     xshell securecrt securecrt_v2 dahan_jis uportal2800 navicat11 navicat12
-    flashfxp lsrunase qizhi_php seeyon_a8 h3c_imc landray_ekp
+    flashfxp lsrunase qizhi_php seeyon_a8 h3c_imc landray_ekp d3des_vnc
   }
 
   Passwd = Struct.new(:cipher, :algos) do
@@ -112,7 +112,7 @@ module PasswdLib
           types = Array(types) << :cisco_vpn
         end
         if cipher.size >= 16
-          types = Array(types) << :securecrt
+          types = Array(types) + [:securecrt, :d3des_vnc]
         end
         if cipher.size >= 96
           types = Array(types) << :securecrt_v2
