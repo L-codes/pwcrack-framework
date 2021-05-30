@@ -155,6 +155,12 @@ module PasswdLib
     elsif cipher =~ /-?((?:\d{0,3}-)+\d{0,3})/
       algorithms += [:h3c_imc]
       cipher = $1
+    elsif cipher =~ /^___((00\h\h)+)/
+      algorithms += [:finereport]
+      cipher = $1
+    end
+    if cipher.match? /^((00\h\h)+)$/
+      algorithms += [:finereport]
     end
     algorithms.delete(:unkown) if algorithms.include?(:unkown) and algorithms.size > 1
     passwd.algos = algorithms
