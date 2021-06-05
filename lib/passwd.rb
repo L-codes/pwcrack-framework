@@ -12,6 +12,7 @@ module PasswdLib
     ripemd320 serv_u sha1 sha224 sha256 sha384 sha512 whirlpool xftp
     xshell securecrt securecrt_v2 dahan_jis uportal2800 navicat11 navicat12
     flashfxp lsrunase qizhi_php seeyon_a8 h3c_imc landray_ekp d3des_vnc
+    finereport
   }
 
   Passwd = Struct.new(:cipher, :algos) do
