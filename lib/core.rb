@@ -88,7 +88,7 @@ class PWCrack
     @@quiet   = opts[:quiet]
     @@select  = opts[:select]
     @@verbose = opts[:verbose]
-    @@debug = opts[:debug]
+    @@debug   = opts[:debug]
     HTTP.set(opts)
   end
 

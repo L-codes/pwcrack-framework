@@ -47,7 +47,7 @@ module HTTP
     @i ||= 0
     session.send(method, *args, &block)
   rescue => e
-    puts "[!] Error (#{session.url_prefix}) #{e.class}: #{e}".red if @@verbose
+    puts "[!] Error (#{session.url_prefix}) #{e.class}: #{e}".red if @@http_verbose
     sleep @@retry_interval
     @i += 1
     retry if @i <= @@retry
@@ -73,7 +73,7 @@ module HTTP
   def self.set(opts)
     @@timeout        = opts[:timeout]
     @@open_timeout   = opts[:open_timeout]
-    @@verbose        = opts[:verbose]
+    @@http_verbose   = opts[:verbose]
     @@retry          = opts[:retry]
     @@retry_interval = opts[:retry_interval]
     @@proxy          = opts[:proxy]
