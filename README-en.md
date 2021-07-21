@@ -6,7 +6,7 @@
 project address：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
 # 0x01 Features
-- Ruby2.6+ (tested with Ruby 2.6.2 & Ruby 2.7.2)
+- Ruby2.7+ (tested with Ruby 2.7.2 & Ruby 3.0.2)
 - Support for Linux/OSX/Windows platform operation
 - Support online and offline crack password clear text
 - Support automatic analysis of ciphertext algorithm call plugin crack
