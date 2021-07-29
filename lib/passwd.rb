@@ -159,12 +159,15 @@ module PasswdLib
     elsif cipher =~ /^___((00\h\h)+)/
       algorithms += [:finereport]
       cipher = $1
+    elsif cipher =~ %r|^/1\.0/(\w+=*)|
+      algorithms += [:seeyon_a8]
+      cipher = $1.unpack1('m0').unpack1('H*')
     end
     if cipher.match? /^((00\h\h)+)$/
       algorithms += [:finereport]
     end
     algorithms.delete(:unkown) if algorithms.include?(:unkown) and algorithms.size > 1
-    passwd.algos = algorithms
+    passwd.algos = algorithms.uniq
     passwd.cipher = cipher
   end
 end
