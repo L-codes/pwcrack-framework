@@ -32,7 +32,7 @@ $ ./pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.16.1
+          '$$$$$$$$$$'  $$$$          version 1.16.3
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -48,8 +48,8 @@ $ ./pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 25        Offline Plugin: 25
-                   supporting algorithms: 48
+         Online Plugin: 25        Offline Plugin: 26
+                   supporting algorithms: 49
 
                   [ Algorithm Plugin Count ] 
 
@@ -58,18 +58,18 @@ $ ./pwcrack banner
          sha512:  8           mysql:  7            ntlm:  7
             md4:  5          sha384:  5          mysql3:  5
              lm:  4          sha224:  2           mssql:  2
-       flashfxp:  1       druid_rsa:  1     cisco_type7:  1
-   securecrt_v2:  1       securecrt:  1       d3des_vnc:  1
-    mac_osx_vnc:  1        lsrunase:  1   juniper_type9:  1
-      qizhi_php:  1         foxmail:  1        foxmail6:  1
-      websphere:  1       seeyon_a8:  1     uportal2800:  1
-    landray_ekp:  1      dongao_rc4:  1       dahan_jis:  1
-        h3c_imc:  1       filezilla:  1          xshell:  1
-      whirlpool:  1       ripemd320:  1       ripemd256:  1
-      ripemd160:  1       ripemd128:  1            mdc2:  1
-            md2:  1       navicat12:  1       navicat11:  1
-            gpp:  1       cisco_vpn:  1      h3c_huawei:  1
-           xftp:  1
+     finereport:  1        flashfxp:  1       druid_rsa:  1
+    cisco_type7:  1    securecrt_v2:  1       securecrt:  1
+      d3des_vnc:  1     mac_osx_vnc:  1        lsrunase:  1
+  juniper_type9:  1       qizhi_php:  1         foxmail:  1
+       foxmail6:  1       websphere:  1       seeyon_a8:  1
+    uportal2800:  1     landray_ekp:  1      dongao_rc4:  1
+      dahan_jis:  1         h3c_imc:  1       filezilla:  1
+         xshell:  1       whirlpool:  1       ripemd320:  1
+      ripemd256:  1       ripemd160:  1       ripemd128:  1
+           mdc2:  1             md2:  1       navicat12:  1
+      navicat11:  1             gpp:  1       cisco_vpn:  1
+     h3c_huawei:  1            xftp:  1
 
 
 # Install in Termux
