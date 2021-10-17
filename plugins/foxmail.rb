@@ -22,8 +22,8 @@ plugin 'foxmail' do
         fc = 0x71
       end
 
-      break nil if b.size > 80
-      key *= 10
+      break nil if b.size > 200
+      key *= 25
       b[0] ^= fc
 
       d = []
