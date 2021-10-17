@@ -4,7 +4,7 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     e2mmap (0.1.0)
-    faraday (1.5.1)
+    faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -12,6 +12,7 @@ GEM
       faraday-net_http (~> 1.0)
       faraday-net_http_persistent (~> 1.1)
       faraday-patron (~> 1.0)
+      faraday-rack (~> 1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords (>= 0.0.4)
     faraday-cookie_jar (0.0.7)
@@ -24,7 +25,8 @@ GEM
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
-    faraday_middleware (1.0.0)
+    faraday-rack (1.0.0)
+    faraday_middleware (1.2.0)
       faraday (~> 1.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
@@ -37,7 +39,7 @@ GEM
       e2mmap
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.7)
+    unf_ext (0.0.8)
 
 PLATFORMS
   ruby
@@ -51,4 +53,4 @@ DEPENDENCIES
   thwait
 
 BUNDLED WITH
-   2.1.4
+   2.2.15
