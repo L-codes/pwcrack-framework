@@ -37,7 +37,7 @@ module CLI
       opts.on('-r', '--retry num', Integer, "Retry numbers [default: #{options[:retry]}]")
       opts.on('-i', '--retry-interval second', Float, "Retry Interval seconds [default: #{options[:retry_interval]}]")
       opts.on('-s', '--select plugin_name', String, 'Specify plugins (plugin1[,plugin2...])')
-      opts.on('-p', '--proxy "proto://ip:port"', /(?:socks[45]a?|https?):\/\/.+?$/, 'Set Proxy')
+      opts.on('-x', '--proxy "proto://ip:port"', /(?:socks[45]a?|https?):\/\/.+?$/, 'Set Proxy')
       opts.on('-v', '--verbose', 'Run verbosely')
       opts.on('-d', '--debug', 'Run debug mode')
       opts.on('--nocolor', 'Disable color output')
