@@ -11,7 +11,6 @@ project address：[https://github.com/L-codes/pwcrack-framework](https://github.
 - Support online and offline crack password clear text
 - Support automatic analysis of ciphertext algorithm call plugin crack
 - Provide a simple DSL writing framework plugin
-- Selectively improve performance, you can install `gem install typhoeus` (windows need to install libcurl can be ignored)
 - Configure java environment extension, support more algorithms, install `gem install rjb`
 
 # 0x02 Installing

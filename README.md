@@ -11,7 +11,6 @@
 - 支持在线和离线的进行破解密码明文
 - 支持自动分析密文算法调用插件破解
 - 提供简单DSL编写框架插件
-- 选择性提高性能，可以安装`gem install typhoeus` (windows需要装libcurl可以忽略)
 - 配置 java 环境扩展，支持更多算法, 可安装 `gem install rjb`
 
 # 0x02 Installing
