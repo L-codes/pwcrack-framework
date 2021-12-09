@@ -12,7 +12,7 @@ plugin 'passwordrecovery' do
   crack {
     enum_algorithm do |algorithm|
       r = post "/#{algorithm}", "hashinput=#{passwd}&thetest=get#{algorithm}&name_of_nonce_field="
-      r.body.extract(/Found: <b>(.+?)\s+<\/b>/)
+      r.body.extract(/Found: <b>(.+?)<\/b>/)
     end
   }
 end

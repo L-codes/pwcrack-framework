@@ -36,7 +36,7 @@ plugin 'navicat' do
         # unpadding
         len = plaintext.size - plaintext[-1].ord
         plaintext = plaintext[0, len]
-        plaintext if plaintext.printable?
+        plaintext if plaintext&.printable?
       end
     end
   }
