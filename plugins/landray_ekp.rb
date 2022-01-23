@@ -2,6 +2,7 @@
 #
 # Plugin landray_ekp database decrypt
 # Author L
+# File: WEB-INF/KmssConfig/admin.properties
 #
 
 if Kernel.const_defined? :Rjb
