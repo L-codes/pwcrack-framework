@@ -17,7 +17,7 @@ plugin 'landray_ekp' do
       des = EKPDESEncrypt.new("kmssAdminKey", israndom)
       plain = des.decrypt(passwd.hex2ascii) rescue nil
     }
-    plain if plain.printable?
+    plain if plain&.printable?
   }
 end
 

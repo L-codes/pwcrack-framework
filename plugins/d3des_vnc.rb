@@ -4,6 +4,7 @@
 # Author L
 #
 # Ref: https://github.com/rm1984/VNCpwd
+# ~/.vnc/passwd
 #
 
 plugin 'd3des_vnc' do 

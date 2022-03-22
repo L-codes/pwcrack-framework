@@ -160,9 +160,9 @@ module PasswdLib
     elsif cipher =~ /^___((00\h\h)+)/
       algorithms += [:finereport]
       cipher = $1
-    elsif cipher =~ %r|^/1\.0/(\w+=*)|
+    elsif cipher =~ /^\/(1\.0|2\.4)\/(\w+=*)/
       algorithms += [:seeyon_a8]
-      cipher = $1.unpack1('m0').unpack1('H*')
+      cipher = $2.unpack1('m0').unpack1('H*')
     end
     if cipher.match? /^((00\h\h)+)$/
       algorithms += [:finereport]
