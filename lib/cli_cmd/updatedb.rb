@@ -104,7 +104,12 @@ module CLI
               r.reverse.pack('C*')
             }
 
-            key = str_to_key[ word.upcase.encode('ISO-8859-1').ljust(14, "\x00") ]
+            begin
+              key = str_to_key[ word.upcase.encode('ISO-8859-1').ljust(14, "\x00") ]
+            rescue
+              next
+            end
+
 
             h = ''
             des.reset
