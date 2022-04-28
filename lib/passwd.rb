@@ -12,7 +12,7 @@ module PasswdLib
     ripemd320 serv_u sha1 sha224 sha256 sha384 sha512 whirlpool xftp
     xshell securecrt securecrt_v2 dahan_jis uportal2800 navicat11 navicat12
     flashfxp lsrunase qizhi_php seeyon_a8 h3c_imc landray_ekp d3des_vnc
-    finereport zfsoft grafana
+    finereport zfsoft grafana trswcm
   }
 
   Passwd = Struct.new(:cipher, :algos) do
@@ -169,6 +169,10 @@ module PasswdLib
     end
     if cipher.size < 20 and cipher.upcase != cipher and cipher.downcase != cipher
       algorithms += [:zfsoft]
+    end
+    if cipher =~ /^Encrypted(\w+.{,2})/
+      algorithms = [:trswcm]
+      cipher = $1.tr('.', '=')
     end
     algorithms.delete(:unkown) if algorithms.include?(:unkown) and algorithms.size > 1
     passwd.algos = algorithms.uniq
