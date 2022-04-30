@@ -1,7 +1,7 @@
 # 0x00 pwcrack-framework
 [简体中文](README.md)　｜　[English](README-en.md)
 
-**pwcrack-framework** 是一个用Ruby编写的密码自动破解框架，目前提供了 21 个在线破解和 29 个离线破解接口，支持 52 种算法破解
+**pwcrack-framework** 是一个用Ruby编写的密码自动破解框架，目前提供了 22 个在线破解和 29 个离线破解接口，支持 52 种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
@@ -31,7 +31,7 @@ $ ./pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.16.8
+          '$$$$$$$$$$'  $$$$          version 1.16.9
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -47,15 +47,15 @@ $ ./pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 21        Offline Plugin: 29
+         Online Plugin: 22        Offline Plugin: 29
                    supporting algorithms: 52
 
                   [ Algorithm Plugin Count ] 
 
-         serv_u: 19             md5: 19            sha1: 11
-        dedecms: 10          md5_16: 10           mysql:  7
-           ntlm:  6          mysql3:  5          sha256:  5
-         sha512:  5              lm:  4             md4:  4
+         serv_u: 20             md5: 20            sha1: 12
+        dedecms: 10          md5_16: 10           mysql:  8
+           ntlm:  7          mysql3:  6          sha256:  6
+         sha512:  6              lm:  4             md4:  4
           mssql:  2          sha384:  2   juniper_type9:  1
         h3c_imc:  1      h3c_huawei:  1         grafana:  1
             gpp:  1         foxmail:  1        foxmail6:  1
