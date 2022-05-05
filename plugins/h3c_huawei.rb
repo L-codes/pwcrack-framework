@@ -11,7 +11,7 @@ plugin 'h3c_huawei' do
     #s_enum_byte = passwd.each_byte.map{ |x| (x == ?a.ord ? ??.ord : x) - ?!.ord }
     s_enum_byte = passwd.each_byte.map{ |x| (x == 97 ? 63 : x) - 33 }
 
-    out = Array.new(18, 0)
+    out = Array.new(0)
     i = 0
     s_enum_byte.each_slice(4) do |a, b, c, d|
       y = a
@@ -31,10 +31,10 @@ plugin 'h3c_huawei' do
 
       i += 3
     end
-    ciphertext = out[0,16].pack 'C*'
+    ciphertext = out.pack 'C*'
 
     key = "\x01\x02\x03\x04\x05\x06\x07\x08"
-    plaintext = algo_decrypt('des-cbc', msg: ciphertext, key: key).rstrip
+    plaintext = algo_decrypt('des-ecb', msg: ciphertext, key: key).rstrip
     plaintext if plaintext.printable?
   }
 end

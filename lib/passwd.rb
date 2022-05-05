@@ -125,7 +125,7 @@ module PasswdLib
         types
       when /^\$9\$/
         :juniper_type9
-      when /^\p{ASCII}{24}$/
+      when /^\p{ASCII}{24}$/, /^\p{ASCII}{88}$/
         :h3c_huawei
       when /(^([a-f0-9]{2})+!$)|(^([A-F0-9]{2})+!$)/
         :foxmail
@@ -147,14 +147,14 @@ module PasswdLib
     end
     if cipher.match?(/^(\h{2})+:\d+:\h{40}:[^:]+$/)
       algorithms << :qizhi_php
-    end
+    end 
     if cipher.start_with? '02:'
       algorithms += [:securecrt_v2]
       cipher = cipher[3..-1]
     elsif cipher[0] == 'u' and cipher.size.odd?
       algorithms += [:securecrt]
       cipher = cipher[1..-1]
-    elsif cipher =~ /-?((?:\d{0,3}-)+\d{0,3})/
+    elsif cipher =~ /^-?((?:\d{0,3}-)+\d{0,3})$/
       algorithms += [:h3c_imc]
       cipher = $1
     elsif cipher =~ /^___((00\h\h)+)/
