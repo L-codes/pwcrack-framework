@@ -10,20 +10,7 @@ plugin 'landray_ekp' do
 
   crack {
     key = 'kmssAdminKey'
-
-    if Kernel.const_defined? :Rjb
-      EKPDESEncrypt = Rjb.import 'com.landray.kmss.util.DESEncrypt'
-      plain = ""
-      [false, true].find { |israndom|
-        des = EKPDESEncrypt.new(key, israndom)
-        plain = des.decrypt(passwd.hex2ascii) rescue nil
-      }
-
-    else
-      plain = algo_decrypt('des-ecb', msg: passwd.hex2ascii, key: key[0, 8])
-
-    end
-
+    plain = algo_decrypt('des-ecb', msg: passwd.hex2ascii, key: key[0, 8])
     plain if plain&.printable?
   }
 end
