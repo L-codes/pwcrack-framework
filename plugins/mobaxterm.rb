@@ -3,6 +3,10 @@
 # Plugin mobaxterm
 # Author L
 #
+# ref:
+#   https://github.com/xillwillx/MobaXterm-Decryptor
+#   https://github.com/HyperSine/how-does-MobaXterm-encrypt-password
+#
 
 plugin 'mobaxterm' do 
   supported_algorithm :mobaxterm
