@@ -6,7 +6,7 @@
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
 # 0x01 Features
-- Ruby2.7+ (tested with Ruby 2.7.2 & Ruby 3.1.1)
+- Ruby3.1+ (tested with Ruby 3.1.1)
 - 支持Linux/OSX/Windows平台运行
 - 支持在线和离线的进行破解密码明文
 - 支持自动分析密文算法调用插件破解
