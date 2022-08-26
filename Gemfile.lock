@@ -6,7 +6,7 @@ GEM
     e2mmap (0.1.0)
     ethon (0.15.0)
       ffi (>= 1.15.0)
-    faraday (1.10.0)
+    faraday (1.10.2)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -25,8 +25,8 @@ GEM
     faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
     faraday-httpclient (1.0.1)
-    faraday-multipart (1.0.3)
-      multipart-post (>= 1.2, < 3)
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
@@ -35,10 +35,10 @@ GEM
     faraday_middleware (1.2.0)
       faraday (~> 1.0)
     ffi (1.15.5)
-    http-cookie (1.0.4)
+    http-cookie (1.0.5)
       domain_name (~> 0.5)
-    msgpack (1.4.5)
-    multipart-post (2.1.1)
+    msgpack (1.5.6)
+    multipart-post (2.2.3)
     rainbow (3.1.1)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
@@ -48,7 +48,7 @@ GEM
       ethon (>= 0.9.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.8.1)
+    unf_ext (0.0.8.2)
 
 PLATFORMS
   ruby
