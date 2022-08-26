@@ -4,7 +4,7 @@
 # Author L
 #
 
-Version = '1.16.12'
+Version = '1.16.13'
 Project = 'pwcrack-framework'
 
 ROOT = __dir__
