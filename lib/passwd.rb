@@ -13,6 +13,7 @@ module PasswdLib
     xshell securecrt securecrt_v2 dahan_jis uportal2800 navicat11 navicat12
     flashfxp lsrunase qizhi_php seeyon_a8 h3c_imc landray_ekp d3des_vnc
     finereport zfsoft grafana trswcm mobaxterm seeyon_analyze_icloud
+    richmail
   }
 
   Passwd = Struct.new(:cipher, :algos) do
@@ -89,13 +90,13 @@ module PasswdLib
                 when 20
                   :dedecms
                 when 32
-                  [:md2, :md4, :md5, :mdc2, :lm, :ntlm, :ripemd128]
+                  [:md2, :md4, :md5, :mdc2, :lm, :ntlm, :ripemd128, :richmail]
                 when 40
                   [:sha1, :mysql, :ripemd160]
                 when 56
                   :sha224
                 when 64
-                  [:sha256, :ripemd256]
+                  [:sha256, :ripemd256, :richmail]
                 when 80
                   :ripemd320
                 when 96
