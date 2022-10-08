@@ -1,7 +1,7 @@
 # 0x00 pwcrack-framework
 [简体中文](README.md)　｜　[English](README-en.md)
 
-**pwcrack-framework** 是一个用Ruby编写的密码自动破解框架，目前提供了 23 个在线破解和 32 个离线破解接口，支持 55 种算法破解
+**pwcrack-framework** 是一个用Ruby编写的密码自动破解框架，目前提供了 23 个在线破解和 34 个离线破解接口，支持 57 种算法破解
 
 项目地址：[https://github.com/L-codes/pwcrack-framework](https://github.com/L-codes/pwcrack-framework)
 
@@ -31,7 +31,7 @@ $ ./pwcrack banner
                 m$$$$  $$$$,                
                 $$$$@  '$$$$_         pwcrack-framework
              '1t$$$$' '$$$$<               
-          '$$$$$$$$$$'  $$$$          version 1.16.13
+          '$$$$$$$$$$'  $$$$          version 1.16.14
                '@$$$$'  $$$$'                
                 '$$$$  '$$$@                 
              'z$$$$$$  @$$$                  
@@ -47,8 +47,8 @@ $ ./pwcrack banner
 
                        [ Plugin Count ] 
 
-         Online Plugin: 23        Offline Plugin: 32
-                   supporting algorithms: 55
+         Online Plugin: 23        Offline Plugin: 34
+                   supporting algorithms: 57
 
                   [ Algorithm Plugin Count ] 
 
@@ -56,21 +56,22 @@ $ ./pwcrack banner
         dedecms: 10          md5_16: 10           mysql:  8
          sha256:  7            ntlm:  7          sha512:  7
          mysql3:  6             md4:  4              lm:  4
-         sha384:  3           mssql:  2     mac_osx_vnc:  1
-       lsrunase:  1     landray_ekp:  1   juniper_type9:  1
-        h3c_imc:  1      h3c_huawei:  1         grafana:  1
-            gpp:  1         foxmail:  1        foxmail6:  1
-       flashfxp:  1      finereport:  1       filezilla:  1
-      druid_rsa:  1      dongao_rc4:  1       whirlpool:  1
-         sha224:  1       ripemd320:  1       ripemd256:  1
-      ripemd160:  1       ripemd128:  1            mdc2:  1
-            md2:  1       dahan_jis:  1       d3des_vnc:  1
-      cisco_vpn:  1     cisco_type7:  1          xshell:  1
-           xftp:  1       websphere:  1     uportal2800:  1
-         trswcm:  1 seeyon_analyze_icloud:  1       seeyon_a8:  1
+         sha384:  3           mssql:  2       mobaxterm:  1
+    mac_osx_vnc:  1        lsrunase:  1     landray_ekp:  1
+  juniper_type9:  1         h3c_imc:  1      h3c_huawei:  1
+        h3c_cvm:  1         grafana:  1             gpp:  1
+        foxmail:  1        foxmail6:  1        flashfxp:  1
+     finereport:  1       filezilla:  1       druid_rsa:  1
+     dongao_rc4:  1       whirlpool:  1          sha224:  1
+      ripemd320:  1       ripemd256:  1       ripemd160:  1
+      ripemd128:  1            mdc2:  1             md2:  1
+      dahan_jis:  1       d3des_vnc:  1       cisco_vpn:  1
+    cisco_type7:  1          xshell:  1            xftp:  1
+      websphere:  1     uportal2800:  1          trswcm:  1
+         signer:  1 seeyon_analyze_icloud:  1       seeyon_a8:  1
    securecrt_v2:  1       securecrt:  1        richmail:  1
       qizhi_php:  1       navicat12:  1       navicat11:  1
-      mobaxterm:  1          zfsoft:  1
+         zfsoft:  1
 
 
 # Install in Termux
