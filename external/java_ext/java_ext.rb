@@ -7,7 +7,11 @@ rescue LoadError
 end
 
 if module_loaded
-  Rjb.add_classpath "#{ROOT}/external/java_classes/"
+  Rjb.add_classpath "#{ROOT}/external/java_ext/classes/"
+  
+  Dir["#{ROOT}/external/java_ext/jar/*.jar"].each do |file|
+    Rjb.add_jar file
+  end
 end
 
 =begin
