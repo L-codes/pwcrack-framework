@@ -4,9 +4,9 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     e2mmap (0.1.0)
-    ethon (0.15.0)
+    ethon (0.16.0)
       ffi (>= 1.15.0)
-    faraday (1.10.2)
+    faraday (1.10.3)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -37,9 +37,10 @@ GEM
     ffi (1.15.5)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
-    msgpack (1.5.6)
-    multipart-post (2.2.3)
+    msgpack (1.6.0)
+    multipart-post (2.3.0)
     rainbow (3.1.1)
+    rjb (1.6.7)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
     thwait (0.2.0)
@@ -58,9 +59,10 @@ DEPENDENCIES
   faraday_middleware (>= 0.12.2)
   msgpack (>= 1.2.6)
   rainbow (>= 3.0.0)
+  rjb (~> 1.6)
   ruby-progressbar (>= 1.10.0)
   thwait
   typhoeus
 
 BUNDLED WITH
-   2.3.7
+   2.4.6

@@ -10,3 +10,5 @@ gem 'thwait'
 install_if -> { RUBY_PLATFORM =~ /darwin|linux/ } do
    gem "typhoeus"
 end
+
+gem "rjb", "~> 1.6"

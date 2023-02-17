@@ -11,7 +11,7 @@ plugin 'allinone' do
   crack {
     enum_algorithm do |algorithm|
       r = get "/encryption/decrypt/#{algorithm}/#{passwd}"
-      r.body if r.body != 'Password not found !'
+      r.body if r.code == 200 and r.body != 'Password not found !'
     end
   }
 end

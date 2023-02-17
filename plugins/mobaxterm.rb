@@ -16,7 +16,7 @@ plugin 'mobaxterm' do
     plaintext = nil
     [
       [passwd.hex2ascii].pack('m0'), # add base64: head
-      passwd
+      passwd,
     ].each do |password|
 
       key = '0d5e9n1348/U2+67'.chars
@@ -31,6 +31,7 @@ plugin 'mobaxterm' do
 
       break if plaintext.printable?
 
+    rescue => e
     end
 
     plaintext if plaintext.printable?

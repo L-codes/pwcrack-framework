@@ -13,7 +13,7 @@ module PasswdLib
     xshell securecrt securecrt_v2 dahan_jis uportal2800 navicat11 navicat12
     flashfxp lsrunase qizhi_php seeyon_a8 h3c_imc landray_ekp d3des_vnc
     finereport zfsoft grafana trswcm mobaxterm seeyon_analyze_icloud
-    richmail signer h3c_cvm
+    richmail signer h3c_cvm seeyon_nc
   }
 
   Passwd = Struct.new(:cipher, :algos) do
@@ -151,6 +151,9 @@ module PasswdLib
         :unkown
       end
     )
+    if cipher.bytesize % 16 == 0
+      algorithms << :seeyon_nc
+    end
     if cipher.match?(/^(0\d{2}|11\d|12[0-7])+$/)
       algorithms << :filezilla
     end
