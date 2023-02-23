@@ -11,4 +11,4 @@ install_if -> { RUBY_PLATFORM =~ /darwin|linux/ } do
    gem "typhoeus"
 end
 
-gem "rjb", "~> 1.6"
+gem "rjb", "~> 1.6", install_if: -> { ENV.has_key? 'JAVA_HOME' }

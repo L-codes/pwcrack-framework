@@ -11,6 +11,9 @@ if module_loaded
   
   Dir["#{ROOT}/external/java_ext/jar/*.jar"].each do |file|
     Rjb.add_jar file
+  rescue RuntimeError
+    # ref: https://github.com/arton/rjb/issues/34
+    puts '[!] Partially dependent java plugins cannot be used normally'
   end
 end
 
