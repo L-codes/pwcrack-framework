@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby -W0
+#!/usr/bin/env -S ruby -W0
 #
 # pwcrack-framework
 # Author L
