@@ -125,6 +125,8 @@ module CLI
       end
 
       progressbar.increment if (i - old_size) % n == 1
+    rescue => e
+      puts "[!] The hash of this `#{word}` cannot be calculated normally: #{e.message}"
     end
     progressbar.finish
 
