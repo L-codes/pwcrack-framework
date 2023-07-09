@@ -37,11 +37,11 @@ GEM
     ffi (1.15.5)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
-    msgpack (1.6.0)
+    msgpack (1.7.0)
     multipart-post (2.3.0)
     rainbow (3.1.1)
     rjb (1.6.7)
-    ruby-progressbar (1.11.0)
+    ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     thwait (0.2.0)
       e2mmap
@@ -65,4 +65,4 @@ DEPENDENCIES
   typhoeus
 
 BUNDLED WITH
-   2.4.6
+   2.4.7

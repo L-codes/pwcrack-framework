@@ -13,7 +13,7 @@ module PasswdLib
     xshell securecrt securecrt_v2 dahan_jis uportal2800 navicat11 navicat12
     flashfxp lsrunase qizhi_php seeyon_a8 h3c_imc landray_ekp d3des_vnc
     finereport zfsoft grafana trswcm mobaxterm seeyon_analyze_icloud
-    richmail signer h3c_cvm seeyon_nc
+    richmail signer h3c_cvm seeyon_nc finalshell
   }
 
   Passwd = Struct.new(:cipher, :algos) do
@@ -68,7 +68,7 @@ module PasswdLib
         cipher = base64_to_hex(cipher)
         algorithms += [
           :gpp, :dongao_rc4, :druid_rsa, :xshell, :xftp, :dahan_jis, :websphere, :qizhi_php, :seeyon_a8, :landray_ekp,
-          :h3c_cvm
+          :h3c_cvm, :finalshell
         ]
         algorithms << :lsrunase if cipher.size <= 1024
         algorithms << :grafana if cipher.size >= 50 or (cipher.start_with?('2a') and cipher.size >= 44)
