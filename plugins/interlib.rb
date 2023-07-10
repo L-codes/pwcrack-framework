@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 #
-# Plugin landray_ekp database decrypt
+# Plugin interlib database decrypt
 # Author L
-# File: WEB-INF/KmssConfig/admin.properties
+# File WEB-INF/classes/jdbc.properties
 #
 
 plugin 'interlib' do 
