@@ -108,7 +108,7 @@ module PasswdLib
                   [:sha512, :whirlpool]
                 end
         if cipher.size % 32 == 0
-          types = Array(types) + [:uportal2800, :navicat12]
+          types = Array(types) + [:uportal2800, :navicat12, :interlib]
         end
         types = Array(types) + [:foxmail, :foxmail6]
         if cipher.size > 2 and cipher[0,2].to_i(16) <= 50
