@@ -13,7 +13,7 @@ module PasswdLib
     xshell securecrt securecrt_v2 dahan_jis uportal2800 navicat11 navicat12
     flashfxp lsrunase qizhi_php seeyon_a8 h3c_imc landray_ekp d3des_vnc
     finereport zfsoft grafana trswcm mobaxterm seeyon_analyze_icloud
-    richmail signer h3c_cvm seeyon_nc finalshell
+    richmail signer h3c_cvm seeyon_nc finalshell interlib
   }
 
   Passwd = Struct.new(:cipher, :algos) do
