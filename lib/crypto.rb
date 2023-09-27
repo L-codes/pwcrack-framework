@@ -5,6 +5,8 @@
 #
 require 'openssl'
 require_relative 'crypto/d3des'
+require_relative 'crypto/pbe'
+require_relative 'crypto/jasypt'
 
 module Crypto
 
