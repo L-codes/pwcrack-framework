@@ -14,6 +14,7 @@ module PasswdLib
     flashfxp lsrunase qizhi_php seeyon_a8 h3c_imc landray_ekp d3des_vnc
     finereport zfsoft grafana trswcm mobaxterm seeyon_analyze_icloud
     richmail signer h3c_cvm seeyon_nc finalshell interlib qiyuesuo
+    sxd_sdc
   }
 
   Passwd = Struct.new(:cipher, :algos) do
@@ -63,12 +64,12 @@ module PasswdLib
       case $&
       when /base64/i
         if cipher.each_char.filter{ '0d5e9n1348/U2+67'.include? _1 }.size.even?
-          algorithms += [:mobaxterm]
+          algorithms += [ :mobaxterm ]
         end
         cipher = base64_to_hex(cipher)
         algorithms += [
           :gpp, :dongao_rc4, :druid_rsa, :xshell, :xftp, :dahan_jis, :websphere, :qizhi_php, :seeyon_a8, :landray_ekp,
-          :h3c_cvm, :finalshell, :qiyuesuo
+          :h3c_cvm, :finalshell, :qiyuesuo, :sxd_sdc
         ]
         algorithms << :lsrunase if cipher.size <= 1024
         algorithms << :grafana if cipher.size >= 50 or (cipher.start_with?('2a') and cipher.size >= 44)
