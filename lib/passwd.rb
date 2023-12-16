@@ -14,7 +14,7 @@ module PasswdLib
     flashfxp lsrunase qizhi_php seeyon_a8 h3c_imc landray_ekp d3des_vnc
     finereport zfsoft grafana trswcm mobaxterm seeyon_analyze_icloud
     richmail signer h3c_cvm seeyon_nc finalshell interlib qiyuesuo
-    sxd_sdc
+    sxd_sdc jboss
   }
 
   Passwd = Struct.new(:cipher, :algos) do
@@ -109,7 +109,7 @@ module PasswdLib
                   [:sha512, :whirlpool]
                 end
         if cipher.size % 32 == 0
-          types = Array(types) + [:uportal2800, :navicat12, :interlib]
+          types = Array(types) + [:uportal2800, :navicat12, :interlib, :jboss]
         end
         types = Array(types) + [:foxmail, :foxmail6]
         if cipher.size > 2 and cipher[0,2].to_i(16) <= 50
