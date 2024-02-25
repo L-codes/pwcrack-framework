@@ -19,9 +19,14 @@ Dir.each_child("#{ROOT}/external") do |external|
   load "#{ROOT}/external/#{external}/#{external}.rb"
 end
 
+require 'openssl'
+
+if OpenSSL::VERSION >= '3.0.0' && defined?(OpenSSL::Provider)
+  OpenSSL::Provider.load("legacy")
+end
+
 autoload :MessagePack, 'msgpack'
 autoload :Base64,      'base64'
-autoload :OpenSSL,     'openssl'
 autoload :Readline,    'readline'
 autoload :JSON,        'json'
 autoload :ProgressBar, 'ruby-progressbar'
