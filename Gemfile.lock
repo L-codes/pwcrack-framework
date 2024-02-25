@@ -1,8 +1,7 @@
 GEM
   remote: https://gems.ruby-china.com/
   specs:
-    domain_name (0.5.20190701)
-      unf (>= 0.0.5, < 1.0.0)
+    domain_name (0.6.20240107)
     e2mmap (0.1.0)
     ethon (0.16.0)
       ffi (>= 1.15.0)
@@ -34,22 +33,19 @@ GEM
     faraday-retry (1.0.3)
     faraday_middleware (1.2.0)
       faraday (~> 1.0)
-    ffi (1.15.5)
+    ffi (1.16.3)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
-    msgpack (1.7.0)
-    multipart-post (2.3.0)
+    msgpack (1.7.2)
+    multipart-post (2.4.0)
     rainbow (3.1.1)
-    rjb (1.6.7)
+    rjb (1.6.9)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     thwait (0.2.0)
       e2mmap
-    typhoeus (1.4.0)
+    typhoeus (1.4.1)
       ethon (>= 0.9.0)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.8.2)
 
 PLATFORMS
   ruby
@@ -65,4 +61,4 @@ DEPENDENCIES
   typhoeus
 
 BUNDLED WITH
-   2.4.7
+   2.5.4
